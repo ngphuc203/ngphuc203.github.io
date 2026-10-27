@@ -1,0 +1,1222 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ngphuc — Software Architecture, Applied AI & Cloud Systems</title>
+    <meta name="description" content="Explore ngphuc’s work across software architecture, distributed systems, cloud platforms, and applied AI, including selected projects, engineering approach, and contact details.">
+    <meta name="theme-color" content="#050811">
+    <meta property="og:title" content="ngphuc — Software Architecture, Applied AI & Cloud Systems">
+    <meta property="og:description" content="A portfolio focused on reliable distributed systems, cloud-native engineering, and practical AI applications.">
+    <meta property="og:type" content="website">
+    <link rel="icon" type="image/jpeg" href="assets/logo.jpg">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        cyber: {
+                            500: '#00f0ff',
+                            600: '#00b8ff',
+                            900: '#002b3d'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- FontAwesome Icons & Google Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #050811; }
+        ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #3b82f6; }
+
+        /* Glassmorphism */
+        .glass-card {
+            background: rgba(10, 15, 30, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        /* 1. LIQUID SILVER CHROME ("TRÁNG BẠC") EFFECT */
+        .silver-chrome-text {
+            background: linear-gradient(
+                135deg, 
+                #ffffff 0%, 
+                #e2e8f0 18%, 
+                #718096 38%, 
+                #ffffff 52%, 
+                #4a5568 68%, 
+                #cbd5e1 85%, 
+                #ffffff 100%
+            );
+            background-size: 220% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: silverShimmer 6s ease-in-out infinite alternate;
+            filter: drop-shadow(0px 2px 10px rgba(255, 255, 255, 0.3));
+        }
+
+        .silver-chrome-border {
+            border: 1px solid transparent;
+            background-image: linear-gradient(#090d16, #090d16), linear-gradient(135deg, #ffffff, #94a3b8, #ffffff, #475569);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+        }
+
+        @keyframes silverShimmer {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        /* 2. GLOWING RUNNER BORDER EFFECT AROUND PROJECT IMAGES */
+        .project-image-container {
+            position: relative;
+            border-radius: 1rem;
+            overflow: hidden;
+            padding: 2px;
+            background: rgba(15, 23, 42, 0.8);
+        }
+
+        .project-image-container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(
+                transparent, 
+                transparent, 
+                transparent, 
+                #00f0ff, 
+                #3b82f6, 
+                #ec4899, 
+                transparent
+            );
+            animation: rotateEdge 4s linear infinite;
+            z-index: 0;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-image-container:hover::before {
+            opacity: 1;
+            animation-duration: 2s; /* Speeds up on hover */
+        }
+
+        .project-image-content {
+            position: relative;
+            z-index: 1;
+            border-radius: 0.875rem;
+            overflow: hidden;
+            background: #090d16;
+        }
+
+        @keyframes rotateEdge {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* 3. ULTRA-ADVANCED BUTTON MICRO-INTERACTIONS & TRANSITIONS */
+        .btn-action {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transform: translateY(0);
+        }
+
+        .btn-action:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 12px 25px -5px rgba(59, 130, 246, 0.35);
+        }
+
+        .btn-action:active {
+            transform: translateY(1px) scale(0.97);
+        }
+
+        /* Dynamic Liquid Shine Overlay on Button Hover */
+        .btn-action::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -150%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                60deg, 
+                transparent, 
+                rgba(255, 255, 255, 0.25), 
+                transparent
+            );
+            transform: rotate(30deg);
+            transition: all 0.6s ease;
+        }
+
+        .btn-action:hover::after {
+            left: 100%;
+        }
+
+        /* Magnetic Glow Card Effect */
+        .glow-card-hover {
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .glow-card-hover:hover {
+            border-color: rgba(59, 130, 246, 0.4);
+            box-shadow: 0 0 30px -5px rgba(59, 130, 246, 0.2);
+            transform: translateY(-4px);
+        }
+
+        /* Scroll Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Liquid motion on the mobile navigation bar */
+        .mobile-water-bar {
+            overflow: hidden;
+            isolation: isolate;
+        }
+
+        .mobile-water-bar::before {
+            content: '';
+            position: absolute;
+            inset: -55%;
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.8;
+            background:
+                radial-gradient(ellipse at 22% 36%, rgba(34, 211, 238, 0.2) 0 7%, transparent 30%),
+                radial-gradient(ellipse at 78% 72%, rgba(59, 130, 246, 0.22) 0 8%, transparent 32%),
+                linear-gradient(115deg, transparent 35%, rgba(255, 255, 255, 0.08) 50%, transparent 65%);
+            background-size: 140% 170%;
+            filter: blur(8px);
+            animation: waterSurface 8s ease-in-out infinite alternate;
+        }
+
+        .mobile-water-bar::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 23%;
+            z-index: 0;
+            width: 4.5rem;
+            height: 4.5rem;
+            border: 1px solid rgba(165, 243, 252, 0.32);
+            border-radius: 50%;
+            box-shadow: 0 0 0 7px rgba(34, 211, 238, 0.06), inset 0 0 18px rgba(34, 211, 238, 0.12);
+            pointer-events: none;
+            animation: waterRipple 4.8s ease-out infinite;
+        }
+
+        .mobile-water-bar > a {
+            position: relative;
+            z-index: 2;
+        }
+
+        .water-drop {
+            position: absolute;
+            z-index: 1;
+            width: 9px;
+            height: 9px;
+            border: 1px solid rgba(207, 250, 254, 0.75);
+            border-radius: 50% 50% 50% 0;
+            background: radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.9), rgba(34, 211, 238, 0.2) 48%, rgba(14, 116, 144, 0.05));
+            box-shadow: 0 0 10px rgba(34, 211, 238, 0.35), inset -1px -1px 2px rgba(255, 255, 255, 0.25);
+            pointer-events: none;
+            transform: rotate(-45deg);
+            animation: waterDrop 3.8s ease-in-out infinite;
+        }
+
+        .water-drop-one { top: 18%; left: 19%; animation-delay: -0.7s; }
+        .water-drop-two { top: 56%; left: 52%; width: 7px; height: 7px; animation-delay: -2.1s; }
+        .water-drop-three { top: 24%; right: 17%; width: 6px; height: 6px; animation-delay: -1.35s; }
+
+        @keyframes waterSurface {
+            from { transform: translate3d(-2%, 2%, 0) rotate(-2deg); background-position: 0% 30%; }
+            to { transform: translate3d(2%, -2%, 0) rotate(2deg); background-position: 100% 70%; }
+        }
+
+        @keyframes waterRipple {
+            0% { opacity: 0; transform: translate(-50%, -50%) scale(0.35); }
+            18% { opacity: 0.65; }
+            100% { opacity: 0; transform: translate(-50%, -50%) scale(1.45); }
+        }
+
+        @keyframes waterDrop {
+            0%, 100% { opacity: 0.15; transform: translateY(7px) scale(0.7) rotate(-45deg); }
+            45% { opacity: 0.9; transform: translateY(-3px) scale(1) rotate(-45deg); }
+            75% { opacity: 0.35; transform: translateY(-12px) scale(1.18) rotate(-45deg); }
+        }
+
+        /* Floating profile card with an animated glow and orbit around its edges */
+        .profile-stage {
+            isolation: isolate;
+            align-self: center;
+            animation: profileFloat 5.6s ease-in-out infinite;
+        }
+
+        .profile-stage::before,
+        .profile-stage::after {
+            content: '';
+            position: absolute;
+            pointer-events: none;
+        }
+
+        .profile-stage::before {
+            inset: 8% 12%;
+            z-index: -1;
+            border-radius: 2.5rem;
+            background: radial-gradient(ellipse, rgba(34, 211, 238, 0.38), rgba(59, 130, 246, 0.2) 42%, rgba(168, 85, 247, 0.12) 64%, transparent 75%);
+            filter: blur(24px);
+            animation: profileAura 4.6s ease-in-out infinite alternate;
+        }
+
+        .profile-stage::after {
+            inset: -13px;
+            z-index: -1;
+            padding: 1.5px;
+            border-radius: 2.2rem;
+            background: conic-gradient(from 0deg, transparent 0 18%, rgba(34, 211, 238, 0.75) 27%, transparent 39% 57%, rgba(168, 85, 247, 0.65) 68%, transparent 81% 100%);
+            -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0.8;
+            filter: drop-shadow(0 0 12px rgba(34, 211, 238, 0.25));
+            animation: rotateEdge 12s linear infinite;
+        }
+
+        .profile-stage:hover::after { opacity: 1; animation-duration: 5s; }
+
+        @keyframes profileFloat {
+            0%, 100% { transform: translate3d(0, 0, 0); }
+            50% { transform: translate3d(0, -8px, 0); }
+        }
+
+        @keyframes profileAura {
+            from { opacity: 0.65; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1.08); }
+        }
+
+        /* Refined navigation and identity motion */
+        .desktop-nav { gap: 0.4rem; }
+        .desktop-nav-link { position: relative; isolation: isolate; overflow: hidden; padding: 0.55rem 0.75rem; border: 1px solid transparent; border-radius: 0.85rem; transition: color 220ms ease, border-color 220ms ease, background-color 220ms ease, transform 220ms ease, box-shadow 220ms ease; }
+        .desktop-nav-link::before { content: ''; position: absolute; inset: 0; z-index: -1; border-radius: inherit; background: linear-gradient(115deg, rgba(34, 211, 238, 0.12), rgba(59, 130, 246, 0.08), rgba(168, 85, 247, 0.1)); opacity: 0; transform: scale(0.9); transition: opacity 220ms ease, transform 280ms cubic-bezier(0.2, 0.8, 0.2, 1); }
+        .desktop-nav-link::after { content: ''; position: absolute; left: 0.75rem; right: 0.75rem; bottom: 0.28rem; height: 1px; background: linear-gradient(90deg, transparent, rgba(103, 232, 249, 0.95), rgba(167, 139, 250, 0.75), transparent); transform: scaleX(0); transform-origin: center; transition: transform 260ms ease; }
+        .desktop-nav-link:hover, .desktop-nav-link:focus-visible { color: #f8fafc; border-color: rgba(148, 163, 184, 0.15); box-shadow: 0 8px 24px rgba(8, 145, 178, 0.12); transform: translateY(-2px); }
+        .desktop-nav-link:hover::before, .desktop-nav-link:focus-visible::before { opacity: 1; transform: scale(1); }
+        .desktop-nav-link:hover::after, .desktop-nav-link:focus-visible::after { transform: scaleX(1); }
+        .desktop-nav-link:focus-visible { outline: 2px solid rgba(103, 232, 249, 0.65); outline-offset: 3px; }
+        .brand-link { position: relative; isolation: isolate; }
+        .brand-emblem { position: relative; isolation: isolate; transition: transform 360ms cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 360ms ease; }
+        .brand-emblem-image { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 46%; border-radius: inherit; }
+        .brand-emblem::before, .brand-emblem::after { content: ''; position: absolute; inset: -3px; z-index: -1; border-radius: 15px; pointer-events: none; }
+        .brand-emblem::before { background: conic-gradient(from 0deg, transparent 0 28%, rgba(34, 211, 238, 0.8) 39%, transparent 50% 68%, rgba(226, 232, 240, 0.8) 78%, transparent 88% 100%); filter: blur(5px); opacity: 0.55; animation: logoOrbit 8s linear infinite; }
+        .brand-emblem::after { inset: -1px; border: 1px solid rgba(226, 232, 240, 0.55); box-shadow: inset 0 0 12px rgba(34, 211, 238, 0.12), 0 0 12px rgba(34, 211, 238, 0.12); opacity: 0.7; transition: opacity 250ms ease, box-shadow 250ms ease; }
+        .brand-link:hover .brand-emblem { transform: translateY(-2px) rotate(-4deg) scale(1.06); box-shadow: 0 10px 28px rgba(34, 211, 238, 0.18); }
+        .brand-link:hover .brand-emblem::after { opacity: 1; box-shadow: inset 0 0 16px rgba(34, 211, 238, 0.22), 0 0 18px rgba(34, 211, 238, 0.32); }
+        .brand-name { position: relative; display: inline-block; transition: letter-spacing 320ms ease, filter 320ms ease; }
+        .brand-name::after { content: ''; position: absolute; left: 0; right: 0; bottom: -0.12rem; height: 1px; background: linear-gradient(90deg, transparent, rgba(226, 232, 240, 0.95), rgba(34, 211, 238, 0.8), transparent); transform: scaleX(0.35); opacity: 0.35; transition: transform 320ms ease, opacity 320ms ease; }
+        .brand-link:hover .brand-name { letter-spacing: 0.045em; filter: drop-shadow(0 0 10px rgba(226, 232, 240, 0.35)); }
+        .brand-link:hover .brand-name::after { transform: scaleX(1); opacity: 0.9; }
+        @keyframes logoOrbit { to { transform: rotate(360deg); } }
+
+        /* Abstract AI visual in place of an unrelated stock portrait */
+        .ai-portrait-visual { position: absolute; inset: 0; display: grid; place-items: center; overflow: hidden; isolation: isolate; background: radial-gradient(circle at 50% 40%, rgba(14, 116, 144, 0.32), transparent 35%), radial-gradient(circle at 18% 78%, rgba(37, 99, 235, 0.22), transparent 36%), radial-gradient(circle at 84% 18%, rgba(124, 58, 237, 0.18), transparent 34%), linear-gradient(145deg, #07111f, #0a1428 52%, #090d16); }
+        .ai-portrait-visual::before { content: ''; position: absolute; inset: 0; z-index: -1; opacity: 0.24; background-image: linear-gradient(rgba(103, 232, 249, 0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(103, 232, 249, 0.2) 1px, transparent 1px); background-size: 28px 28px; mask-image: radial-gradient(ellipse at center, #000 12%, transparent 78%); }
+        .ai-portrait-visual::after { content: ''; position: absolute; inset: 10%; z-index: -1; border-radius: 50%; background: radial-gradient(circle, rgba(34, 211, 238, 0.12), transparent 68%); animation: aiPulse 4.8s ease-in-out infinite alternate; }
+        .ai-visual-orbit { position: absolute; left: 50%; top: 44%; border: 1px solid rgba(103, 232, 249, 0.26); border-radius: 50%; pointer-events: none; }
+        .ai-visual-orbit-one { width: 76%; aspect-ratio: 1; transform: translate(-50%, -50%) rotateX(62deg) rotate(-15deg); box-shadow: 0 0 24px rgba(34, 211, 238, 0.08); animation: aiOrbit 18s linear infinite; }
+        .ai-visual-orbit-two { width: 58%; aspect-ratio: 1; border-color: rgba(167, 139, 250, 0.3); border-style: dashed; transform: translate(-50%, -50%) rotateX(62deg) rotate(25deg); animation: aiOrbitReverse 24s linear infinite; }
+        .ai-visual-core { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; gap: 0.55rem; transform: translateY(-24px); text-align: center; }
+        .ai-core-icon { width: 5.5rem; height: 5.5rem; display: grid; place-items: center; border: 1px solid rgba(165, 243, 252, 0.48); border-radius: 1.7rem; color: #a5f3fc; font-size: 2.4rem; background: linear-gradient(145deg, rgba(15, 23, 42, 0.88), rgba(8, 47, 73, 0.7)); box-shadow: 0 0 34px rgba(34, 211, 238, 0.2), inset 0 0 24px rgba(34, 211, 238, 0.12); animation: aiCorePulse 3.8s ease-in-out infinite; }
+        .ai-core-title { color: #f1f5f9; font: 700 0.72rem/1.2 'JetBrains Mono', monospace; letter-spacing: 0.24em; text-shadow: 0 0 14px rgba(103, 232, 249, 0.38); }
+        .ai-core-caption { color: rgba(203, 213, 225, 0.75); font: 500 0.52rem/1.4 'JetBrains Mono', monospace; letter-spacing: 0.1em; }
+        .ai-visual-node { position: absolute; z-index: 1; width: 7px; height: 7px; border: 1px solid rgba(207, 250, 254, 0.9); border-radius: 50%; background: #67e8f9; box-shadow: 0 0 14px rgba(34, 211, 238, 0.85); animation: nodePulse 2.8s ease-in-out infinite; }
+        .ai-visual-node-one { top: 25%; left: 24%; }
+        .ai-visual-node-two { top: 37%; right: 20%; animation-delay: -0.9s; }
+        .ai-visual-node-three { bottom: 28%; left: 31%; width: 5px; height: 5px; animation-delay: -1.7s; }
+        @keyframes aiPulse { from { opacity: 0.45; transform: scale(0.88); } to { opacity: 0.95; transform: scale(1.08); } }
+        @keyframes aiCorePulse { 0%, 100% { transform: translateY(0) scale(1); box-shadow: 0 0 28px rgba(34, 211, 238, 0.18), inset 0 0 20px rgba(34, 211, 238, 0.1); } 50% { transform: translateY(-3px) scale(1.035); box-shadow: 0 0 42px rgba(34, 211, 238, 0.34), inset 0 0 28px rgba(34, 211, 238, 0.18); } }
+        @keyframes aiOrbit { to { rotate: 360deg; } }
+        @keyframes aiOrbitReverse { to { rotate: -360deg; } }
+        @keyframes nodePulse { 0%, 100% { opacity: 0.42; scale: 0.78; } 50% { opacity: 1; scale: 1.25; } }
+
+        /* Project grid aura and fine animated card frames */
+        .project-grid { position: relative; isolation: isolate; }
+        .project-grid::before { content: ''; position: absolute; inset: -2rem -1rem; z-index: 0; pointer-events: none; background: radial-gradient(ellipse at 16% 8%, rgba(34, 211, 238, 0.12), transparent 36%), radial-gradient(ellipse at 84% 88%, rgba(139, 92, 246, 0.12), transparent 38%); filter: blur(22px); }
+        .project-card { position: relative; z-index: 1; isolation: isolate; border-color: rgba(148, 163, 184, 0.16); transition: transform 360ms cubic-bezier(0.2, 0.8, 0.2, 1), border-color 300ms ease, box-shadow 300ms ease; }
+        .project-card::before, .project-card::after { content: ''; position: absolute; pointer-events: none; transition: opacity 360ms ease, transform 500ms ease; }
+        .project-card::before { inset: -1px; z-index: -1; padding: 1px; border-radius: inherit; background: conic-gradient(from 45deg, rgba(34, 211, 238, 0.6), rgba(59, 130, 246, 0.12) 24%, rgba(167, 139, 250, 0.56) 48%, rgba(34, 211, 238, 0.1) 70%, rgba(34, 211, 238, 0.6)); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; opacity: 0.32; }
+        .project-card::after { inset: 10% 8% -5%; z-index: -2; border-radius: inherit; background: linear-gradient(120deg, rgba(34, 211, 238, 0.26), rgba(59, 130, 246, 0.16), rgba(168, 85, 247, 0.24)); filter: blur(24px); opacity: 0.16; }
+        .project-card:hover { transform: translateY(-6px); border-color: rgba(103, 232, 249, 0.28); box-shadow: 0 22px 52px rgba(2, 8, 23, 0.42); }
+        .project-card:hover::before { opacity: 0.9; }
+        .project-card:hover::after { opacity: 0.56; transform: scale(1.04); }
+
+        /* Liquid-glass details for touch navigation */
+        .mobile-water-bar { border-color: rgba(207, 250, 254, 0.22); box-shadow: 0 18px 45px rgba(2, 8, 23, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.12), inset 0 -1px 0 rgba(34, 211, 238, 0.08); }
+        .mobile-water-bar::before { inset: -65%; opacity: 0.68; background: radial-gradient(ellipse at 18% 54%, rgba(34, 211, 238, 0.24) 0 6%, transparent 28%), radial-gradient(ellipse at 77% 35%, rgba(99, 102, 241, 0.22) 0 7%, transparent 31%), linear-gradient(105deg, transparent 38%, rgba(255, 255, 255, 0.1) 50%, transparent 63%); filter: blur(5px); animation-duration: 9s; }
+        .mobile-water-bar::after { width: 5rem; height: 5rem; border-color: rgba(207, 250, 254, 0.38); box-shadow: 0 0 0 6px rgba(34, 211, 238, 0.08), 0 0 0 13px rgba(59, 130, 246, 0.035), inset 0 0 20px rgba(34, 211, 238, 0.14); }
+        .water-drop { border-color: rgba(224, 242, 254, 0.85); backdrop-filter: blur(2px); box-shadow: 0 0 14px rgba(34, 211, 238, 0.46), inset 1px 1px 2px rgba(255, 255, 255, 0.65), inset -2px -2px 3px rgba(14, 116, 144, 0.18); }
+        .water-nav-link { isolation: isolate; min-width: 3rem; transition: color 220ms ease, transform 220ms ease; }
+        .water-nav-link::before { content: ''; position: absolute; inset: 2px; z-index: -1; border: 1px solid rgba(165, 243, 252, 0.16); border-radius: 0.9rem; background: radial-gradient(circle at 50% 15%, rgba(34, 211, 238, 0.22), rgba(59, 130, 246, 0.08) 60%, transparent 100%); opacity: 0; transform: scale(0.72); transition: opacity 220ms ease, transform 280ms cubic-bezier(0.2, 0.8, 0.2, 1); }
+        .water-nav-link:hover, .water-nav-link:focus-visible { transform: translateY(-2px); }
+        .water-nav-link:hover::before, .water-nav-link:focus-visible::before, .water-nav-link:active::before { opacity: 1; transform: scale(1); }
+        .section-intro { max-width: 54rem; color: #cbd5e1; font-size: 0.925rem; line-height: 1.8; }
+        /* Contact area: aligned cards, layered frame, and focused input states */
+        .contact-grid { position: relative; isolation: isolate; align-items: stretch; }
+        .contact-grid::before { content: ''; position: absolute; inset: -1.5rem -1rem; z-index: 0; pointer-events: none; background: radial-gradient(ellipse at 12% 50%, rgba(34, 211, 238, 0.13), transparent 34%), radial-gradient(ellipse at 88% 52%, rgba(99, 102, 241, 0.12), transparent 38%); filter: blur(24px); }
+        .contact-grid > div:first-child, .contact-form-panel { position: relative; z-index: 1; }
+        .contact-grid > div:first-child { gap: 0.85rem; }
+        .contact-method-card { min-height: 5.8rem; isolation: isolate; border-color: rgba(148, 163, 184, 0.17); background: linear-gradient(135deg, rgba(15, 23, 42, 0.84), rgba(8, 47, 73, 0.32) 55%, rgba(15, 23, 42, 0.76)); }
+        .contact-method-card:hover { border-color: rgba(103, 232, 249, 0.46); background: linear-gradient(135deg, rgba(15, 23, 42, 0.94), rgba(8, 47, 73, 0.48) 55%, rgba(15, 23, 42, 0.86)); }
+        .contact-method-icon { flex: 0 0 auto; transition: color 240ms ease, border-color 240ms ease, background-color 240ms ease, box-shadow 240ms ease; }
+        .contact-method-card:hover .contact-method-icon { color: #a5f3fc; border-color: rgba(103, 232, 249, 0.35); box-shadow: 0 0 20px rgba(34, 211, 238, 0.14); }
+        .contact-form-panel { isolation: isolate; overflow: hidden; border-color: rgba(148, 163, 184, 0.2); background: linear-gradient(145deg, rgba(10, 15, 30, 0.88), rgba(8, 25, 44, 0.76)); box-shadow: 0 20px 55px rgba(2, 8, 23, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.06); }
+        .contact-form-panel::before { content: ''; position: absolute; top: 0; left: 8%; right: 8%; height: 1px; z-index: 0; background: linear-gradient(90deg, transparent, rgba(103, 232, 249, 0.72), rgba(167, 139, 250, 0.5), transparent); }
+        .contact-form-panel > form { position: relative; z-index: 1; }
+        .contact-form-panel input, .contact-form-panel textarea { transition: border-color 220ms ease, box-shadow 220ms ease, background-color 220ms ease; }
+        .contact-form-panel input:focus, .contact-form-panel textarea:focus { border-color: rgba(103, 232, 249, 0.78); background-color: rgba(15, 23, 42, 0.94); box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.1), 0 0 24px rgba(34, 211, 238, 0.08); }
+
+        /* One shared interaction language for buttons, icon actions, and social links */
+        .btn-action { cursor: pointer; isolation: isolate; -webkit-tap-highlight-color: transparent; transition: transform 240ms cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 240ms ease, border-color 240ms ease, filter 240ms ease; }
+        .btn-action:hover { transform: translateY(-2px) scale(1.01); filter: brightness(1.04); box-shadow: 0 10px 28px rgba(14, 165, 233, 0.18), 0 0 0 1px rgba(103, 232, 249, 0.08); }
+        .btn-action:active { transform: translateY(0) scale(0.98); filter: brightness(0.98); box-shadow: 0 3px 10px rgba(2, 8, 23, 0.3); }
+        .btn-action:focus-visible { outline: 2px solid rgba(103, 232, 249, 0.75); outline-offset: 3px; }
+        .btn-action:disabled, .btn-action[aria-disabled="true"] { cursor: not-allowed; filter: grayscale(0.35); opacity: 0.58; transform: none; box-shadow: none; }
+        .btn-action::after { z-index: 0; pointer-events: none; }
+        .btn-action > * { position: relative; z-index: 1; }
+
+        /* Refined footer with a quiet light rail and matched social controls */
+        .site-footer { position: relative; isolation: isolate; overflow: hidden; border-color: rgba(148, 163, 184, 0.14); background: linear-gradient(180deg, rgba(10, 15, 30, 0.82), rgba(5, 8, 17, 0.96)); }
+        .site-footer::before { content: ''; position: absolute; top: 0; left: 6%; right: 6%; height: 1px; z-index: 0; background: linear-gradient(90deg, transparent, rgba(103, 232, 249, 0.48), rgba(148, 163, 184, 0.26), rgba(167, 139, 250, 0.42), transparent); }
+        .site-footer::after { content: ''; position: absolute; width: 28rem; height: 12rem; right: 10%; bottom: -10rem; z-index: 0; border-radius: 50%; background: rgba(8, 145, 178, 0.1); filter: blur(42px); pointer-events: none; }
+        .footer-inner { position: relative; z-index: 1; gap: 1rem; }
+        .footer-social-link { display: inline-grid; width: 2.65rem; height: 2.65rem; place-items: center; border: 1px solid rgba(148, 163, 184, 0.18); border-radius: 0.9rem; background: rgba(15, 23, 42, 0.65); }
+        .footer-social-link:hover { color: #e0f2fe; border-color: rgba(103, 232, 249, 0.5); background: rgba(8, 47, 73, 0.55); }
+        /* Filterable case-study catalog */
+        .case-study-header { display: flex; align-items: flex-end; justify-content: space-between; gap: 1.5rem; }
+        .case-study-heading-copy { display: flex; flex-direction: column; gap: 0.55rem; }
+        .case-study-heading-copy h2 { margin-top: 0.05rem; }
+        .case-study-brand { position: relative; flex: 0 0 auto; width: 4.25rem; height: 4.25rem; padding: 3px; display: grid; place-items: center; isolation: isolate; border: 1px solid rgba(226, 232, 240, 0.3); border-radius: 1.2rem; background: #050811; box-shadow: 0 12px 32px rgba(2, 8, 23, 0.42), inset 0 0 16px rgba(34, 211, 238, 0.08); transition: transform 300ms ease, border-color 300ms ease, box-shadow 300ms ease; }
+        .case-study-brand::before { content: ''; position: absolute; inset: -4px; z-index: -1; border-radius: 1.4rem; background: conic-gradient(from 20deg, transparent 0 22%, rgba(34, 211, 238, 0.7) 35%, transparent 49% 67%, rgba(226, 232, 240, 0.62) 80%, transparent 91%); filter: blur(8px); opacity: 0.56; animation: logoOrbit 10s linear infinite; }
+        .case-study-brand img { width: 100%; height: 100%; object-fit: cover; object-position: center 46%; border-radius: 0.95rem; }
+        .case-study-brand span { position: absolute; left: 50%; top: calc(100% + 0.35rem); width: max-content; transform: translateX(-50%); color: #94a3b8; font: 500 0.55rem/1.5 'JetBrains Mono', monospace; letter-spacing: 0.1em; text-align: center; }
+        .case-study-brand:hover { transform: translateY(-3px) rotate(-2deg); border-color: rgba(103, 232, 249, 0.6); box-shadow: 0 16px 38px rgba(8, 145, 178, 0.2); }
+        .case-study-toolbar { display: flex; flex-direction: column; gap: 1rem; }
+        .case-filter-list { display: flex; flex-wrap: wrap; align-items: center; gap: 0.55rem; }
+        .case-filter { min-height: 2.25rem; padding: 0.45rem 0.85rem; border: 1px solid rgba(148, 163, 184, 0.24); border-radius: 999px; color: #cbd5e1; background: rgba(15, 23, 42, 0.48); font-size: 0.75rem; font-weight: 500; }
+        .case-filter:hover, .case-filter.is-active { color: #f8fafc; border-color: rgba(103, 232, 249, 0.52); background: linear-gradient(120deg, rgba(8, 47, 73, 0.78), rgba(30, 41, 59, 0.72)); box-shadow: 0 6px 20px rgba(8, 145, 178, 0.12); }
+        .case-search-row { display: flex; align-items: center; flex-wrap: wrap; gap: 0.8rem; }
+        .case-search-label { color: #94a3b8; font-size: 0.75rem; }
+        .case-search-box { position: relative; display: flex; align-items: center; width: min(100%, 23rem); }
+        .case-search-box i { position: absolute; left: 0.9rem; z-index: 1; color: #64748b; font-size: 0.8rem; pointer-events: none; }
+        .case-search-box input { width: 100%; min-height: 2.65rem; padding: 0.65rem 0.9rem 0.65rem 2.35rem; border: 1px solid rgba(148, 163, 184, 0.24); border-radius: 0.8rem; outline: none; color: #e2e8f0; background: rgba(15, 23, 42, 0.72); font-size: 0.8rem; transition: border-color 220ms ease, box-shadow 220ms ease, background-color 220ms ease; }
+        .case-search-box input::placeholder { color: #64748b; }
+        .case-search-box input:focus { border-color: rgba(103, 232, 249, 0.62); background: rgba(15, 23, 42, 0.94); box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.1); }
+        .case-study-count { margin-left: auto; color: #94a3b8; font: 500 0.64rem/1.4 'JetBrains Mono', monospace; letter-spacing: 0.08em; }
+        .case-study-grid { align-items: stretch; }
+        .case-study-card { min-height: 13rem; display: flex; flex-direction: column; justify-content: space-between; gap: 1.15rem; padding: 1.25rem; border-radius: 1.15rem; }
+        .reveal.active .case-study-card { animation: caseCardEnter 420ms ease both; animation-delay: calc(var(--case-index, 0) * 35ms); }
+        @keyframes caseCardEnter { from { opacity: 0; translate: 0 8px; } to { opacity: 1; translate: 0 0; } }
+        .case-study-card[hidden] { display: none !important; }
+        .case-card-topline, .case-card-bottom { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; }
+        .case-study-number { color: #93c5fd; font: 500 0.65rem/1.4 'JetBrains Mono', monospace; letter-spacing: 0.06em; }
+        .case-status { display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.28rem 0.55rem; border: 1px solid currentColor; border-radius: 0.4rem; font-size: 0.64rem; line-height: 1.2; white-space: nowrap; }
+        .case-status::before { content: ''; width: 0.32rem; height: 0.32rem; border-radius: 50%; background: currentColor; box-shadow: 0 0 8px currentColor; }
+        .status-active, .status-implementation { color: #93c5fd; background: rgba(59, 130, 246, 0.08); border-color: rgba(147, 197, 253, 0.24); }
+        .status-development { color: #fbbf24; background: rgba(245, 158, 11, 0.08); border-color: rgba(251, 191, 36, 0.22); }
+        .status-operations { color: #86efac; background: rgba(34, 197, 94, 0.08); border-color: rgba(134, 239, 172, 0.22); }
+        .status-lab { color: #c4b5fd; background: rgba(139, 92, 246, 0.09); border-color: rgba(196, 181, 253, 0.22); }
+        .status-concept { color: #67e8f9; background: rgba(6, 182, 212, 0.08); border-color: rgba(103, 232, 249, 0.22); }
+        .case-card-copy { display: flex; flex-direction: column; gap: 0.55rem; }
+        .case-card-copy h3 { color: #f1f5f9; font-size: 0.95rem; font-weight: 700; line-height: 1.42; letter-spacing: -0.015em; }
+        .case-card-copy p { color: #94a3b8; font-size: 0.82rem; line-height: 1.68; }
+        .case-card-bottom { margin-top: auto; align-items: flex-end; }
+        .case-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+        .case-tags span { padding: 0.22rem 0.42rem; border: 1px solid rgba(148, 163, 184, 0.2); border-radius: 0.3rem; color: #cbd5e1; background: rgba(15, 23, 42, 0.78); font: 500 0.62rem/1.35 'JetBrains Mono', monospace; }
+        .case-study-action { flex: 0 0 auto; width: 2rem; height: 2rem; display: inline-grid; place-items: center; border: 1px solid rgba(148, 163, 184, 0.28); border-radius: 50%; color: #94a3b8; background: rgba(15, 23, 42, 0.52); font-size: 0.72rem; }
+        .case-study-action:hover { color: #e0f2fe; border-color: rgba(103, 232, 249, 0.55); }
+        .case-study-empty { padding: 2.25rem 1rem; border: 1px dashed rgba(148, 163, 184, 0.24); border-radius: 1rem; color: #94a3b8; text-align: center; }
+        @media (max-width: 640px) {
+            .case-study-header { align-items: flex-start; }
+            .case-study-brand { width: 3.5rem; height: 3.5rem; border-radius: 1rem; }
+            .case-study-brand span { display: none; }
+            .case-search-row { align-items: flex-start; }
+            .case-search-box { width: 100%; order: 3; }
+            .case-study-count { align-self: center; }
+            .case-study-card { min-height: 12rem; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .mobile-water-bar::before,
+            .mobile-water-bar::after,
+            .water-drop,
+            .profile-stage,
+            .profile-stage::before,
+            .profile-stage::after,
+            .brand-emblem::before,
+            .ai-portrait-visual::after,
+            .ai-visual-orbit,
+            .ai-visual-node,
+            .ai-core-icon,
+            .case-study-card,
+            .case-study-brand::before {
+                animation: none !important;
+            }
+            .btn-action,
+            .btn-action::after,
+            .contact-form-panel input,
+            .contact-form-panel textarea,
+            .contact-method-icon,
+            .footer-social-link, .case-study-brand,
+            .desktop-nav-link,
+            .water-nav-link::before,
+            .water-nav-link,
+            .brand-emblem::after,
+            .brand-emblem,
+            .brand-name,
+            .brand-name::after,
+            .project-card,
+            .project-card::before,
+            .project-card::after {
+                transition: none !important;
+            }
+            .desktop-nav-link:hover,
+            .water-nav-link:hover,
+            .brand-link:hover .brand-emblem,
+            .btn-action:hover,
+            .btn-action:active, .case-study-brand:hover,
+            .project-card:hover {
+                transform: none !important;
+            }
+        }
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-slate-200 selection:text-slate-950 transition-colors duration-300 pb-24 md:pb-0">
+
+    <!-- Toast Notification Overlay -->
+    <div id="toast-container" class="fixed bottom-24 md:bottom-6 right-4 left-4 md:left-auto z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+    <!-- Command Palette Modal (Ctrl + K) -->
+    <div id="cmd-palette" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md flex items-start justify-center pt-20 px-4 hidden transition-opacity">
+        <div class="glass-card w-full max-w-xl rounded-2xl border border-white/15 p-4 shadow-2xl flex flex-col gap-3">
+            <div class="flex items-center gap-3 border-b border-white/10 pb-3">
+                <i class="fa-solid fa-magnifying-glass text-slate-400"></i>
+                <input id="cmd-input" type="text" placeholder="Type a command or search (e.g. Projects, Go, Contact)..." class="w-full bg-transparent text-sm text-slate-100 placeholder-slate-500 focus:outline-none">
+                <span class="text-[10px] font-mono bg-slate-800 text-slate-400 px-2 py-0.5 rounded">ESC</span>
+            </div>
+            <div id="cmd-results" class="flex flex-col gap-1 max-h-64 overflow-y-auto text-xs font-mono">
+                <button onclick="executeCmd('projects')" class="btn-action p-2.5 rounded-lg hover:bg-white/10 text-left flex items-center justify-between group text-slate-300 hover:text-white">
+                    <span><i class="fa-solid fa-layer-group mr-2 text-cyan-400"></i> Jump to Projects Showcase</span>
+                    <i class="fa-solid fa-arrow-right text-[10px] opacity-0 group-hover:opacity-100"></i>
+                </button>
+                <button onclick="executeCmd('about')" class="btn-action p-2.5 rounded-lg hover:bg-white/10 text-left flex items-center justify-between group text-slate-300 hover:text-white">
+                    <span><i class="fa-solid fa-microchip mr-2 text-purple-400"></i> View Architecture Mindset</span>
+                    <i class="fa-solid fa-arrow-right text-[10px] opacity-0 group-hover:opacity-100"></i>
+                </button>
+                <button onclick="executeCmd('contact')" class="btn-action p-2.5 rounded-lg hover:bg-white/10 text-left flex items-center justify-between group text-slate-300 hover:text-white">
+                    <span><i class="fa-regular fa-paper-plane mr-2 text-emerald-400"></i> Direct Contact & Channels</span>
+                    <i class="fa-solid fa-arrow-right text-[10px] opacity-0 group-hover:opacity-100"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header / Desktop Navigation -->
+    <header class="fixed top-0 left-0 right-0 z-40 glass-card border-b border-white/10 backdrop-blur-xl">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
+            <!-- Brand Logo with Liquid Silver Effect -->
+            <a href="#hero" class="brand-link flex items-center gap-3 group">
+                <div class="brand-emblem w-10 h-10 rounded-xl silver-chrome-border flex items-center justify-center font-black text-lg shadow-lg group-hover:scale-105 transition-transform bg-slate-900">
+                    <img src="assets/logo.jpg" alt="ngphuc logo" class="brand-emblem-image" width="40" height="40">
+                </div>
+                <div class="flex flex-col">
+                    <span class="brand-name font-black text-xl sm:text-2xl tracking-tight silver-chrome-text lowercase">ngphuc</span>
+                    <span class="text-[10px] sm:text-xs text-slate-400 font-mono -mt-1 tracking-wider uppercase">Architect & AI Eng</span>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation Links -->
+            <nav aria-label="Primary navigation" class="desktop-nav hidden md:flex items-center gap-7 text-xs sm:text-sm font-medium text-slate-300">
+                <a href="#about" class="desktop-nav-link hover:text-white transition-colors">Overview</a>
+                <a href="#architecture" class="desktop-nav-link hover:text-white transition-colors">Architecture</a>
+                <a href="#experience" class="desktop-nav-link hover:text-white transition-colors">Career</a>
+                <a href="#projects" class="desktop-nav-link hover:text-white transition-colors">Projects</a>
+                <a href="#contact" class="desktop-nav-link hover:text-white transition-colors">Contact</a>
+            </nav>
+
+            <!-- Actions Bar -->
+            <div class="flex items-center gap-2.5">
+                <!-- Command Palette Shortcut Trigger Button -->
+                <button onclick="toggleCmdPalette()" class="btn-action hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-xl glass-card text-xs font-mono text-slate-300 hover:text-white border border-white/10 hover:border-slate-400">
+                    <i class="fa-solid fa-terminal text-cyan-400"></i>
+                    <span>⌘K</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Ergonomic Bottom Mobile Navigation Bar (Thumb Friendly) -->
+    <nav id="mobile-bottom-bar" class="mobile-water-bar md:hidden fixed bottom-3 left-3 right-3 z-50 glass-card rounded-2xl border border-white/20 shadow-2xl p-1.5 flex items-center justify-around backdrop-blur-2xl bg-slate-950/85">
+        <span class="water-drop water-drop-one" aria-hidden="true"></span>
+        <span class="water-drop water-drop-two" aria-hidden="true"></span>
+        <span class="water-drop water-drop-three" aria-hidden="true"></span>
+        <a href="#hero" class="water-nav-link flex flex-col items-center justify-center p-2 rounded-xl text-slate-400 hover:text-white active:bg-white/10 transition-all">
+            <i class="fa-solid fa-house text-lg"></i>
+            <span class="text-[10px] font-medium mt-0.5">Home</span>
+        </a>
+        <a href="#architecture" class="water-nav-link flex flex-col items-center justify-center p-2 rounded-xl text-slate-400 hover:text-white active:bg-white/10 transition-all">
+            <i class="fa-solid fa-network-wired text-lg"></i>
+            <span class="text-[10px] font-medium mt-0.5">System</span>
+        </a>
+        <a href="#experience" class="water-nav-link flex flex-col items-center justify-center p-2 rounded-xl text-slate-400 hover:text-white active:bg-white/10 transition-all">
+            <i class="fa-solid fa-briefcase text-lg"></i>
+            <span class="text-[10px] font-medium mt-0.5">Career</span>
+        </a>
+        <a href="#projects" class="water-nav-link flex flex-col items-center justify-center p-2 rounded-xl text-slate-400 hover:text-white active:bg-white/10 transition-all">
+            <i class="fa-solid fa-layer-group text-lg"></i>
+            <span class="text-[10px] font-medium mt-0.5">Projects</span>
+        </a>
+        <a href="#contact" class="water-nav-link flex flex-col items-center justify-center p-2 rounded-xl text-emerald-400 hover:text-emerald-300 active:bg-emerald-500/10 transition-all">
+            <i class="fa-regular fa-paper-plane text-lg"></i>
+            <span class="text-[10px] font-medium mt-0.5">Contact</span>
+        </a>
+    </nav>
+
+    <!-- Main Content Container -->
+    <main class="pt-20 sm:pt-28 pb-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-16 sm:gap-24">
+
+        <!-- 1. HERO SECTION -->
+        <section id="hero" class="relative pt-4 sm:pt-8 pb-8 sm:pb-12 flex flex-col lg:flex-row items-center justify-between gap-8 sm:gap-12 reveal">
+            <!-- Background Radial Lighting -->
+            <div class="absolute -top-10 left-1/4 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute top-20 right-10 w-80 h-80 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="flex-1 flex flex-col items-center lg:items-start gap-4 sm:gap-6 z-10 text-center lg:text-left">
+                <!-- Status Badge -->
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-card border border-emerald-500/30 text-emerald-400 text-xs font-mono tracking-wide">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                    Available for Senior Architect Roles & Enterprise Advisory
+                </div>
+
+                <!-- Main Name Display (Tráng Bạc Effect) -->
+                <h1 class="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight leading-tight">
+                    Hello, I'm <br class="hidden sm:inline">
+                    <span class="silver-chrome-text lowercase font-black text-5xl sm:text-7xl md:text-8xl inline-block my-1">ngphuc</span>
+                </h1>
+
+                <p class="text-slate-300 text-base sm:text-xl max-w-2xl font-normal leading-relaxed">
+                    Software architect and AI systems engineer focused on reliable distributed platforms and practical AI. I work across backend architecture, cloud-native delivery, and intelligent search, combining clear service boundaries, thoughtful data design, and strong observability to help teams scale with confidence.
+                </p>
+
+                <!-- High-Tech Button Actions with Smooth Animations -->
+                <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3 w-full pt-2">
+                    <a href="#projects" class="btn-action w-full sm:w-auto px-6 py-3.5 rounded-xl bg-gradient-to-r from-slate-100 via-slate-200 to-slate-300 text-slate-950 font-extrabold flex items-center justify-center gap-2 shadow-lg shadow-white/10">
+                        <i class="fa-solid fa-rocket text-sm"></i> Explore Projects
+                    </a>
+                    <a href="#architecture" class="btn-action w-full sm:w-auto px-6 py-3.5 rounded-xl glass-card text-slate-200 font-semibold flex items-center justify-center gap-2 border border-white/10 hover:border-slate-300">
+                        <i class="fa-solid fa-network-wired text-sm text-cyan-400"></i> Architecture Flow
+                    </a>
+                    <div class="flex items-center gap-2 mt-1 sm:mt-0">
+                        <button onclick="copyToClipboard('ngphuc1753@gmail.com', 'Email copied!')" class="btn-action p-3.5 rounded-xl glass-card text-slate-300 hover:text-white border border-white/10 hover:border-slate-300" title="Copy Email">
+                            <i class="fa-regular fa-envelope text-base"></i>
+                        </button>
+                        <button onclick="copyToClipboard('+84 389 101 040', 'Phone copied!')" class="btn-action p-3.5 rounded-xl glass-card text-slate-300 hover:text-white border border-white/10 hover:border-slate-300" title="Copy Phone">
+                            <i class="fa-solid fa-phone text-base"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Avatar Card -->
+            <div class="relative z-10 w-full max-w-xs sm:max-w-md lg:max-w-sm flex justify-center profile-stage">
+                <div class="relative w-64 h-64 sm:w-80 sm:h-80 rounded-3xl p-1 silver-chrome-border shadow-2xl">
+                    <div class="w-full h-full rounded-[22px] overflow-hidden bg-slate-900 relative flex items-center justify-center">
+                        <div class="ai-portrait-visual" role="img" aria-label="Abstract neural network illustration representing AI and cloud systems">
+                            <span class="ai-visual-orbit ai-visual-orbit-one" aria-hidden="true"></span>
+                            <span class="ai-visual-orbit ai-visual-orbit-two" aria-hidden="true"></span>
+                            <span class="ai-visual-node ai-visual-node-one" aria-hidden="true"></span>
+                            <span class="ai-visual-node ai-visual-node-two" aria-hidden="true"></span>
+                            <span class="ai-visual-node ai-visual-node-three" aria-hidden="true"></span>
+                            <div class="ai-visual-core">
+                                <span class="ai-core-icon"><i class="fa-solid fa-brain" aria-hidden="true"></i></span>
+                                <span class="ai-core-title">AI SYSTEMS</span>
+                                <span class="ai-core-caption">ARCHITECTURE · INTELLIGENCE · SCALE</span>
+                            </div>
+                        </div>
+                        <div class="absolute bottom-3 left-3 right-3 glass-card p-3 rounded-2xl flex items-center gap-3 backdrop-blur-md">
+                            <div class="w-9 h-9 rounded-xl bg-slate-900 text-slate-200 flex items-center justify-center text-lg font-bold border border-white/10">
+                                <i class="fa-solid fa-shield-halved text-emerald-400"></i>
+                            </div>
+                            <div class="text-left">
+                                <p class="text-[10px] text-slate-400 font-mono uppercase">SPECIALIZATION</p>
+                                <p class="text-xs sm:text-sm font-bold text-slate-100">Distributed & AI Systems</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. BENTO GRID STATS & OVERVIEW -->
+        <section id="about" class="flex flex-col gap-6 sm:gap-8 reveal">
+            <div class="flex flex-col gap-1">
+                <span class="text-cyan-400 font-mono text-xs sm:text-sm tracking-widest uppercase">01. OVERVIEW</span>
+                <h2 class="text-2xl sm:text-4xl font-bold tracking-tight">Systems Architecture, Reliability & Applied AI</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+                <!-- Bio Card -->
+                <div class="md:col-span-2 glass-card rounded-3xl p-6 sm:p-8 flex flex-col justify-between glow-card-hover">
+                    <div class="flex flex-col gap-3 sm:gap-4">
+                        <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-slate-900 text-slate-200 border border-white/10 flex items-center justify-center text-lg sm:text-xl">
+                            <i class="fa-solid fa-microchip text-cyan-400"></i>
+                        </div>
+                        <h3 class="text-lg sm:text-xl font-bold">Engineering Scalability with Precision</h3>
+                        <p class="text-slate-300 leading-relaxed text-xs sm:text-base">
+                            I turn complex requirements into practical software architecture: resilient backend services, low-latency API gateways, and AI-powered search experiences. I focus on clear ownership boundaries, fault tolerance, useful observability, and cloud infrastructure that can be operated and evolved without unnecessary complexity.
+                        </p>
+                    </div>
+                    <div class="pt-4 sm:pt-6 flex flex-wrap gap-2">
+                        <span class="px-2.5 py-1 rounded-lg bg-slate-900 border border-white/10 text-slate-300 text-[11px] font-mono">Distributed Systems</span>
+                        <span class="px-2.5 py-1 rounded-lg bg-slate-900 border border-white/10 text-slate-300 text-[11px] font-mono">Cloud Native (AWS/GCP)</span>
+                        <span class="px-2.5 py-1 rounded-lg bg-slate-900 border border-white/10 text-slate-300 text-[11px] font-mono">LLM Orchestration</span>
+                    </div>
+                </div>
+
+                <!-- Stats 1 -->
+                <div class="glass-card rounded-3xl p-6 sm:p-8 flex flex-col justify-between glow-card-hover">
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-blue-500/10 text-blue-400 flex items-center justify-center text-lg sm:text-xl">
+                        <i class="fa-solid fa-briefcase"></i>
+                    </div>
+                    <div class="mt-4">
+                        <div class="text-xl sm:text-2xl font-black tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">SYSTEMS</div>
+                        <p class="text-slate-400 text-xs sm:text-sm font-medium mt-1">Architecture to operations</p>
+                    </div>
+                </div>
+
+                <!-- Stats 2 -->
+                <div class="glass-card rounded-3xl p-6 sm:p-8 flex flex-col justify-between glow-card-hover">
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-purple-500/10 text-purple-400 flex items-center justify-center text-lg sm:text-xl">
+                        <i class="fa-solid fa-server"></i>
+                    </div>
+                    <div class="mt-4">
+                        <div class="text-xl sm:text-2xl font-black tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500">AI + CLOUD</div>
+                        <p class="text-slate-400 text-xs sm:text-sm font-medium mt-1">Applied intelligence</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. INTERACTIVE SYSTEM ARCHITECTURE FLOW DIAGRAM -->
+        <section id="architecture" class="flex flex-col gap-6 sm:gap-8 reveal">
+            <div class="flex flex-col gap-1">
+                <span class="text-cyan-400 font-mono text-xs sm:text-sm tracking-widest uppercase">02. SYSTEM DESIGN</span>
+                <h2 class="text-2xl sm:text-4xl font-bold tracking-tight">Interactive Pipeline Architecture</h2>
+            </div>
+
+            <div class="glass-card rounded-3xl p-6 sm:p-8 flex flex-col gap-6 border border-white/10 glow-card-hover">
+                <p class="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-3xl">
+                    Explore the delivery path from source control to production insight. Each stage highlights a practical layer of engineering discipline: secure change management, automated validation, resilient runtime operations, grounded AI retrieval, and observable system behavior.
+                </p>
+
+                <!-- Architecture Interactive Nodes -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 pt-2">
+                    <!-- Node 1 -->
+                    <button onclick="selectArchNode('source')" id="arch-node-source" class="btn-action p-4 rounded-2xl bg-slate-900 border border-cyan-500/50 text-left flex flex-col gap-2 shadow-lg">
+                        <div class="flex items-center justify-between">
+                            <i class="fa-solid fa-code text-cyan-400 text-lg"></i>
+                            <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
+                        </div>
+                        <span class="font-bold text-sm text-slate-100">1. Source & Git</span>
+                        <span class="text-[10px] text-slate-400 font-mono">Branch Policy & Hooks</span>
+                    </button>
+
+                    <!-- Node 2 -->
+                    <button onclick="selectArchNode('ci')" id="arch-node-ci" class="btn-action p-4 rounded-2xl bg-slate-900/60 border border-white/10 text-left flex flex-col gap-2 hover:border-slate-400">
+                        <div class="flex items-center justify-between">
+                            <i class="fa-solid fa-vial-circle-check text-purple-400 text-lg"></i>
+                        </div>
+                        <span class="font-bold text-sm text-slate-100">2. CI Gate</span>
+                        <span class="text-[10px] text-slate-400 font-mono">Security Scan & Unit Tests</span>
+                    </button>
+
+                    <!-- Node 3 -->
+                    <button onclick="selectArchNode('runtime')" id="arch-node-runtime" class="btn-action p-4 rounded-2xl bg-slate-900/60 border border-white/10 text-left flex flex-col gap-2 hover:border-slate-400">
+                        <div class="flex items-center justify-between">
+                            <i class="fa-solid fa-cubes text-emerald-400 text-lg"></i>
+                        </div>
+                        <span class="font-bold text-sm text-slate-100">3. K8s Cluster</span>
+                        <span class="text-[10px] text-slate-400 font-mono">Autoscaling Mesh</span>
+                    </button>
+
+                    <!-- Node 4 -->
+                    <button onclick="selectArchNode('ai')" id="arch-node-ai" class="btn-action p-4 rounded-2xl bg-slate-900/60 border border-white/10 text-left flex flex-col gap-2 hover:border-slate-400">
+                        <div class="flex items-center justify-between">
+                            <i class="fa-solid fa-brain text-amber-400 text-lg"></i>
+                        </div>
+                        <span class="font-bold text-sm text-slate-100">4. Vector AI</span>
+                        <span class="text-[10px] text-slate-400 font-mono">RAG & Embedding Search</span>
+                    </button>
+
+                    <!-- Node 5 -->
+                    <button onclick="selectArchNode('telemetry')" id="arch-node-telemetry" class="btn-action p-4 rounded-2xl bg-slate-900/60 border border-white/10 text-left flex flex-col gap-2 hover:border-slate-400">
+                        <div class="flex items-center justify-between">
+                            <i class="fa-solid fa-chart-line text-pink-400 text-lg"></i>
+                        </div>
+                        <span class="font-bold text-sm text-slate-100">5. Telemetry</span>
+                        <span class="text-[10px] text-slate-400 font-mono">OpenTelemetry & Metrics</span>
+                    </button>
+                </div>
+
+                <!-- Dynamic Inspector Box -->
+                <div id="arch-inspector" class="p-5 rounded-2xl bg-slate-950/80 border border-white/10 font-mono text-xs flex flex-col gap-2">
+                    <div class="flex items-center justify-between text-cyan-400">
+                        <span class="font-bold">[INSPECTOR] 01_SOURCE_GIT_STAGE</span>
+                        <span class="text-[10px] bg-cyan-500/10 px-2 py-0.5 rounded">STATUS: ACTIVE</span>
+                    </div>
+                    <p class="text-slate-300 font-sans leading-relaxed">
+                        Strict branch protection policies requiring automated peer code reviews, commit signing, and static code analysis before merging to main release branches.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. INTERACTIVE CASE STUDY CATALOG -->
+        <section id="projects" class="flex flex-col gap-6 sm:gap-8 reveal">
+            <div class="case-study-header">
+                <div class="case-study-heading-copy">
+                    <span class="text-cyan-400 font-mono text-xs sm:text-sm tracking-widest uppercase">03. CASE STUDIES</span>
+                    <h2 class="text-2xl sm:text-4xl font-bold tracking-tight">Explore selected case studies.</h2>
+                    <p class="section-intro">A focused portfolio across AI assistants, workflow automation, cloud operations, and system integration. Use the filters or search by project name and technology to find the work most relevant to you.</p>
+                </div>
+                <div class="case-study-brand" aria-label="ngphuc portfolio mark">
+                    <img src="assets/logo.jpg" alt="ngphuc logo" width="56" height="56">
+                    <span>ENGINEERING<br>PORTFOLIO</span>
+                </div>
+            </div>
+
+            <div class="case-study-toolbar">
+                <div class="case-filter-list" role="group" aria-label="Filter case studies by category">
+                    <button type="button" class="btn-action case-filter is-active" data-case-filter="all" aria-pressed="true">All projects</button>
+                    <button type="button" class="btn-action case-filter" data-case-filter="cloud" aria-pressed="false">Cloud &amp; Ops</button>
+                    <button type="button" class="btn-action case-filter" data-case-filter="ai" aria-pressed="false">AI &amp; Agents</button>
+                    <button type="button" class="btn-action case-filter" data-case-filter="automation" aria-pressed="false">Automation</button>
+                    <button type="button" class="btn-action case-filter" data-case-filter="labs" aria-pressed="false">Labs &amp; Concepts</button>
+                    <button type="button" class="btn-action case-filter" data-case-filter="web" aria-pressed="false">Web</button>
+                </div>
+                <div class="case-search-row">
+                    <label class="case-search-label" for="case-study-search">Find a project or technology</label>
+                    <div class="case-search-box">
+                        <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                        <input id="case-study-search" type="search" autocomplete="off" placeholder="Try Odoo, monitoring, MCP..." aria-controls="case-study-grid">
+                    </div>
+                    <span id="case-study-count" class="case-study-count" aria-live="polite">9 / 9 CASE STUDIES</span>
+                </div>
+            </div>
+
+            <div id="case-study-grid" class="case-study-grid project-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <article class="case-study-card project-card glass-card rounded-3xl p-5 sm:p-6" data-categories="ai automation" style="--case-index: 0">
+                    <div class="case-card-topline"><span class="case-study-number">01 /</span><span class="case-status status-active">Active project</span></div>
+                    <div class="case-card-copy"><h3>GLX-AI · Sales Knowledge Assistant</h3><p>A sales chatbot that searches internal knowledge, cites its sources, and checks document access before answering.</p></div>
+                    <div class="case-card-bottom"><div class="case-tags"><span>Python</span><span>RAG</span><span>MCP</span></div><a class="btn-action case-study-action" href="#contact" aria-label="Discuss GLX-AI Sales Knowledge Assistant"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div>
+                </article>
+                <article class="case-study-card project-card glass-card rounded-3xl p-5 sm:p-6" data-categories="ai automation" style="--case-index: 1">
+                    <div class="case-card-topline"><span class="case-study-number">02 /</span><span class="case-status status-development">In development</span></div>
+                    <div class="case-card-copy"><h3>Odoo ERP &amp; Permission-Aware AI</h3><p>An Odoo ERP with an integrated AI chatbot, with model visibility and access defined by each user’s permission level.</p></div>
+                    <div class="case-card-bottom"><div class="case-tags"><span>Odoo ERP</span><span>AI Chatbot</span><span>User Levels</span></div><a class="btn-action case-study-action" href="#contact" aria-label="Discuss Odoo ERP and Permission-Aware AI"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div>
+                </article>
+                <article class="case-study-card project-card glass-card rounded-3xl p-5 sm:p-6" data-categories="automation cloud" style="--case-index: 2">
+                    <div class="case-card-topline"><span class="case-study-number">03 /</span><span class="case-status status-implementation">Implementation</span></div>
+                    <div class="case-card-copy"><h3>Odoo &amp; Business Workflow Integration</h3><p>Connect Odoo with documents, Google Drive, and business APIs through validated, structured data workflows.</p></div>
+                    <div class="case-card-bottom"><div class="case-tags"><span>Odoo</span><span>Python</span><span>Airflow</span></div><a class="btn-action case-study-action" href="#contact" aria-label="Discuss Odoo and Business Workflow Integration"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div>
+                </article>
+                <article class="case-study-card project-card glass-card rounded-3xl p-5 sm:p-6" data-categories="ai automation labs" style="--case-index: 3">
+                    <div class="case-card-topline"><span class="case-study-number">05 /</span><span class="case-status status-implementation">Implementation</span></div>
+                    <div class="case-card-copy"><h3>OCR &amp; AI Document Processing Pipeline</h3><p>Turn invoices, quotes, and PDFs into validated JSON or spreadsheets using OCR, AI, and schema checks.</p></div>
+                    <div class="case-card-bottom"><div class="case-tags"><span>Python</span><span>Airflow</span><span>PaddleOCR</span></div><a class="btn-action case-study-action" href="#contact" aria-label="Discuss OCR and AI Document Processing Pipeline"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div>
+                </article>
+                <article class="case-study-card project-card glass-card rounded-3xl p-5 sm:p-6" data-categories="ai automation" style="--case-index: 4">
+                    <div class="case-card-topline"><span class="case-study-number">09 /</span><span class="case-status status-implementation">Implementation</span></div>
+                    <div class="case-card-copy"><h3>AI Multi-Agent Workspace for Enterprise</h3><p>OpenWebUI connects department agents, internal knowledge, and business tools through RAG, MCP, and scoped access.</p></div>
+                    <div class="case-card-bottom"><div class="case-tags"><span>OpenWebUI</span><span>MCP</span><span>RAG</span></div><a class="btn-action case-study-action" href="#contact" aria-label="Discuss AI Multi-Agent Workspace for Enterprise"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div>
+                </article>
+                <article class="case-study-card project-card glass-card rounded-3xl p-5 sm:p-6" data-categories="cloud automation" style="--case-index: 5">
+                    <div class="case-card-topline"><span class="case-study-number">10 /</span><span class="case-status status-operations">Operations</span></div>
+                    <div class="case-card-copy"><h3>Multi-Server LXC Backup &amp; Recovery Automation</h3><p>LXC snapshots, Kopia backups to S3-compatible storage, retention policies, and clear status reports through Google Chat.</p></div>
+                    <div class="case-card-bottom"><div class="case-tags"><span>Linux</span><span>LXD/LXC</span><span>Bash</span></div><a class="btn-action case-study-action" href="#contact" aria-label="Discuss Multi-Server LXC Backup and Recovery Automation"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div>
+                </article>
+                <article class="case-study-card project-card glass-card rounded-3xl p-5 sm:p-6" data-categories="ai automation" style="--case-index: 6">
+                    <div class="case-card-topline"><span class="case-study-number">11 /</span><span class="case-status status-implementation">Implementation</span></div>
+                    <div class="case-card-copy"><h3>AI Chatbot &amp; Multi-Platform Automation</h3><p>Product lookup, Excel catalog imports, industrial-parts search, and tender Q&amp;A through messaging and business data.</p></div>
+                    <div class="case-card-bottom"><div class="case-tags"><span>n8n</span><span>Telegram Bot API</span><span>OpenAI / Gemini / Claude / Groq</span></div><a class="btn-action case-study-action" href="#contact" aria-label="Discuss AI Chatbot and Multi-Platform Automation"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div>
+                </article>
+                <article class="case-study-card project-card glass-card rounded-3xl p-5 sm:p-6" data-categories="ai automation labs" style="--case-index: 7">
+                    <div class="case-card-topline"><span class="case-study-number">13 /</span><span class="case-status status-lab">Engineering lab</span></div>
+                    <div class="case-card-copy"><h3>Hermes Agent Learning &amp; Automation Runtime</h3><p>An engineering lab for persistent memory, reusable skills, scheduled execution, and controlled tool access.</p></div>
+                    <div class="case-card-bottom"><div class="case-tags"><span>Hermes Agent</span><span>Python</span><span>MCP</span></div><a class="btn-action case-study-action" href="#contact" aria-label="Discuss Hermes Agent Learning and Automation Runtime"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div>
+                </article>
+                <article class="case-study-card project-card glass-card rounded-3xl p-5 sm:p-6" data-categories="automation web" style="--case-index: 8">
+                    <div class="case-card-topline"><span class="case-study-number">14 /</span><span class="case-status status-concept">Workflow concept</span></div>
+                    <div class="case-card-copy"><h3>Google Review Auto-Reply Workflow</h3><p>A blueprint for review monitoring, sentiment classification, reply drafting, and team approval.</p></div>
+                    <div class="case-card-bottom"><div class="case-tags"><span>n8n</span><span>Google APIs</span><span>LLM APIs</span></div><a class="btn-action case-study-action" href="#contact" aria-label="Discuss Google Review Auto-Reply Workflow"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div>
+                </article>
+            </div>
+            <p id="case-study-empty" class="case-study-empty" hidden>No case studies match those filters. Try another category or search term.</p>
+        </section>
+
+        <!-- 5. CAREER TIMELINE -->
+        <section id="experience" class="flex flex-col gap-6 sm:gap-8 reveal">
+            <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+                <div class="flex flex-col gap-1">
+                    <span class="text-cyan-400 font-mono text-xs sm:text-sm tracking-widest uppercase">04. CAREER</span>
+                    <h2 class="text-2xl sm:text-4xl font-bold tracking-tight">Professional Leadership Timeline</h2>
+                </div>
+            </div>
+
+            <!-- Timeline Stack -->
+            <div class="relative border-l-2 border-slate-700 ml-2 sm:ml-6 pl-4 sm:pl-8 flex flex-col gap-8">
+                <!-- Timeline 1 -->
+                <div class="relative group">
+                    <div class="absolute -left-[23px] sm:-left-[39px] top-1.5 w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-cyan-400 border-4 border-slate-950 shadow-lg"></div>
+                    <div class="glass-card rounded-3xl p-5 sm:p-8 flex flex-col gap-3 glow-card-hover">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                            <div>
+                                <span class="px-2.5 py-0.5 rounded-full bg-cyan-500/10 text-cyan-400 text-xs font-mono">2022 — Present</span>
+                                <h3 class="text-lg sm:text-xl font-bold mt-1">Principal Software Architect</h3>
+                                <p class="text-slate-400 font-medium text-xs sm:text-sm">Apex Cloud Systems</p>
+                            </div>
+                        </div>
+                        <p class="text-slate-300 text-xs sm:text-base leading-relaxed">
+                            Lead cloud infrastructure strategy, microservices migration, and high-concurrency API performance for fintech workloads. The work centers on clear service boundaries, capacity planning, dependable data flows, and observability that helps teams understand system behavior and deliver changes safely.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Timeline 2 -->
+                <div class="relative group">
+                    <div class="absolute -left-[23px] sm:-left-[39px] top-1.5 w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-blue-500 border-4 border-slate-950 shadow-lg"></div>
+                    <div class="glass-card rounded-3xl p-5 sm:p-8 flex flex-col gap-3 glow-card-hover">
+                        <div>
+                            <span class="px-2.5 py-0.5 rounded-full bg-blue-500/10 text-blue-400 text-xs font-mono">2019 — 2022</span>
+                            <h3 class="text-lg sm:text-xl font-bold mt-1">Senior Tech Lead & Systems Engineer</h3>
+                            <p class="text-slate-400 font-medium text-xs sm:text-sm">Nexus Digital Labs</p>
+                        </div>
+                        <p class="text-slate-300 text-xs sm:text-base leading-relaxed">
+                            Led backend delivery, automated zero-downtime CI/CD deployments, and managed database replication topologies. This role brought application design and operations together through repeatable releases, careful failure handling, and data platforms built for availability and recovery.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. CONTACT SECTION -->
+        <section id="contact" class="flex flex-col gap-6 sm:gap-8 reveal pb-6">
+            <div class="flex flex-col gap-1">
+                <span class="text-cyan-400 font-mono text-xs sm:text-sm tracking-widest uppercase">05. CONNECT</span>
+                <h2 class="text-2xl sm:text-4xl font-bold tracking-tight">Start a Technical Conversation</h2>
+
+            </div>
+
+            <p class="section-intro">For architecture advisory, platform modernization, backend engineering, or applied AI work, share the problem you are solving and the constraints that matter. A clear starting point makes it easier to discuss scope, risks, and practical next steps.</p>
+
+            <div class="contact-grid grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <div class="flex flex-col gap-3">
+                    <button onclick="copyToClipboard('ngphuc1753@gmail.com', 'Email copied!')" class="btn-action contact-method-card glass-card rounded-2xl p-4 sm:p-5 flex items-center gap-3 text-left border border-white/10 hover:border-slate-300">
+                        <div class="contact-method-icon w-10 h-10 rounded-xl bg-slate-900 text-slate-200 border border-white/10 flex items-center justify-center text-base">
+                            <i class="fa-regular fa-envelope"></i>
+                        </div>
+                        <div>
+                            <p class="text-[10px] text-slate-400 font-mono">PRIMARY EMAIL</p>
+                            <p class="text-xs sm:text-sm font-bold text-slate-100">ngphuc1753@gmail.com</p>
+                        </div>
+                    </button>
+
+                    <button onclick="copyToClipboard('+84 389 101 040', 'Phone copied!')" class="btn-action contact-method-card glass-card rounded-2xl p-4 sm:p-5 flex items-center gap-3 text-left border border-white/10 hover:border-slate-300">
+                        <div class="contact-method-icon w-10 h-10 rounded-xl bg-slate-900 text-slate-200 border border-white/10 flex items-center justify-center text-base">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                        <div>
+                            <p class="text-[10px] text-slate-400 font-mono">DIRECT PHONE</p>
+                            <p class="text-xs sm:text-sm font-bold text-slate-100">+84 389 101 040</p>
+                        </div>
+                    </button>
+                </div>
+
+                <div class="contact-form-panel lg:col-span-2 glass-card rounded-3xl p-6 sm:p-8">
+                    <form onsubmit="handleFormSubmit(event)" class="flex flex-col gap-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <input type="text" required placeholder="Your Name" class="px-4 py-3 rounded-xl bg-slate-900 border border-white/10 text-xs sm:text-sm text-slate-100 focus:outline-none focus:border-cyan-400">
+                            <input type="email" required placeholder="Your Email" class="px-4 py-3 rounded-xl bg-slate-900 border border-white/10 text-xs sm:text-sm text-slate-100 focus:outline-none focus:border-cyan-400">
+                        </div>
+                        <textarea rows="4" required placeholder="Project or advisory inquiry..." class="px-4 py-3 rounded-xl bg-slate-900 border border-white/10 text-xs sm:text-sm text-slate-100 focus:outline-none focus:border-cyan-400 resize-none"></textarea>
+                        <button type="submit" id="submit-btn" class="btn-action w-full py-3.5 rounded-xl bg-gradient-to-r from-slate-100 via-slate-200 to-slate-300 text-slate-950 font-extrabold text-xs sm:text-sm shadow-lg">
+                            Send Direct Inquiry
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FLOATING AI VIRTUAL ASSISTANT WIDGET -->
+    <div id="ai-widget" class="fixed bottom-20 md:bottom-6 right-4 z-40">
+        <button onclick="toggleAiChat()" class="btn-action w-12 h-12 rounded-full glass-card border border-cyan-400/50 flex items-center justify-center text-cyan-400 shadow-2xl">
+            <i class="fa-solid fa-robot text-lg"></i>
+        </button>
+
+        <div id="ai-chat-box" class="absolute bottom-16 right-0 w-80 sm:w-96 glass-card rounded-2xl border border-white/20 p-4 shadow-2xl hidden flex-col gap-3 backdrop-blur-2xl bg-slate-950/90">
+            <div class="flex items-center justify-between border-b border-white/10 pb-2">
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-robot text-cyan-400 text-sm"></i>
+                    <span class="font-bold text-xs">ngphuc AI Portfolio Assistant</span>
+                </div>
+                <button onclick="toggleAiChat()" class="btn-action rounded-lg p-2 text-slate-400 hover:text-white text-xs"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div id="ai-messages" class="h-48 overflow-y-auto flex flex-col gap-2 text-xs font-sans">
+                <div class="p-2.5 rounded-xl bg-slate-900 border border-white/10 text-slate-200">
+                    Hello, I'm the portfolio assistant. I can help you explore the architecture, selected projects, core technologies, and ways to get in touch. Ask a specific question and I'll point you to the most relevant section.
+                </div>
+            </div>
+            <div class="flex items-center gap-2 border-t border-white/10 pt-2">
+                <input id="ai-input" type="text" placeholder="Ask a question..." onkeypress="if(event.key==='Enter') sendAiMessage()" class="w-full bg-slate-900 border border-white/10 rounded-lg px-3 py-1.5 text-xs text-slate-100 focus:outline-none">
+                <button onclick="sendAiMessage()" class="btn-action px-3 py-1.5 rounded-lg bg-cyan-500 text-slate-950 font-bold text-xs"><i class="fa-solid fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer glass-card border-t border-white/10 py-8 mb-16 md:mb-0">
+        <div class="footer-inner max-w-7xl mx-auto px-4 text-center sm:flex sm:items-center sm:justify-between">
+            <p class="text-xs text-slate-400 font-mono">© 2026 <span class="silver-chrome-text font-bold lowercase">ngphuc</span>. Software Architecture · Applied AI · Cloud Systems</p>
+            <div class="flex justify-center gap-4 mt-3 sm:mt-0 text-base">
+                <a href="https://github.com/ngphuc203" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="footer-social-link btn-action text-slate-400 hover:text-white"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.facebook.com/ngphuc203" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="footer-social-link btn-action text-slate-400 hover:text-white"><i class="fa-brands fa-facebook-f"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE JAVASCRIPT LOGIC -->
+    <script>
+        // 1. Intersection Observer Scroll Reveal
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Case-study category filters and project search.
+        const caseStudyFilters = document.querySelectorAll('[data-case-filter]');
+        const caseStudyCards = [...document.querySelectorAll('.case-study-card')];
+        const caseStudySearch = document.getElementById('case-study-search');
+        const caseStudyCount = document.getElementById('case-study-count');
+        const caseStudyEmpty = document.getElementById('case-study-empty');
+        let activeCaseFilter = 'all';
+
+        function updateCaseStudies() {
+            const query = caseStudySearch.value.trim().toLowerCase();
+            let visibleCount = 0;
+            caseStudyCards.forEach((card) => {
+                const categories = card.dataset.categories.split(/\s+/);
+                const matchesCategory = activeCaseFilter === 'all' || categories.includes(activeCaseFilter);
+                const matchesSearch = !query || card.textContent.toLowerCase().includes(query);
+                const visible = matchesCategory && matchesSearch;
+                card.hidden = !visible;
+                if (visible) visibleCount += 1;
+            });
+            caseStudyCount.textContent = `${visibleCount} / ${caseStudyCards.length} CASE STUDIES`;
+            caseStudyEmpty.hidden = visibleCount > 0;
+        }
+
+        caseStudyFilters.forEach((button) => {
+            button.addEventListener('click', () => {
+                activeCaseFilter = button.dataset.caseFilter;
+                caseStudyFilters.forEach((item) => {
+                    const selected = item === button;
+                    item.classList.toggle('is-active', selected);
+                    item.setAttribute('aria-pressed', String(selected));
+                });
+                updateCaseStudies();
+            });
+        });
+        caseStudySearch.addEventListener('input', updateCaseStudies);
+        updateCaseStudies();
+        // 2. Command Palette Keyboard Shortcut (Ctrl+K or ⌘K)
+        document.addEventListener('keydown', (e) => {
+            if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+                e.preventDefault();
+                toggleCmdPalette();
+            } else if (e.key === 'Escape') {
+                document.getElementById('cmd-palette').classList.add('hidden');
+            }
+        });
+
+        function toggleCmdPalette() {
+            const palette = document.getElementById('cmd-palette');
+            palette.classList.toggle('hidden');
+            if (!palette.classList.contains('hidden')) {
+                document.getElementById('cmd-input').focus();
+            }
+        }
+
+        function executeCmd(action) {
+            document.getElementById('cmd-palette').classList.add('hidden');
+            const target = document.getElementById(action);
+            if (target) target.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // 3. Interactive Architecture Node Inspector
+        const archData = {
+            source: {
+                title: '01_SOURCE_GIT_STAGE',
+                text: 'Strict branch protection policies requiring automated peer code reviews, commit signing, and static code analysis before merging.'
+            },
+            ci: {
+                title: '02_CI_SECURITY_GATE',
+                text: 'Automated runner pipelines executing SAST vulnerability scans, container image linting, and 100% integration test coverage.'
+            },
+            runtime: {
+                title: '03_KUBERNETES_RUNTIME',
+                text: 'Zero-downtime rolling deployments on auto-scaling cluster nodes with Istio service mesh and automated mTLS encryption.'
+            },
+            ai: {
+                title: '04_VECTOR_AI_PIPELINE',
+                text: 'High-speed embeddings generator feeding vector databases for instant contextual knowledge retrieval and RAG agent execution.'
+            },
+            telemetry: {
+                title: '05_OPENTELEMETRY_OBSERVABILITY',
+                text: 'Unified distributed tracing, metrics collection, and alerting dashboards providing real-time system health visibility.'
+            }
+        };
+
+        function selectArchNode(key) {
+            const nodes = ['source', 'ci', 'runtime', 'ai', 'telemetry'];
+            nodes.forEach(n => {
+                const btn = document.getElementById(`arch-node-${n}`);
+                if (n === key) {
+                    btn.className = 'btn-action p-4 rounded-2xl bg-slate-900 border border-cyan-500/50 text-left flex flex-col gap-2 shadow-lg';
+                } else {
+                    btn.className = 'btn-action p-4 rounded-2xl bg-slate-900/60 border border-white/10 text-left flex flex-col gap-2 hover:border-slate-400';
+                }
+            });
+
+            const data = archData[key];
+            document.getElementById('arch-inspector').innerHTML = `
+                <div class="flex items-center justify-between text-cyan-400">
+                    <span class="font-bold">[INSPECTOR] ${data.title}</span>
+                    <span class="text-[10px] bg-cyan-500/10 px-2 py-0.5 rounded">STATUS: ACTIVE</span>
+                </div>
+                <p class="text-slate-300 font-sans leading-relaxed">${data.text}</p>
+            `;
+        }
+
+        // 4. Toast Notifications & Clipboard
+        function showToast(message) {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = 'px-4 py-2.5 rounded-xl bg-slate-100 text-slate-950 font-medium text-xs shadow-2xl flex items-center gap-2 transform translate-y-2 opacity-0 transition-all duration-300';
+            toast.innerHTML = `<i class="fa-solid fa-check text-emerald-600"></i> ${message}`;
+            container.appendChild(toast);
+            setTimeout(() => toast.classList.remove('translate-y-2', 'opacity-0'), 10);
+            setTimeout(() => {
+                toast.classList.add('opacity-0');
+                setTimeout(() => toast.remove(), 300);
+            }, 2500);
+        }
+
+        function copyToClipboard(text, msg) {
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(text).then(() => showToast(msg));
+            } else {
+                showToast(msg);
+            }
+        }
+
+        // 5. Form Submission
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const btn = document.getElementById('submit-btn');
+            btn.innerHTML = 'Transmitting...';
+            setTimeout(() => {
+                showToast('Inquiry received! Response within 24 hours.');
+                e.target.reset();
+                btn.innerHTML = 'Send Direct Inquiry';
+            }, 1000);
+        }
+
+        // 6. AI Virtual Assistant Interaction
+        function toggleAiChat() {
+            const box = document.getElementById('ai-chat-box');
+            box.classList.toggle('hidden');
+            box.classList.toggle('flex');
+        }
+
+        function sendAiMessage() {
+            const input = document.getElementById('ai-input');
+            const messages = document.getElementById('ai-messages');
+            const query = input.value.trim();
+
+            if (!query) return;
+
+            // Append User Question
+            const userMsg = document.createElement('div');
+            userMsg.className = 'p-2.5 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-200 self-end text-right';
+            userMsg.innerText = query;
+            messages.appendChild(userMsg);
+
+            input.value = '';
+            messages.scrollTop = messages.scrollHeight;
+
+            // AI Answer Simulation
+            setTimeout(() => {
+                const aiMsg = document.createElement('div');
+                aiMsg.className = 'p-2.5 rounded-xl bg-slate-900 border border-white/10 text-slate-200';
+                
+                let answer = "ngphuc specializes in distributed system design, high-concurrency Go microservices, and AI vector search infrastructure.";
+                if (query.toLowerCase().includes('contact') || query.toLowerCase().includes('email')) {
+                    answer = "You can contact ngphuc directly at ngphuc1753@gmail.com or call +84 389 101 040.";
+                } else if (query.toLowerCase().includes('experience') || query.toLowerCase().includes('years')) {
+                    answer = "ngphuc has over 8 years of engineering leadership, having architected systems serving 50M+ daily operations.";
+                }
+
+                aiMsg.innerText = answer;
+                messages.appendChild(aiMsg);
+                messages.scrollTop = messages.scrollHeight;
+            }, 600);
+        }
+    </script>
+</body>
+</html>
