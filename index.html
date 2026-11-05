@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="en" class="dark scroll-smooth">
+<html lang="en" class="dark scroll-smooth is-loading" aria-busy="true">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ngphuc — Software Architecture, Applied AI & Cloud Systems</title>
-    <meta name="description" content="Explore ngphuc’s work across software architecture, distributed systems, cloud platforms, and applied AI, including selected projects, engineering approach, and contact details.">
+    <title>ngphuc.exe — Web Designer & Full-Stack Developer | API & AI</title>
+    <meta name="description" content="Explore ngphuc.exe’s work in web design, frontend and backend development, API integrations, and practical AI applications.">
     <meta name="theme-color" content="#050811">
-    <meta property="og:title" content="ngphuc — Software Architecture, Applied AI & Cloud Systems">
-    <meta property="og:description" content="A portfolio focused on reliable distributed systems, cloud-native engineering, and practical AI applications.">
+    <meta property="og:title" content="ngphuc.exe — Web Designer & Full-Stack Developer | API & AI">
+    <meta property="og:description" content="Web design and full-stack development, connecting polished user experiences with backend systems, APIs, and practical AI.">
     <meta property="og:type" content="website">
-    <link rel="icon" type="image/jpeg" href="assets/logo.jpg">
+    <link rel="icon" type="image/png" href="assets/logo.png">
     
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -343,6 +343,14 @@
         .brand-link:hover .brand-name { letter-spacing: 0.045em; filter: drop-shadow(0 0 10px rgba(226, 232, 240, 0.35)); }
         .brand-link:hover .brand-name::after { transform: scaleX(1); opacity: 0.9; }
         @keyframes logoOrbit { to { transform: rotate(360deg); } }
+        .brand-emblem { overflow: visible; }
+        .brand-orbit { position: absolute; inset: -7px; z-index: 2; border: 1px solid rgba(103, 232, 249, 0.38); border-radius: 50%; pointer-events: none; }
+        .brand-orbit::after { content: ''; position: absolute; top: 50%; right: -2px; width: 5px; height: 5px; border: 1px solid #e0f2fe; border-radius: 50%; background: #67e8f9; box-shadow: 0 0 9px rgba(34, 211, 238, 0.95); transform: translateY(-50%); }
+        .brand-orbit-one { animation: brandOrbitOne 5.5s linear infinite; }
+        .brand-orbit-two { inset: -4px; border-color: rgba(167, 139, 250, 0.28); transform: rotateX(68deg); animation: brandOrbitTwo 7.5s linear infinite reverse; }
+        .brand-orbit-two::after { width: 4px; height: 4px; border-color: #ddd6fe; background: #a78bfa; box-shadow: 0 0 9px rgba(167, 139, 250, 0.9); }
+        @keyframes brandOrbitOne { to { transform: rotate(360deg); } }
+        @keyframes brandOrbitTwo { to { transform: rotateX(68deg) rotate(360deg); } }
 
         /* Abstract AI visual in place of an unrelated stock portrait */
         .ai-portrait-visual { position: absolute; inset: 0; display: grid; place-items: center; overflow: hidden; isolation: isolate; background: radial-gradient(circle at 50% 40%, rgba(14, 116, 144, 0.32), transparent 35%), radial-gradient(circle at 18% 78%, rgba(37, 99, 235, 0.22), transparent 36%), radial-gradient(circle at 84% 18%, rgba(124, 58, 237, 0.18), transparent 34%), linear-gradient(145deg, #07111f, #0a1428 52%, #090d16); }
@@ -352,7 +360,9 @@
         .ai-visual-orbit-one { width: 76%; aspect-ratio: 1; transform: translate(-50%, -50%) rotateX(62deg) rotate(-15deg); box-shadow: 0 0 24px rgba(34, 211, 238, 0.08); animation: aiOrbit 18s linear infinite; }
         .ai-visual-orbit-two { width: 58%; aspect-ratio: 1; border-color: rgba(167, 139, 250, 0.3); border-style: dashed; transform: translate(-50%, -50%) rotateX(62deg) rotate(25deg); animation: aiOrbitReverse 24s linear infinite; }
         .ai-visual-core { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; gap: 0.55rem; transform: translateY(-24px); text-align: center; }
-        .ai-core-icon { width: 5.5rem; height: 5.5rem; display: grid; place-items: center; border: 1px solid rgba(165, 243, 252, 0.48); border-radius: 1.7rem; color: #a5f3fc; font-size: 2.4rem; background: linear-gradient(145deg, rgba(15, 23, 42, 0.88), rgba(8, 47, 73, 0.7)); box-shadow: 0 0 34px rgba(34, 211, 238, 0.2), inset 0 0 24px rgba(34, 211, 238, 0.12); animation: aiCorePulse 3.8s ease-in-out infinite; }
+        .ai-core-icon { position: relative; width: 6.25rem; height: 6.25rem; display: grid; place-items: center; overflow: hidden; border: 1px solid rgba(165, 243, 252, 0.58); border-radius: 1.85rem; background: radial-gradient(circle, rgba(30, 41, 59, 0.56), rgba(8, 47, 73, 0.72) 70%); box-shadow: 0 0 38px rgba(34, 211, 238, 0.24), inset 0 0 26px rgba(34, 211, 238, 0.15); animation: aiCorePulse 3.8s ease-in-out infinite; }
+        .ai-core-logo { display: block; width: 100%; height: 100%; object-fit: contain; mix-blend-mode: screen; filter: drop-shadow(0 0 10px rgba(103, 232, 249, 0.48)); }
+        .ai-core-scanline { position: absolute; top: -34%; left: 8%; right: 8%; z-index: 1; height: 34%; border-radius: 50%; background: linear-gradient(180deg, transparent, rgba(103, 232, 249, 0.12) 28%, rgba(207, 250, 254, 0.82) 50%, rgba(34, 211, 238, 0.2) 72%, transparent); filter: blur(1px); opacity: 0; pointer-events: none; animation: aiLogoScan 3.6s ease-in-out infinite; }
         .ai-core-title { color: #f1f5f9; font: 700 0.72rem/1.2 'JetBrains Mono', monospace; letter-spacing: 0.24em; text-shadow: 0 0 14px rgba(103, 232, 249, 0.38); }
         .ai-core-caption { color: rgba(203, 213, 225, 0.75); font: 500 0.52rem/1.4 'JetBrains Mono', monospace; letter-spacing: 0.1em; }
         .ai-visual-node { position: absolute; z-index: 1; width: 7px; height: 7px; border: 1px solid rgba(207, 250, 254, 0.9); border-radius: 50%; background: #67e8f9; box-shadow: 0 0 14px rgba(34, 211, 238, 0.85); animation: nodePulse 2.8s ease-in-out infinite; }
@@ -361,6 +371,7 @@
         .ai-visual-node-three { bottom: 28%; left: 31%; width: 5px; height: 5px; animation-delay: -1.7s; }
         @keyframes aiPulse { from { opacity: 0.45; transform: scale(0.88); } to { opacity: 0.95; transform: scale(1.08); } }
         @keyframes aiCorePulse { 0%, 100% { transform: translateY(0) scale(1); box-shadow: 0 0 28px rgba(34, 211, 238, 0.18), inset 0 0 20px rgba(34, 211, 238, 0.1); } 50% { transform: translateY(-3px) scale(1.035); box-shadow: 0 0 42px rgba(34, 211, 238, 0.34), inset 0 0 28px rgba(34, 211, 238, 0.18); } }
+        @keyframes aiLogoScan { 0%, 10% { transform: translateY(0); opacity: 0; } 18% { opacity: 0.9; } 78% { opacity: 0.72; } 90%, 100% { transform: translateY(420%); opacity: 0; } }
         @keyframes aiOrbit { to { rotate: 360deg; } }
         @keyframes aiOrbitReverse { to { rotate: -360deg; } }
         @keyframes nodePulse { 0%, 100% { opacity: 0.42; scale: 0.78; } 50% { opacity: 1; scale: 1.25; } }
@@ -368,11 +379,20 @@
         /* Project grid aura and fine animated card frames */
         .project-grid { position: relative; isolation: isolate; }
         .project-grid::before { content: ''; position: absolute; inset: -2rem -1rem; z-index: 0; pointer-events: none; background: radial-gradient(ellipse at 16% 8%, rgba(34, 211, 238, 0.12), transparent 36%), radial-gradient(ellipse at 84% 88%, rgba(139, 92, 246, 0.12), transparent 38%); filter: blur(22px); }
+        .project-portfolio { position: relative; isolation: isolate; }
+        .project-portfolio > :not(.project-data-rails) { position: relative; z-index: 1; }
+        .project-data-rails { position: absolute; top: 13rem; right: -1.8rem; bottom: 1rem; left: -1.8rem; z-index: 2; display: flex; justify-content: space-between; overflow: hidden; pointer-events: none; opacity: 0.76; }
+        .project-data-rail { width: 1rem; overflow: hidden; border-right: 1px solid rgba(103, 232, 249, 0.2); border-left: 1px solid rgba(103, 232, 249, 0.2); color: rgba(103, 232, 249, 0.68); background: linear-gradient(90deg, rgba(8, 47, 73, 0.14), transparent 50%, rgba(8, 47, 73, 0.14)); mask-image: linear-gradient(transparent, #000 12%, #000 88%, transparent); text-shadow: 0 0 10px rgba(34, 211, 238, 0.32); }
+        .project-data-rail:last-child { border-color: rgba(167, 139, 250, 0.22); color: rgba(196, 181, 253, 0.72); background: linear-gradient(90deg, rgba(76, 29, 149, 0.12), transparent 50%, rgba(76, 29, 149, 0.12)); text-shadow: 0 0 10px rgba(167, 139, 250, 0.32); }
+        .project-data-stream { display: flex; flex-direction: column; align-items: center; gap: 1.5rem; animation: projectDataFlow 26s linear infinite; }
+        .project-data-rail:last-child .project-data-stream { animation-direction: reverse; animation-duration: 31s; }
+        .project-data-stream span { writing-mode: vertical-rl; text-orientation: mixed; font: 500 0.55rem/1.5 'JetBrains Mono', monospace; letter-spacing: 0.12em; white-space: nowrap; }
+        @keyframes projectDataFlow { to { transform: translateY(-50%); } }
         .project-card { position: relative; z-index: 1; isolation: isolate; border-color: rgba(148, 163, 184, 0.16); transition: transform 360ms cubic-bezier(0.2, 0.8, 0.2, 1), border-color 300ms ease, box-shadow 300ms ease; }
         .project-card::before, .project-card::after { content: ''; position: absolute; pointer-events: none; transition: opacity 360ms ease, transform 500ms ease; }
         .project-card::before { inset: -1px; z-index: -1; padding: 1px; border-radius: inherit; background: conic-gradient(from 45deg, rgba(34, 211, 238, 0.6), rgba(59, 130, 246, 0.12) 24%, rgba(167, 139, 250, 0.56) 48%, rgba(34, 211, 238, 0.1) 70%, rgba(34, 211, 238, 0.6)); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; opacity: 0.32; }
         .project-card::after { inset: 10% 8% -5%; z-index: -2; border-radius: inherit; background: linear-gradient(120deg, rgba(34, 211, 238, 0.26), rgba(59, 130, 246, 0.16), rgba(168, 85, 247, 0.24)); filter: blur(24px); opacity: 0.16; }
-        .project-card:hover { transform: translateY(-6px); border-color: rgba(103, 232, 249, 0.28); box-shadow: 0 22px 52px rgba(2, 8, 23, 0.42); }
+        .project-card:not(.case-study-card):hover { transform: translateY(-6px); border-color: rgba(103, 232, 249, 0.28); box-shadow: 0 22px 52px rgba(2, 8, 23, 0.42); }
         .project-card:hover::before { opacity: 0.9; }
         .project-card:hover::after { opacity: 0.56; transform: scale(1.04); }
 
@@ -417,7 +437,7 @@
         .footer-inner { position: relative; z-index: 1; gap: 1rem; }
         .footer-social-link { display: inline-grid; width: 2.65rem; height: 2.65rem; place-items: center; border: 1px solid rgba(148, 163, 184, 0.18); border-radius: 0.9rem; background: rgba(15, 23, 42, 0.65); }
         .footer-social-link:hover { color: #e0f2fe; border-color: rgba(103, 232, 249, 0.5); background: rgba(8, 47, 73, 0.55); }
-        /* Filterable case-study catalog */
+        /* Filterable, continuously rotating 3D project showcase */
         .case-study-header { display: flex; align-items: flex-end; justify-content: space-between; gap: 1.5rem; }
         .case-study-heading-copy { display: flex; flex-direction: column; gap: 0.55rem; }
         .case-study-heading-copy h2 { margin-top: 0.05rem; }
@@ -438,10 +458,30 @@
         .case-search-box input::placeholder { color: #64748b; }
         .case-search-box input:focus { border-color: rgba(103, 232, 249, 0.62); background: rgba(15, 23, 42, 0.94); box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.1); }
         .case-study-count { margin-left: auto; color: #94a3b8; font: 500 0.64rem/1.4 'JetBrains Mono', monospace; letter-spacing: 0.08em; }
-        .case-study-grid { align-items: stretch; }
-        .case-study-card { min-height: 13rem; display: flex; flex-direction: column; justify-content: space-between; gap: 1.15rem; padding: 1.25rem; border-radius: 1.15rem; }
-        .reveal.active .case-study-card { animation: caseCardEnter 420ms ease both; animation-delay: calc(var(--case-index, 0) * 35ms); }
-        @keyframes caseCardEnter { from { opacity: 0; translate: 0 8px; } to { opacity: 1; translate: 0 0; } }
+        .case-carousel-shell { position: relative; isolation: isolate; }
+        .case-carousel-viewport { position: relative; display: grid; height: 34rem; place-items: center; overflow: hidden; perspective: 1450px; perspective-origin: center 46%; transform-style: preserve-3d; touch-action: pan-y; cursor: grab; }
+        .case-carousel-viewport.is-dragging { cursor: grabbing; user-select: none; -webkit-user-select: none; }
+        .case-carousel-viewport[hidden] { display: none; }
+        .case-carousel-viewport::before { content: ''; position: absolute; inset: 12% 18%; border-radius: 50%; background: radial-gradient(ellipse, rgba(8, 145, 178, 0.18), transparent 70%); pointer-events: none; }
+        .case-orbit-frame { position: absolute; top: 50%; left: 50%; width: min(700px, 88vw); height: min(500px, 78vw); border: 1px solid rgba(103, 232, 249, 0.58); border-radius: 50%; background: conic-gradient(from 0deg, transparent 0deg, rgba(34, 211, 238, 0.06) 28deg, transparent 78deg, transparent 205deg, rgba(59, 130, 246, 0.1) 252deg, transparent 300deg); box-shadow: inset 0 0 38px rgba(8, 145, 178, 0.1), 0 0 48px rgba(8, 145, 178, 0.24); transform: translate(-50%, -50%) rotateZ(var(--orbit-angle, 0deg)) rotateX(8deg); transform-style: preserve-3d; will-change: transform; pointer-events: none; }
+        .case-orbit-frame::before, .case-orbit-frame::after { content: ''; position: absolute; inset: 9%; border: 1px solid rgba(103, 232, 249, 0.14); border-radius: inherit; transform: translateZ(-20px); }
+        .case-orbit-frame::after { inset: -1px; border-color: transparent; background: conic-gradient(from 12deg, transparent 0deg 305deg, rgba(103, 232, 249, 0.95) 322deg, rgba(59, 130, 246, 0.5) 332deg, transparent 345deg); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; padding: 1px; filter: drop-shadow(0 0 7px rgba(34, 211, 238, 0.75)); }
+        .case-orbit-node { position: absolute; top: 50%; left: 50%; width: 0.72rem; height: 0.72rem; border: 2px solid #a5f3fc; border-radius: 50%; background: #0891b2; box-shadow: 0 0 18px rgba(34, 211, 238, 0.95), 0 0 42px rgba(34, 211, 238, 0.48); transform: translate(-50%, -50%) translateX(min(350px, 44vw)) translateZ(2px); }
+        .case-orbit-track { position: absolute; inset: 0; transform-style: preserve-3d; pointer-events: none; }
+        .case-orbit-bar { position: absolute; top: 50%; left: 50%; width: clamp(150px, 13vw, 184px); min-height: 2.7rem; display: flex; align-items: center; gap: 0.55rem; padding: 0.56rem 0.72rem; overflow: hidden; border: 1px solid rgba(103, 232, 249, 0.28); border-radius: 0.7rem; color: #cbd5e1; background: linear-gradient(110deg, rgba(8, 20, 39, 0.92), rgba(15, 42, 66, 0.86)); box-shadow: 0 8px 26px rgba(2, 8, 23, 0.42), inset 0 0 16px rgba(34, 211, 238, 0.06); font: 500 0.72rem/1.35 'JetBrains Mono', monospace; text-align: left; transform: translate(-50%, -50%) translate3d(var(--bar-x, 0px), var(--bar-y, 0px), var(--bar-z, 0px)) scale(var(--bar-scale, 1)); transition: border-color 280ms ease, box-shadow 280ms ease, color 280ms ease, opacity 280ms ease; pointer-events: auto; }
+        .case-orbit-bar span { flex: 0 0 auto; color: #67e8f9; font-size: 0.64rem; }
+        .case-orbit-bar strong { overflow: hidden; color: inherit; font: inherit; text-overflow: ellipsis; white-space: nowrap; }
+        .case-orbit-bar.is-current { z-index: 3; border-color: rgba(103, 232, 249, 0.82); color: #f0fdff; box-shadow: 0 0 24px rgba(34, 211, 238, 0.28), inset 0 0 18px rgba(34, 211, 238, 0.12); }
+        .case-orbit-bar:hover, .case-orbit-bar:focus-visible { z-index: 4; border-color: #67e8f9; color: #fff; outline: none; }
+        .case-project-library { display: none !important; }
+        .case-active-project { position: relative; z-index: 1; width: min(450px, calc(100vw - 3rem)); height: 23rem; min-height: 0; display: flex; flex-direction: column; justify-content: space-between; gap: 1.05rem; padding: 1.45rem; border-color: rgba(34, 211, 238, 0.46); box-shadow: 0 25px 70px rgba(2, 8, 23, 0.62), 0 0 42px rgba(8, 145, 178, 0.2); }
+        .case-active-project.is-changing { animation: caseProjectReveal 620ms cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+        .case-active-project .case-card-copy { max-height: 14rem; overflow: auto; scrollbar-width: thin; scrollbar-color: rgba(103, 232, 249, 0.35) transparent; }
+        .case-active-project .case-card-copy::-webkit-scrollbar { width: 4px; }
+        .case-active-project .case-card-copy::-webkit-scrollbar-thumb { border-radius: 4px; background: rgba(103, 232, 249, 0.35); }
+        .case-orbit-label { position: absolute; z-index: 1; bottom: 1.25rem; color: rgba(148, 163, 184, 0.74); font: 500 0.58rem/1.4 'JetBrains Mono', monospace; letter-spacing: 0.18em; pointer-events: none; }
+        @keyframes caseProjectReveal { from { opacity: 0.2; filter: blur(10px); clip-path: circle(0% at 50% 50%); transform: translateY(7px) scale(0.97); } to { opacity: 1; filter: blur(0); clip-path: circle(75% at 50% 50%); transform: translateY(0) scale(1); } }
+        .case-study-grid { display: none !important; }
         .case-study-card[hidden] { display: none !important; }
         .case-card-topline, .case-card-bottom { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; }
         .case-study-number { color: #93c5fd; font: 500 0.65rem/1.4 'JetBrains Mono', monospace; letter-spacing: 0.06em; }
@@ -455,6 +495,8 @@
         .case-card-copy { display: flex; flex-direction: column; gap: 0.55rem; }
         .case-card-copy h3 { color: #f1f5f9; font-size: 0.95rem; font-weight: 700; line-height: 1.42; letter-spacing: -0.015em; }
         .case-card-copy p { color: #94a3b8; font-size: 0.82rem; line-height: 1.68; }
+        .case-card-copy .case-detail { color: #cbd5e1; }
+        .case-card-copy .case-detail strong { color: #67e8f9; font: 600 0.65rem/1.5 'JetBrains Mono', monospace; letter-spacing: 0.08em; text-transform: uppercase; }
         .case-card-bottom { margin-top: auto; align-items: flex-end; }
         .case-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; }
         .case-tags span { padding: 0.22rem 0.42rem; border: 1px solid rgba(148, 163, 184, 0.2); border-radius: 0.3rem; color: #cbd5e1; background: rgba(15, 23, 42, 0.78); font: 500 0.62rem/1.35 'JetBrains Mono', monospace; }
@@ -462,15 +504,26 @@
         .case-study-action:hover { color: #e0f2fe; border-color: rgba(103, 232, 249, 0.55); }
         .case-study-empty { padding: 2.25rem 1rem; border: 1px dashed rgba(148, 163, 184, 0.24); border-radius: 1rem; color: #94a3b8; text-align: center; }
         @media (max-width: 640px) {
+            .project-data-rails { right: -0.3rem; left: -0.3rem; opacity: 0.58; }
+            .project-data-rail { width: 0.7rem; }
             .case-study-header { align-items: flex-start; }
             .case-study-brand { width: 3.5rem; height: 3.5rem; border-radius: 1rem; }
             .case-study-brand span { display: none; }
             .case-search-row { align-items: flex-start; }
             .case-search-box { width: 100%; order: 3; }
             .case-study-count { align-self: center; }
-            .case-study-card { min-height: 12rem; }
+            .case-carousel-viewport { height: 31rem; perspective: 900px; }
+            .case-orbit-frame { width: 90vw; height: 25rem; }
+            .case-orbit-frame::before { inset: 6%; }
+            .case-orbit-node { transform: translate(-50%, -50%) translateX(45vw) translateZ(2px); }
+            .case-orbit-bar { width: 128px; min-height: 2.45rem; gap: 0.45rem; padding: 0.46rem 0.55rem; font-size: 0.62rem; }
+            .case-orbit-bar span { font-size: 0.56rem; }
+            .case-active-project { width: min(330px, calc(100vw - 2.5rem)); height: 20.5rem; padding: 1.2rem; }
+            .case-active-project .case-card-copy { max-height: 11rem; }
+            .case-orbit-label { bottom: 0.65rem; font-size: 0.52rem; }
         }
         @media (prefers-reduced-motion: reduce) {
+            .case-active-project.is-changing { animation-duration: 1ms; }
             .mobile-water-bar::before,
             .mobile-water-bar::after,
             .water-drop,
@@ -478,10 +531,12 @@
             .profile-stage::before,
             .profile-stage::after,
             .brand-emblem::before,
+            .brand-orbit,
             .ai-portrait-visual::after,
             .ai-visual-orbit,
             .ai-visual-node,
             .ai-core-icon,
+            .ai-core-scanline,
             .case-study-card,
             .case-study-brand::before {
                 animation: none !important;
@@ -496,6 +551,7 @@
             .water-nav-link::before,
             .water-nav-link,
             .brand-emblem::after,
+            .brand-orbit,
             .brand-emblem,
             .brand-name,
             .brand-name::after,
@@ -509,18 +565,592 @@
             .brand-link:hover .brand-emblem,
             .btn-action:hover,
             .btn-action:active, .case-study-brand:hover,
-            .project-card:hover {
+            .project-card:not(.case-study-card):hover {
                 transform: none !important;
             }
+            .case-study-card { transition: none !important; }
+            .case-carousel-control { transition: none; }
         }
         html, body {
             max-width: 100%;
             overflow-x: hidden;
         }
 
+        body {
+            background:
+                radial-gradient(ellipse at 12% 8%, rgba(8, 47, 73, 0.24), transparent 34rem),
+                radial-gradient(ellipse at 92% 38%, rgba(49, 46, 129, 0.16), transparent 38rem),
+                #050811;
+        }
+
+        .ambient-scene {
+            --cursor-x: 50%;
+            --cursor-y: 50%;
+            --scene-shift-x: 0px;
+            --scene-shift-y: 0px;
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            overflow: hidden;
+            pointer-events: none;
+            background:
+                radial-gradient(ellipse at 50% 115%, rgba(14, 116, 144, 0.13), transparent 55%),
+                linear-gradient(180deg, rgba(5, 8, 17, 0.04), rgba(5, 8, 17, 0.4));
+        }
+
+        .ambient-scene::before,
+        .ambient-scene::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+        }
+
+        .ambient-scene::before {
+            opacity: 0.2;
+            background-image:
+                linear-gradient(rgba(103, 232, 249, 0.09) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(103, 232, 249, 0.09) 1px, transparent 1px);
+            background-size: 72px 72px;
+            mask-image: linear-gradient(to bottom, transparent, #000 18%, #000 75%, transparent);
+            transform: perspective(900px) rotateX(58deg) scale(1.7) translateY(28%) translate3d(var(--scene-shift-x), var(--scene-shift-y), 0);
+            transform-origin: center bottom;
+        }
+
+        .ambient-scene::after {
+            inset: -25%;
+            opacity: 0.18;
+            background: conic-gradient(from 220deg at 50% 50%, transparent 0deg, rgba(34, 211, 238, 0.14) 24deg, transparent 82deg, rgba(129, 140, 248, 0.1) 210deg, transparent 270deg);
+            filter: blur(80px);
+            animation: ambientDrift 24s ease-in-out infinite alternate;
+        }
+
+        #ambient-canvas {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            opacity: 0.68;
+        }
+
+        .ambient-cursor-light {
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+            pointer-events: none;
+            background: radial-gradient(540px circle at var(--cursor-x) var(--cursor-y), rgba(34, 211, 238, 0.095), rgba(99, 102, 241, 0.035) 36%, transparent 72%);
+            transition: opacity 240ms ease;
+        }
+
+        @keyframes ambientDrift {
+            from { transform: translate3d(-2%, -1%, 0) rotate(-5deg) scale(0.96); }
+            to { transform: translate3d(2%, 1%, 0) rotate(5deg) scale(1.04); }
+        }
+
+        header,
+        main,
+        footer,
+        #ai-assistant {
+            position: relative;
+            z-index: 1;
+        }
+
+        header { z-index: 40; }
+        #mobile-bottom-bar { z-index: 50; }
+
+        .hero-showcase {
+            --hero-tilt-x: 0deg;
+            --hero-tilt-y: 0deg;
+            position: relative;
+            width: 100%;
+            max-width: 44rem;
+            overflow: hidden;
+            border: 1px solid rgba(148, 163, 184, 0.18);
+            border-radius: 1.35rem;
+            background:
+                linear-gradient(135deg, rgba(15, 23, 42, 0.82), rgba(8, 25, 44, 0.68)),
+                rgba(5, 8, 17, 0.72);
+            box-shadow: 0 24px 70px rgba(2, 8, 23, 0.28), inset 0 1px rgba(255, 255, 255, 0.06);
+            text-align: left;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            transform: perspective(1200px) rotateX(var(--hero-tilt-x)) rotateY(var(--hero-tilt-y));
+            transition: transform 260ms ease-out, border-color 260ms ease, box-shadow 260ms ease;
+            will-change: transform;
+        }
+
+        .hero-showcase::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 8%;
+            right: 8%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(103, 232, 249, 0.68), rgba(167, 139, 250, 0.5), transparent);
+        }
+
+        .hero-slide-track { display: grid; min-height: 15.5rem; }
+
+        .hero-slide {
+            grid-area: 1 / 1;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 0.8rem;
+            padding: clamp(1.25rem, 3vw, 2rem);
+            opacity: 0;
+            transform: translate3d(18px, 0, 0);
+            transition: opacity 420ms ease, transform 520ms cubic-bezier(0.2, 0.8, 0.2, 1);
+            pointer-events: none;
+        }
+
+        .hero-slide.is-active {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+            pointer-events: auto;
+        }
+
+        .hero-slide-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            color: #67e8f9;
+            font: 500 0.65rem/1.5 'JetBrains Mono', monospace;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        .hero-slide-kicker::before {
+            content: '';
+            width: 1.25rem;
+            height: 1px;
+            background: currentColor;
+            box-shadow: 0 0 10px currentColor;
+        }
+
+        .hero-slide h2 {
+            color: #f8fafc;
+            font-size: clamp(1.35rem, 3vw, 2rem);
+            font-weight: 700;
+            letter-spacing: -0.035em;
+            line-height: 1.2;
+        }
+
+        .hero-slide p {
+            max-width: 38rem;
+            color: #b7c4d6;
+            font-size: clamp(0.85rem, 1.35vw, 1rem);
+            line-height: 1.7;
+        }
+
+        .hero-slide-tags { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: 0.15rem; }
+
+        .hero-slide-tags span {
+            padding: 0.3rem 0.55rem;
+            border: 1px solid rgba(148, 163, 184, 0.18);
+            border-radius: 999px;
+            color: #cbd5e1;
+            background: rgba(15, 23, 42, 0.55);
+            font: 500 0.62rem/1.3 'JetBrains Mono', monospace;
+        }
+
+        .hero-showcase-controls {
+            position: absolute;
+            right: 1.2rem;
+            bottom: 1.1rem;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            gap: 0.45rem;
+        }
+
+        .hero-slide-count {
+            min-width: 3.2rem;
+            margin-right: 0.2rem;
+            color: #94a3b8;
+            font: 500 0.62rem/1 'JetBrains Mono', monospace;
+            text-align: center;
+        }
+
+        .hero-slide-control {
+            display: grid;
+            width: 2rem;
+            height: 2rem;
+            place-items: center;
+            border: 1px solid rgba(148, 163, 184, 0.28);
+            border-radius: 50%;
+            color: #cbd5e1;
+            background: rgba(15, 23, 42, 0.82);
+            transition: border-color 180ms ease, color 180ms ease, background 180ms ease;
+        }
+
+        .hero-slide-control:hover,
+        .hero-slide-control:focus-visible {
+            border-color: rgba(103, 232, 249, 0.64);
+            color: #a5f3fc;
+            background: rgba(8, 47, 73, 0.8);
+            outline: none;
+        }
+
+        .hero-slide-progress {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            height: 2px;
+            background: rgba(148, 163, 184, 0.12);
+        }
+
+        .hero-slide-progress span {
+            display: block;
+            width: 0;
+            height: 100%;
+            background: linear-gradient(90deg, #22d3ee, #818cf8);
+            box-shadow: 0 0 12px rgba(34, 211, 238, 0.5);
+        }
+
+        .hero-showcase.is-playing .hero-slide-progress span { animation: heroSlideProgress 6.5s linear; }
+
+        @keyframes heroSlideProgress {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @media (max-width: 640px) {
+            .hero-slide-track { min-height: 18rem; }
+            .hero-slide { padding-bottom: 4.25rem; }
+            .hero-showcase-controls { right: 1rem; bottom: 0.9rem; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .ambient-scene::after,
+            .hero-showcase.is-playing .hero-slide-progress span { animation: none !important; }
+            .hero-slide,
+            .hero-slide-control,
+            .hero-showcase,
+            .profile-stage > div,
+            .ambient-cursor-light { transition: none !important; }
+        }
+
+        #universe-webgl {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        #universe-webgl canvas {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        .hero-role-line {
+            display: flex;
+            min-height: 1.8rem;
+            align-items: center;
+            gap: 0.55rem;
+            color: #a5f3fc;
+            font: 500 clamp(0.8rem, 1.4vw, 1rem)/1.6 'JetBrains Mono', monospace;
+            letter-spacing: 0.025em;
+        }
+
+        .hero-role-line::before {
+            content: '>';
+            color: #818cf8;
+        }
+
+        .typing-caret {
+            width: 1px;
+            height: 1.1em;
+            background: #67e8f9;
+            box-shadow: 0 0 12px rgba(34, 211, 238, 0.7);
+            animation: typingBlink 1s steps(2, start) infinite;
+        }
+
+        @keyframes typingBlink {
+            to { opacity: 0; }
+        }
+
+        .profile-stage {
+            transform-style: preserve-3d;
+        }
+
+        .profile-stage > div {
+            --profile-tilt-x: 0deg;
+            --profile-tilt-y: 0deg;
+            transform: perspective(900px) rotateX(var(--profile-tilt-x)) rotateY(var(--profile-tilt-y));
+            transition: transform 240ms ease-out;
+            will-change: transform;
+        }
+
+        .profile-stage::after {
+            background: conic-gradient(from 0deg, #67e8f9, transparent 17%, #818cf8 35%, transparent 52%, #e0f2fe 70%, transparent 84%, #67e8f9);
+            filter: drop-shadow(0 0 9px rgba(34, 211, 238, 0.32));
+        }
+
+        .ai-portrait-visual {
+            background:
+                radial-gradient(ellipse at 50% 58%, rgba(34, 211, 238, 0.2), transparent 42%),
+                radial-gradient(circle at 50% 40%, rgba(14, 116, 144, 0.32), transparent 35%),
+                radial-gradient(circle at 18% 78%, rgba(37, 99, 235, 0.22), transparent 36%),
+                radial-gradient(circle at 84% 18%, rgba(124, 58, 237, 0.18), transparent 34%),
+                linear-gradient(145deg, #07111f, #0a1428 52%, #090d16);
+        }
+
+        .ai-visual-core {
+            filter: drop-shadow(0 0 22px rgba(34, 211, 238, 0.14));
+            transform-style: preserve-3d;
+        }
+
+        .brand-emblem {
+            transform-style: preserve-3d;
+            filter: drop-shadow(0 5px 10px rgba(148, 163, 184, 0.16));
+        }
+
+        .brand-link:hover .brand-emblem {
+            transform: perspective(600px) translateY(-2px) rotateY(-12deg) rotateX(7deg) scale(1.06);
+        }
+
+        .case-study-card {
+            --card-pointer-x: 50%;
+            --card-pointer-y: 50%;
+            transform-style: preserve-3d;
+            transition: transform 320ms cubic-bezier(0.2, 0.8, 0.2, 1), border-color 300ms ease, box-shadow 300ms ease, background-color 300ms ease;
+        }
+
+        .case-study-card::after {
+            inset: 0;
+            z-index: 0;
+            border-radius: inherit;
+            background: radial-gradient(circle at var(--card-pointer-x) var(--card-pointer-y), rgba(103, 232, 249, 0.2), transparent 56%);
+            filter: none;
+            opacity: 0;
+            transition: opacity 240ms ease;
+        }
+
+        .case-study-card > * {
+            position: relative;
+            z-index: 1;
+            transform: translateZ(12px);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .typing-caret { animation: none; }
+            .brand-orbit,
+            .project-data-stream { animation: none !important; }
+            .case-study-card,
+            .profile-stage::after { transition: none !important; }
+        }
+
+        html.is-loading,
+        html.is-loading body { overflow: hidden; }
+
+        .site-loader {
+            position: fixed;
+            inset: 0;
+            z-index: 10000;
+            display: grid;
+            place-items: center;
+            overflow: hidden;
+            background:
+                radial-gradient(ellipse at 50% 45%, rgba(8, 47, 73, 0.34), transparent 34rem),
+                #050811;
+            opacity: 1;
+            visibility: visible;
+            transition: opacity 560ms ease, visibility 560ms ease;
+        }
+
+        .site-loader::before,
+        .site-loader::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+        }
+
+        .site-loader::before {
+            opacity: 0.2;
+            background-image:
+                linear-gradient(rgba(103, 232, 249, 0.12) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(103, 232, 249, 0.12) 1px, transparent 1px);
+            background-size: 46px 46px;
+            mask-image: radial-gradient(ellipse at center, #000 10%, transparent 76%);
+            transform: perspective(760px) rotateX(58deg) scale(1.7) translateY(28%);
+            transform-origin: center bottom;
+        }
+
+        .site-loader::after {
+            inset: 15%;
+            border: 1px solid rgba(103, 232, 249, 0.08);
+            border-radius: 50%;
+            box-shadow: 0 0 90px rgba(34, 211, 238, 0.06), inset 0 0 90px rgba(34, 211, 238, 0.04);
+            transform: scale(1.35, 0.62) rotate(-18deg);
+        }
+
+        .site-loader.is-hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .loader-content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            width: min(22rem, calc(100vw - 3rem));
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .loader-emblem {
+            position: relative;
+            display: grid;
+            width: 5.2rem;
+            height: 5.2rem;
+            place-items: center;
+            margin-bottom: 1.65rem;
+            border: 1px solid rgba(226, 232, 240, 0.46);
+            border-radius: 1.35rem;
+            background: linear-gradient(145deg, rgba(30, 41, 59, 0.86), rgba(5, 8, 17, 0.92));
+            box-shadow: 0 0 36px rgba(34, 211, 238, 0.14), inset 0 0 20px rgba(34, 211, 238, 0.09);
+            animation: loaderEmblemFloat 2.4s ease-in-out infinite;
+        }
+
+        .loader-emblem::before,
+        .loader-emblem::after {
+            content: '';
+            position: absolute;
+            inset: -0.65rem;
+            border: 1px solid rgba(103, 232, 249, 0.52);
+            border-radius: 1.65rem;
+            pointer-events: none;
+            animation: loaderRing 5s linear infinite;
+        }
+
+        .loader-emblem::after {
+            inset: -0.95rem;
+            border-color: rgba(167, 139, 250, 0.34);
+            border-style: dashed;
+            border-radius: 50%;
+            animation-duration: 9s;
+            animation-direction: reverse;
+        }
+
+        .loader-emblem img {
+            width: 100%;
+            height: 100%;
+            border-radius: inherit;
+            object-fit: cover;
+        }
+
+        .loader-brand {
+            color: #f1f5f9;
+            font-size: 1.7rem;
+            font-weight: 800;
+            letter-spacing: -0.045em;
+            text-shadow: 0 0 28px rgba(226, 232, 240, 0.22);
+        }
+
+        .loader-caption {
+            margin-top: 0.35rem;
+            color: #94a3b8;
+            font: 500 0.62rem/1.5 'JetBrains Mono', monospace;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+        }
+
+        .loader-status {
+            display: flex;
+            align-items: center;
+            gap: 0.55rem;
+            margin-top: 2rem;
+            color: #a5f3fc;
+            font: 500 0.65rem/1.5 'JetBrains Mono', monospace;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .loader-status::before {
+            content: '';
+            width: 0.4rem;
+            height: 0.4rem;
+            border-radius: 50%;
+            background: #67e8f9;
+            box-shadow: 0 0 12px rgba(34, 211, 238, 0.85);
+            animation: loaderStatusPulse 1.2s ease-in-out infinite;
+        }
+
+        .loader-progress {
+            width: 100%;
+            height: 2px;
+            overflow: hidden;
+            margin-top: 0.9rem;
+            border-radius: 99px;
+            background: rgba(148, 163, 184, 0.15);
+        }
+
+        .loader-progress span {
+            display: block;
+            width: 38%;
+            height: 100%;
+            border-radius: inherit;
+            background: linear-gradient(90deg, #22d3ee, #818cf8);
+            box-shadow: 0 0 14px rgba(34, 211, 238, 0.6);
+            animation: loaderProgress 1.35s ease-in-out infinite;
+        }
+
+        @keyframes loaderEmblemFloat {
+            0%, 100% { transform: translateY(0) rotateX(0deg); }
+            50% { transform: translateY(-5px) rotateX(7deg); }
+        }
+
+        @keyframes loaderRing { to { transform: rotate(360deg); } }
+        @keyframes loaderStatusPulse { 50% { opacity: 0.4; transform: scale(0.72); } }
+        @keyframes loaderProgress {
+            from { transform: translateX(-110%); }
+            to { transform: translateX(280%); }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .loader-emblem,
+            .loader-emblem::before,
+            .loader-emblem::after,
+            .loader-status::before,
+            .loader-progress span { animation: none !important; }
+            .loader-progress span { width: 100%; }
+            .site-loader { transition-duration: 180ms; }
+        }
+
+        @media (hover: none), (pointer: coarse) {
+            .ambient-cursor-light { display: none; }
+            .hero-showcase,
+            .profile-stage > div { transform: none; }
+        }
     </style>
+    <noscript><style>#site-loader { display: none !important; } html.is-loading, html.is-loading body { overflow: auto; }</style></noscript>
 </head>
 <body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-slate-200 selection:text-slate-950 transition-colors duration-300 pb-24 md:pb-0">
+
+    <div id="site-loader" class="site-loader" role="status" aria-label="Loading ngphuc.exe portfolio">
+        <div class="loader-content">
+            <div class="loader-emblem">
+                <img src="assets/logo.png" alt="" width="84" height="84">
+            </div>
+            <p class="loader-brand silver-chrome-text">ngphuc.exe</p>
+            <p class="loader-caption">Web Design · Full-Stack · API · AI</p>
+            <p class="loader-status">Initializing portfolio</p>
+            <div class="loader-progress" aria-hidden="true"><span></span></div>
+        </div>
+    </div>
+
+    <div class="ambient-scene" aria-hidden="true">
+        <canvas id="ambient-canvas"></canvas>
+        <div id="universe-webgl"></div>
+        <div class="ambient-cursor-light"></div>
+    </div>
 
     <!-- Toast Notification Overlay -->
     <div id="toast-container" class="fixed bottom-24 md:bottom-6 right-4 left-4 md:left-auto z-50 flex flex-col gap-2 pointer-events-none"></div>
@@ -539,7 +1169,7 @@
                     <i class="fa-solid fa-arrow-right text-[10px] opacity-0 group-hover:opacity-100"></i>
                 </button>
                 <button onclick="executeCmd('about')" class="btn-action p-2.5 rounded-lg hover:bg-white/10 text-left flex items-center justify-between group text-slate-300 hover:text-white">
-                    <span><i class="fa-solid fa-microchip mr-2 text-purple-400"></i> View Architecture Mindset</span>
+                    <span><i class="fa-solid fa-pen-ruler mr-2 text-purple-400"></i> View Design-to-Development Process</span>
                     <i class="fa-solid fa-arrow-right text-[10px] opacity-0 group-hover:opacity-100"></i>
                 </button>
                 <button onclick="executeCmd('contact')" class="btn-action p-2.5 rounded-lg hover:bg-white/10 text-left flex items-center justify-between group text-slate-300 hover:text-white">
@@ -556,19 +1186,21 @@
             <!-- Brand Logo with Liquid Silver Effect -->
             <a href="#hero" class="brand-link flex items-center gap-3 group">
                 <div class="brand-emblem w-10 h-10 rounded-xl silver-chrome-border flex items-center justify-center font-black text-lg shadow-lg group-hover:scale-105 transition-transform bg-slate-900">
-                    <img src="assets/logo.jpg" alt="ngphuc logo" class="brand-emblem-image" width="40" height="40">
+                    <img src="assets/logo.png" alt="ngphuc.exe logo" class="brand-emblem-image" width="40" height="40">
+                    <span class="brand-orbit brand-orbit-one" aria-hidden="true"></span>
+                    <span class="brand-orbit brand-orbit-two" aria-hidden="true"></span>
                 </div>
                 <div class="flex flex-col">
-                    <span class="brand-name font-black text-xl sm:text-2xl tracking-tight silver-chrome-text lowercase">ngphuc</span>
-                    <span class="text-[10px] sm:text-xs text-slate-400 font-mono -mt-1 tracking-wider uppercase">Architect & AI Eng</span>
+                    <span class="brand-name font-black text-xl sm:text-2xl tracking-tight silver-chrome-text lowercase">ngphuc.exe</span>
+                    <span class="text-[10px] sm:text-xs text-slate-400 font-mono -mt-1 tracking-wider uppercase">Web Design · Full-Stack · AI</span>
                 </div>
             </a>
 
             <!-- Desktop Navigation Links -->
             <nav aria-label="Primary navigation" class="desktop-nav hidden md:flex items-center gap-7 text-xs sm:text-sm font-medium text-slate-300">
                 <a href="#about" class="desktop-nav-link hover:text-white transition-colors">Overview</a>
-                <a href="#architecture" class="desktop-nav-link hover:text-white transition-colors">Architecture</a>
-                <a href="#experience" class="desktop-nav-link hover:text-white transition-colors">Career</a>
+                <a href="#architecture" class="desktop-nav-link hover:text-white transition-colors">Process</a>
+                <a href="#expertise" class="desktop-nav-link hover:text-white transition-colors">Expertise</a>
                 <a href="#projects" class="desktop-nav-link hover:text-white transition-colors">Projects</a>
                 <a href="#contact" class="desktop-nav-link hover:text-white transition-colors">Contact</a>
             </nav>
@@ -594,12 +1226,12 @@
             <span class="text-[10px] font-medium mt-0.5">Home</span>
         </a>
         <a href="#architecture" class="water-nav-link flex flex-col items-center justify-center p-2 rounded-xl text-slate-400 hover:text-white active:bg-white/10 transition-all">
-            <i class="fa-solid fa-network-wired text-lg"></i>
-            <span class="text-[10px] font-medium mt-0.5">System</span>
+            <i class="fa-solid fa-diagram-project text-lg"></i>
+            <span class="text-[10px] font-medium mt-0.5">Process</span>
         </a>
-        <a href="#experience" class="water-nav-link flex flex-col items-center justify-center p-2 rounded-xl text-slate-400 hover:text-white active:bg-white/10 transition-all">
-            <i class="fa-solid fa-briefcase text-lg"></i>
-            <span class="text-[10px] font-medium mt-0.5">Career</span>
+        <a href="#expertise" class="water-nav-link flex flex-col items-center justify-center p-2 rounded-xl text-slate-400 hover:text-white active:bg-white/10 transition-all">
+            <i class="fa-solid fa-code text-lg"></i>
+            <span class="text-[10px] font-medium mt-0.5">Expertise</span>
         </a>
         <a href="#projects" class="water-nav-link flex flex-col items-center justify-center p-2 rounded-xl text-slate-400 hover:text-white active:bg-white/10 transition-all">
             <i class="fa-solid fa-layer-group text-lg"></i>
@@ -624,18 +1256,47 @@
                 <!-- Status Badge -->
                 <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-card border border-emerald-500/30 text-emerald-400 text-xs font-mono tracking-wide">
                     <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                    Available for Senior Architect Roles & Enterprise Advisory
+                    Available for Web, API &amp; AI Projects
                 </div>
 
                 <!-- Main Name Display (Tráng Bạc Effect) -->
                 <h1 class="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight leading-tight">
                     Hello, I'm <br class="hidden sm:inline">
-                    <span class="silver-chrome-text lowercase font-black text-5xl sm:text-7xl md:text-8xl inline-block my-1">ngphuc</span>
+                    <span class="silver-chrome-text lowercase font-black text-5xl sm:text-7xl md:text-8xl inline-block my-1">ngphuc.exe</span>
                 </h1>
-
-                <p class="text-slate-300 text-base sm:text-xl max-w-2xl font-normal leading-relaxed">
-                    Software architect and AI systems engineer focused on reliable distributed platforms and practical AI. I work across backend architecture, cloud-native delivery, and intelligent search, combining clear service boundaries, thoughtful data design, and strong observability to help teams scale with confidence.
+                <p class="hero-role-line" aria-label="Web Designer, Frontend and Backend Developer, API and AI Specialist">
+                    <span id="hero-typing" aria-hidden="true">Web Designer &amp; Developer</span><span class="typing-caret" aria-hidden="true"></span>
                 </p>
+                <p class="max-w-2xl text-sm sm:text-base leading-relaxed text-slate-300">I design polished, responsive websites and build the frontend and backend behind them—connecting thoughtful user experiences with dependable APIs and practical AI.</p>
+
+                <div class="hero-showcase" id="hero-showcase" role="region" aria-label="Web design, full-stack, API and AI focus areas" aria-roledescription="carousel">
+                    <div class="hero-slide-track">
+                        <article class="hero-slide is-active" data-hero-slide aria-hidden="false">
+                            <span class="hero-slide-kicker">01 / Full-stack web</span>
+                            <h2>From thoughtful interfaces to reliable backends.</h2>
+                            <p>Building complete web experiences that connect responsive frontends, secure application logic, and well-structured data.</p>
+                            <div class="hero-slide-tags"><span>Frontend</span><span>Backend</span><span>MySQL</span></div>
+                        </article>
+                        <article class="hero-slide" data-hero-slide aria-hidden="true">
+                            <span class="hero-slide-kicker">02 / API engineering</span>
+                            <h2>Make every integration feel intentional.</h2>
+                            <p>Designing clear API contracts and dependable connections between products, services, and the business workflows around them.</p>
+                            <div class="hero-slide-tags"><span>REST APIs</span><span>Integrations</span><span>Data workflows</span></div>
+                        </article>
+                        <article class="hero-slide" data-hero-slide aria-hidden="true">
+                            <span class="hero-slide-kicker">03 / Applied AI</span>
+                            <h2>Useful AI, grounded in real workflows.</h2>
+                            <p>Connecting assistants and document intelligence to relevant knowledge, practical tools, and carefully scoped access.</p>
+                            <div class="hero-slide-tags"><span>AI assistants</span><span>RAG</span><span>Automation</span></div>
+                        </article>
+                    </div>
+                    <div class="hero-showcase-controls" aria-label="Slide controls">
+                        <span class="hero-slide-count" id="hero-slide-count" aria-live="polite">01 / 03</span>
+                        <button class="hero-slide-control" type="button" data-slide-previous aria-label="Previous slide"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i></button>
+                        <button class="hero-slide-control" type="button" data-slide-next aria-label="Next slide"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
+                    </div>
+                    <div class="hero-slide-progress" aria-hidden="true"><span></span></div>
+                </div>
 
                 <!-- High-Tech Button Actions with Smooth Animations -->
                 <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3 w-full pt-2">
@@ -643,7 +1304,7 @@
                         <i class="fa-solid fa-rocket text-sm"></i> Explore Projects
                     </a>
                     <a href="#architecture" class="btn-action w-full sm:w-auto px-6 py-3.5 rounded-xl glass-card text-slate-200 font-semibold flex items-center justify-center gap-2 border border-white/10 hover:border-slate-300">
-                        <i class="fa-solid fa-network-wired text-sm text-cyan-400"></i> Architecture Flow
+                        <i class="fa-solid fa-pen-ruler text-sm text-cyan-400"></i> Design to Development
                     </a>
                     <div class="flex items-center gap-2 mt-1 sm:mt-0">
                         <button onclick="copyToClipboard('ngphuc1753@gmail.com', 'Email copied!')" class="btn-action p-3.5 rounded-xl glass-card text-slate-300 hover:text-white border border-white/10 hover:border-slate-300" title="Copy Email">
@@ -660,16 +1321,19 @@
             <div class="relative z-10 w-full max-w-xs sm:max-w-md lg:max-w-sm flex justify-center profile-stage">
                 <div class="relative w-64 h-64 sm:w-80 sm:h-80 rounded-3xl p-1 silver-chrome-border shadow-2xl">
                     <div class="w-full h-full rounded-[22px] overflow-hidden bg-slate-900 relative flex items-center justify-center">
-                        <div class="ai-portrait-visual" role="img" aria-label="Abstract neural network illustration representing AI and cloud systems">
+                        <div class="ai-portrait-visual" role="img" aria-label="ngphuc.exe logo within a digital web design and AI illustration">
                             <span class="ai-visual-orbit ai-visual-orbit-one" aria-hidden="true"></span>
                             <span class="ai-visual-orbit ai-visual-orbit-two" aria-hidden="true"></span>
                             <span class="ai-visual-node ai-visual-node-one" aria-hidden="true"></span>
                             <span class="ai-visual-node ai-visual-node-two" aria-hidden="true"></span>
                             <span class="ai-visual-node ai-visual-node-three" aria-hidden="true"></span>
                             <div class="ai-visual-core">
-                                <span class="ai-core-icon"><i class="fa-solid fa-brain" aria-hidden="true"></i></span>
-                                <span class="ai-core-title">AI SYSTEMS</span>
-                                <span class="ai-core-caption">ARCHITECTURE · INTELLIGENCE · SCALE</span>
+                                <span class="ai-core-icon">
+                                    <img class="ai-core-logo" src="assets/logo.png" alt="" aria-hidden="true" width="512" height="512">
+                                    <span class="ai-core-scanline" aria-hidden="true"></span>
+                                </span>
+                                <span class="ai-core-title">WEB · API · AI</span>
+                                <span class="ai-core-caption">DESIGN · DEVELOP · INTEGRATE</span>
                             </div>
                         </div>
                         <div class="absolute bottom-3 left-3 right-3 glass-card p-3 rounded-2xl flex items-center gap-3 backdrop-blur-md">
@@ -678,7 +1342,7 @@
                             </div>
                             <div class="text-left">
                                 <p class="text-[10px] text-slate-400 font-mono uppercase">SPECIALIZATION</p>
-                                <p class="text-xs sm:text-sm font-bold text-slate-100">Distributed & AI Systems</p>
+                                <p class="text-xs sm:text-sm font-bold text-slate-100">Web Design &amp; Full-Stack</p>
                             </div>
                         </div>
                     </div>
@@ -690,7 +1354,7 @@
         <section id="about" class="flex flex-col gap-6 sm:gap-8 reveal">
             <div class="flex flex-col gap-1">
                 <span class="text-cyan-400 font-mono text-xs sm:text-sm tracking-widest uppercase">01. OVERVIEW</span>
-                <h2 class="text-2xl sm:text-4xl font-bold tracking-tight">Systems Architecture, Reliability & Applied AI</h2>
+                <h2 class="text-2xl sm:text-4xl font-bold tracking-tight">Web Design, Full-Stack Development & Applied AI</h2>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
@@ -698,17 +1362,17 @@
                 <div class="md:col-span-2 glass-card rounded-3xl p-6 sm:p-8 flex flex-col justify-between glow-card-hover">
                     <div class="flex flex-col gap-3 sm:gap-4">
                         <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-slate-900 text-slate-200 border border-white/10 flex items-center justify-center text-lg sm:text-xl">
-                            <i class="fa-solid fa-microchip text-cyan-400"></i>
+                            <i class="fa-solid fa-pen-ruler text-cyan-400"></i>
                         </div>
-                        <h3 class="text-lg sm:text-xl font-bold">Engineering Scalability with Precision</h3>
+                        <h3 class="text-lg sm:text-xl font-bold">Design the experience. Build the whole product.</h3>
                         <p class="text-slate-300 leading-relaxed text-xs sm:text-base">
-                            I turn complex requirements into practical software architecture: resilient backend services, low-latency API gateways, and AI-powered search experiences. I focus on clear ownership boundaries, fault tolerance, useful observability, and cloud infrastructure that can be operated and evolved without unnecessary complexity.
+                            I bring visual design and software development together to create polished, responsive websites and web applications. From interface and interaction design to frontend implementation, backend logic, and data, I build cohesive experiences—and extend them with well-integrated APIs and practical AI features.
                         </p>
                     </div>
                     <div class="pt-4 sm:pt-6 flex flex-wrap gap-2">
-                        <span class="px-2.5 py-1 rounded-lg bg-slate-900 border border-white/10 text-slate-300 text-[11px] font-mono">Distributed Systems</span>
-                        <span class="px-2.5 py-1 rounded-lg bg-slate-900 border border-white/10 text-slate-300 text-[11px] font-mono">Cloud Native (AWS/GCP)</span>
-                        <span class="px-2.5 py-1 rounded-lg bg-slate-900 border border-white/10 text-slate-300 text-[11px] font-mono">LLM Orchestration</span>
+                        <span class="px-2.5 py-1 rounded-lg bg-slate-900 border border-white/10 text-slate-300 text-[11px] font-mono">UI/UX &amp; Responsive Design</span>
+                        <span class="px-2.5 py-1 rounded-lg bg-slate-900 border border-white/10 text-slate-300 text-[11px] font-mono">Frontend &amp; Backend</span>
+                        <span class="px-2.5 py-1 rounded-lg bg-slate-900 border border-white/10 text-slate-300 text-[11px] font-mono">API Integration &amp; AI</span>
                     </div>
                 </div>
 
@@ -718,8 +1382,8 @@
                         <i class="fa-solid fa-briefcase"></i>
                     </div>
                     <div class="mt-4">
-                        <div class="text-xl sm:text-2xl font-black tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">SYSTEMS</div>
-                        <p class="text-slate-400 text-xs sm:text-sm font-medium mt-1">Architecture to operations</p>
+                        <div class="text-xl sm:text-2xl font-black tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">FULL-STACK</div>
+                        <p class="text-slate-400 text-xs sm:text-sm font-medium mt-1">Design to deployment</p>
                     </div>
                 </div>
 
@@ -729,224 +1393,232 @@
                         <i class="fa-solid fa-server"></i>
                     </div>
                     <div class="mt-4">
-                        <div class="text-xl sm:text-2xl font-black tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500">AI + CLOUD</div>
-                        <p class="text-slate-400 text-xs sm:text-sm font-medium mt-1">Applied intelligence</p>
+                        <div class="text-xl sm:text-2xl font-black tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500">API + AI</div>
+                        <p class="text-slate-400 text-xs sm:text-sm font-medium mt-1">Connected intelligence</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 3. INTERACTIVE SYSTEM ARCHITECTURE FLOW DIAGRAM -->
+        <!-- 3. INTERACTIVE WEB PRODUCT DELIVERY FLOW -->
         <section id="architecture" class="flex flex-col gap-6 sm:gap-8 reveal">
             <div class="flex flex-col gap-1">
-                <span class="text-cyan-400 font-mono text-xs sm:text-sm tracking-widest uppercase">02. SYSTEM DESIGN</span>
-                <h2 class="text-2xl sm:text-4xl font-bold tracking-tight">Interactive Pipeline Architecture</h2>
+                <span class="text-cyan-400 font-mono text-xs sm:text-sm tracking-widest uppercase">02. DESIGN &amp; DEVELOPMENT</span>
+                <h2 class="text-2xl sm:text-4xl font-bold tracking-tight">From first sketch to intelligent product.</h2>
             </div>
 
             <div class="glass-card rounded-3xl p-6 sm:p-8 flex flex-col gap-6 border border-white/10 glow-card-hover">
                 <p class="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-3xl">
-                    Explore the delivery path from source control to production insight. Each stage highlights a practical layer of engineering discipline: secure change management, automated validation, resilient runtime operations, grounded AI retrieval, and observable system behavior.
+                    Explore a connected product workflow: understand the user, shape the interface, build the frontend and backend, connect APIs, then add useful AI capabilities where they improve the experience.
                 </p>
 
                 <!-- Architecture Interactive Nodes -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 pt-2">
                     <!-- Node 1 -->
-                    <button onclick="selectArchNode('source')" id="arch-node-source" class="btn-action p-4 rounded-2xl bg-slate-900 border border-cyan-500/50 text-left flex flex-col gap-2 shadow-lg">
+                    <button onclick="selectArchNode('design')" id="arch-node-design" class="btn-action p-4 rounded-2xl bg-slate-900 border border-cyan-500/50 text-left flex flex-col gap-2 shadow-lg">
                         <div class="flex items-center justify-between">
-                            <i class="fa-solid fa-code text-cyan-400 text-lg"></i>
+                            <i class="fa-solid fa-compass-drafting text-cyan-400 text-lg"></i>
                             <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
                         </div>
-                        <span class="font-bold text-sm text-slate-100">1. Source & Git</span>
-                        <span class="text-[10px] text-slate-400 font-mono">Branch Policy & Hooks</span>
+                        <span class="font-bold text-sm text-slate-100">1. Product &amp; UI/UX</span>
+                        <span class="text-[10px] text-slate-400 font-mono">User Flows &amp; Visual Design</span>
                     </button>
 
                     <!-- Node 2 -->
-                    <button onclick="selectArchNode('ci')" id="arch-node-ci" class="btn-action p-4 rounded-2xl bg-slate-900/60 border border-white/10 text-left flex flex-col gap-2 hover:border-slate-400">
+                    <button onclick="selectArchNode('frontend')" id="arch-node-frontend" class="btn-action p-4 rounded-2xl bg-slate-900/60 border border-white/10 text-left flex flex-col gap-2 hover:border-slate-400">
                         <div class="flex items-center justify-between">
-                            <i class="fa-solid fa-vial-circle-check text-purple-400 text-lg"></i>
+                            <i class="fa-solid fa-window-maximize text-purple-400 text-lg"></i>
                         </div>
-                        <span class="font-bold text-sm text-slate-100">2. CI Gate</span>
-                        <span class="text-[10px] text-slate-400 font-mono">Security Scan & Unit Tests</span>
+                        <span class="font-bold text-sm text-slate-100">2. Frontend</span>
+                        <span class="text-[10px] text-slate-400 font-mono">Responsive Web Interfaces</span>
                     </button>
 
                     <!-- Node 3 -->
-                    <button onclick="selectArchNode('runtime')" id="arch-node-runtime" class="btn-action p-4 rounded-2xl bg-slate-900/60 border border-white/10 text-left flex flex-col gap-2 hover:border-slate-400">
+                    <button onclick="selectArchNode('backend')" id="arch-node-backend" class="btn-action p-4 rounded-2xl bg-slate-900/60 border border-white/10 text-left flex flex-col gap-2 hover:border-slate-400">
                         <div class="flex items-center justify-between">
-                            <i class="fa-solid fa-cubes text-emerald-400 text-lg"></i>
+                            <i class="fa-solid fa-server text-emerald-400 text-lg"></i>
                         </div>
-                        <span class="font-bold text-sm text-slate-100">3. K8s Cluster</span>
-                        <span class="text-[10px] text-slate-400 font-mono">Autoscaling Mesh</span>
+                        <span class="font-bold text-sm text-slate-100">3. Backend &amp; Data</span>
+                        <span class="text-[10px] text-slate-400 font-mono">Application Logic &amp; Database</span>
                     </button>
 
                     <!-- Node 4 -->
+                    <button onclick="selectArchNode('api')" id="arch-node-api" class="btn-action p-4 rounded-2xl bg-slate-900/60 border border-white/10 text-left flex flex-col gap-2 hover:border-slate-400">
+                        <div class="flex items-center justify-between">
+                            <i class="fa-solid fa-link text-cyan-300 text-lg"></i>
+                        </div>
+                        <span class="font-bold text-sm text-slate-100">4. APIs &amp; Integration</span>
+                        <span class="text-[10px] text-slate-400 font-mono">REST APIs &amp; Connected Services</span>
+                    </button>
+
+                    <!-- Node 5 -->
                     <button onclick="selectArchNode('ai')" id="arch-node-ai" class="btn-action p-4 rounded-2xl bg-slate-900/60 border border-white/10 text-left flex flex-col gap-2 hover:border-slate-400">
                         <div class="flex items-center justify-between">
                             <i class="fa-solid fa-brain text-amber-400 text-lg"></i>
                         </div>
-                        <span class="font-bold text-sm text-slate-100">4. Vector AI</span>
-                        <span class="text-[10px] text-slate-400 font-mono">RAG & Embedding Search</span>
-                    </button>
-
-                    <!-- Node 5 -->
-                    <button onclick="selectArchNode('telemetry')" id="arch-node-telemetry" class="btn-action p-4 rounded-2xl bg-slate-900/60 border border-white/10 text-left flex flex-col gap-2 hover:border-slate-400">
-                        <div class="flex items-center justify-between">
-                            <i class="fa-solid fa-chart-line text-pink-400 text-lg"></i>
-                        </div>
-                        <span class="font-bold text-sm text-slate-100">5. Telemetry</span>
-                        <span class="text-[10px] text-slate-400 font-mono">OpenTelemetry & Metrics</span>
+                        <span class="font-bold text-sm text-slate-100">5. AI &amp; Refinement</span>
+                        <span class="text-[10px] text-slate-400 font-mono">Useful AI &amp; Quality Checks</span>
                     </button>
                 </div>
 
                 <!-- Dynamic Inspector Box -->
                 <div id="arch-inspector" class="p-5 rounded-2xl bg-slate-950/80 border border-white/10 font-mono text-xs flex flex-col gap-2">
                     <div class="flex items-center justify-between text-cyan-400">
-                        <span class="font-bold">[INSPECTOR] 01_SOURCE_GIT_STAGE</span>
+                        <span class="font-bold">[WORKFLOW] 01_PRODUCT_AND_UI_UX</span>
                         <span class="text-[10px] bg-cyan-500/10 px-2 py-0.5 rounded">STATUS: ACTIVE</span>
                     </div>
                     <p class="text-slate-300 font-sans leading-relaxed">
-                        Strict branch protection policies requiring automated peer code reviews, commit signing, and static code analysis before merging to main release branches.
+                        Translate product goals and user needs into clear journeys, responsive layouts, and a consistent visual direction before implementation begins.
                     </p>
                 </div>
             </div>
         </section>
 
-        <!-- 4. INTERACTIVE CASE STUDY CATALOG -->
-        <section id="projects" class="flex flex-col gap-6 sm:gap-8 reveal">
+        <!-- 3. FILTERABLE PROJECT CATALOG -->
+        <section id="projects" class="project-portfolio flex flex-col gap-6 sm:gap-8 reveal">
+            <div class="project-data-rails" aria-hidden="true">
+                <div class="project-data-rail">
+                    <div class="project-data-stream">
+                        <span>NGPHUC.EXE // PROJECT ARCHIVE // FULL-STACK WEB // AI SYSTEMS // API ENGINEERING // DESIGN · BUILD · INTEGRATE //</span>
+                        <span>NGPHUC.EXE // PROJECT ARCHIVE // FULL-STACK WEB // AI SYSTEMS // API ENGINEERING // DESIGN · BUILD · INTEGRATE //</span>
+                    </div>
+                </div>
+                <div class="project-data-rail">
+                    <div class="project-data-stream">
+                        <span>PROJECTS // RESPONSIVE INTERFACES // BACKEND SYSTEMS // REST APIS // DATA & AUTOMATION //</span>
+                        <span>PROJECTS // RESPONSIVE INTERFACES // BACKEND SYSTEMS // REST APIS // DATA & AUTOMATION //</span>
+                    </div>
+                </div>
+            </div>
             <div class="case-study-header">
                 <div class="case-study-heading-copy">
-                    <span class="text-cyan-400 font-mono text-xs sm:text-sm tracking-widest uppercase">03. CASE STUDIES</span>
-                    <h2 class="text-2xl sm:text-4xl font-bold tracking-tight">Explore selected case studies.</h2>
-                    <p class="section-intro">A focused portfolio across AI assistants, workflow automation, cloud operations, and system integration. Use the filters or search by project name and technology to find the work most relevant to you.</p>
+                    <span class="text-cyan-400 font-mono text-xs sm:text-sm tracking-widest uppercase">03. SELECTED PROJECTS</span>
+                    <h2 class="text-2xl sm:text-4xl font-bold tracking-tight">Web products, intelligent systems, connected by design.</h2>
+                    <p class="section-intro">Explore end-to-end web applications, AI-powered workflows, and API integrations—from responsive interfaces and backend business logic to data models, access controls, and dependable service connections. Each project highlights its focus, implementation approach, and core technologies. Product concepts are clearly labeled.</p>
                 </div>
-                <div class="case-study-brand" aria-label="ngphuc portfolio mark">
-                    <img src="assets/logo.jpg" alt="ngphuc logo" width="56" height="56">
-                    <span>ENGINEERING<br>PORTFOLIO</span>
+                <div class="case-study-brand" aria-label="ngphuc.exe portfolio mark">
+                    <img src="assets/logo.png" alt="ngphuc.exe logo" width="56" height="56">
+                    <span>WEB · AI · API</span>
                 </div>
             </div>
 
             <div class="case-study-toolbar">
-                <div class="case-filter-list" role="group" aria-label="Filter case studies by category">
+                <div class="case-filter-list" role="group" aria-label="Filter projects by category">
                     <button type="button" class="btn-action case-filter is-active" data-case-filter="all" aria-pressed="true">All projects</button>
-                    <button type="button" class="btn-action case-filter" data-case-filter="cloud" aria-pressed="false">Cloud &amp; Ops</button>
+                    <button type="button" class="btn-action case-filter" data-case-filter="web" aria-pressed="false">Full-stack Web</button>
                     <button type="button" class="btn-action case-filter" data-case-filter="ai" aria-pressed="false">AI &amp; Agents</button>
+                    <button type="button" class="btn-action case-filter" data-case-filter="api" aria-pressed="false">APIs &amp; Integrations</button>
                     <button type="button" class="btn-action case-filter" data-case-filter="automation" aria-pressed="false">Automation</button>
-                    <button type="button" class="btn-action case-filter" data-case-filter="labs" aria-pressed="false">Labs &amp; Concepts</button>
-                    <button type="button" class="btn-action case-filter" data-case-filter="web" aria-pressed="false">Web</button>
                 </div>
                 <div class="case-search-row">
-                    <label class="case-search-label" for="case-study-search">Find a project or technology</label>
+                    <label class="case-search-label" for="case-study-search">Search projects, capabilities, or technology</label>
                     <div class="case-search-box">
                         <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
-                        <input id="case-study-search" type="search" autocomplete="off" placeholder="Try Odoo, monitoring, MCP..." aria-controls="case-study-grid">
+                        <input id="case-study-search" type="search" autocomplete="off" placeholder="Try Laravel, REST API, RAG, MySQL..." aria-controls="case-active-project">
                     </div>
-                    <span id="case-study-count" class="case-study-count" aria-live="polite">9 / 9 CASE STUDIES</span>
+                    <span id="case-study-count" class="case-study-count" aria-live="polite">9 / 9 PROJECTS</span>
                 </div>
             </div>
 
-            <div id="case-study-grid" class="case-study-grid project-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <article class="case-study-card project-card glass-card rounded-3xl p-5 sm:p-6" data-categories="ai automation" style="--case-index: 0">
+            <div class="case-carousel-shell" aria-label="3D circular project showcase">
+                <div class="case-carousel-viewport" role="region" aria-label="Selected projects" aria-roledescription="carousel">
+                    <div class="case-orbit-frame" aria-hidden="true"><span class="case-orbit-node"></span></div>
+                    <div id="case-orbit-track" class="case-orbit-track" role="group" aria-label="Projects on the rotating display"></div>
+                    <article id="case-active-project" class="case-active-project project-card glass-card rounded-3xl p-5 sm:p-6" aria-live="polite"></article>
+                    <!-- <span class="case-orbit-label" aria-hidden="true">CLOCKWISE PROJECT RING // CORE-OUT REVEAL</span> -->
+                    <div id="case-study-grid" class="case-study-grid case-project-library" aria-hidden="true">
+                <article class="case-study-card project-card glass-card rounded-3xl p-5 sm:p-6" data-categories="ai" style="--case-index: 0">
                     <div class="case-card-topline"><span class="case-study-number">01 /</span><span class="case-status status-active">Active project</span></div>
-                    <div class="case-card-copy"><h3>GLX-AI · Sales Knowledge Assistant</h3><p>A sales chatbot that searches internal knowledge, cites its sources, and checks document access before answering.</p></div>
-                    <div class="case-card-bottom"><div class="case-tags"><span>Python</span><span>RAG</span><span>MCP</span></div><a class="btn-action case-study-action" href="#contact" aria-label="Discuss GLX-AI Sales Knowledge Assistant"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div>
+                    <div class="case-card-copy"><h3>GLX-AI · Sales Knowledge Assistant</h3><p>An AI assistant that searches business knowledge and returns grounded answers with source references.</p><p class="case-detail"><strong>Project focus</strong> Permission-aware retrieval, document access checks, and tool-assisted answers that keep sales information relevant and traceable.</p></div>
+                    <div class="case-card-bottom"><div class="case-tags"><span>Python</span><span>RAG</span><span>MCP</span><span>LLM APIs</span></div><a class="btn-action case-study-action" href="#contact" aria-label="Discuss GLX-AI Sales Knowledge Assistant"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div>
                 </article>
-                <article class="case-study-card project-card glass-card rounded-3xl p-5 sm:p-6" data-categories="ai automation" style="--case-index: 1">
+                <article class="case-study-card project-card glass-card rounded-3xl p-5 sm:p-6" data-categories="web ai" style="--case-index: 1">
                     <div class="case-card-topline"><span class="case-study-number">02 /</span><span class="case-status status-development">In development</span></div>
-                    <div class="case-card-copy"><h3>Odoo ERP &amp; Permission-Aware AI</h3><p>An Odoo ERP with an integrated AI chatbot, with model visibility and access defined by each user’s permission level.</p></div>
-                    <div class="case-card-bottom"><div class="case-tags"><span>Odoo ERP</span><span>AI Chatbot</span><span>User Levels</span></div><a class="btn-action case-study-action" href="#contact" aria-label="Discuss Odoo ERP and Permission-Aware AI"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div>
+                    <div class="case-card-copy"><h3>Odoo ERP &amp; Role-Aware AI Assistant</h3><p>An ERP experience that brings an AI assistant closer to the business data and workflows teams already use.</p><p class="case-detail"><strong>Project focus</strong> Align AI visibility with ERP roles, apply user-level access rules, and connect answers to relevant business records.</p></div>
+                    <div class="case-card-bottom"><div class="case-tags"><span>Odoo</span><span>Python</span><span>AI assistant</span><span>Access control</span></div><a class="btn-action case-study-action" href="#contact" aria-label="Discuss Odoo ERP and Role-Aware AI Assistant"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div>
                 </article>
-                <article class="case-study-card project-card glass-card rounded-3xl p-5 sm:p-6" data-categories="automation cloud" style="--case-index: 2">
+                <article class="case-study-card project-card glass-card rounded-3xl p-5 sm:p-6" data-categories="web api" style="--case-index: 2">
                     <div class="case-card-topline"><span class="case-study-number">03 /</span><span class="case-status status-implementation">Implementation</span></div>
-                    <div class="case-card-copy"><h3>Odoo &amp; Business Workflow Integration</h3><p>Connect Odoo with documents, Google Drive, and business APIs through validated, structured data workflows.</p></div>
-                    <div class="case-card-bottom"><div class="case-tags"><span>Odoo</span><span>Python</span><span>Airflow</span></div><a class="btn-action case-study-action" href="#contact" aria-label="Discuss Odoo and Business Workflow Integration"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div>
+                    <div class="case-card-copy"><h3>Odoo Business Workflow &amp; API Integration</h3><p>Connect ERP processes with shared documents, cloud storage, and external business services through structured workflows.</p><p class="case-detail"><strong>Project focus</strong> Map data across systems, validate exchanged records, and make operational handoffs easier to follow.</p></div>
+                    <div class="case-card-bottom"><div class="case-tags"><span>Odoo</span><span>Python</span><span>REST APIs</span><span>Airflow</span></div><a class="btn-action case-study-action" href="#contact" aria-label="Discuss Odoo Business Workflow and API Integration"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div>
                 </article>
-                <article class="case-study-card project-card glass-card rounded-3xl p-5 sm:p-6" data-categories="ai automation labs" style="--case-index: 3">
-                    <div class="case-card-topline"><span class="case-study-number">05 /</span><span class="case-status status-implementation">Implementation</span></div>
-                    <div class="case-card-copy"><h3>OCR &amp; AI Document Processing Pipeline</h3><p>Turn invoices, quotes, and PDFs into validated JSON or spreadsheets using OCR, AI, and schema checks.</p></div>
-                    <div class="case-card-bottom"><div class="case-tags"><span>Python</span><span>Airflow</span><span>PaddleOCR</span></div><a class="btn-action case-study-action" href="#contact" aria-label="Discuss OCR and AI Document Processing Pipeline"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div>
+                <article class="case-study-card project-card glass-card rounded-3xl p-5 sm:p-6" data-categories="ai" style="--case-index: 3">
+                    <div class="case-card-topline"><span class="case-study-number">04 /</span><span class="case-status status-implementation">Implementation</span></div>
+                    <div class="case-card-copy"><h3>AI Document Intelligence Pipeline</h3><p>Transform invoices, quotations, and PDFs into structured data that business applications can use.</p><p class="case-detail"><strong>Project focus</strong> Combine OCR, AI extraction, schema validation, and review-ready outputs to make document workflows more consistent.</p></div>
+                    <div class="case-card-bottom"><div class="case-tags"><span>Python</span><span>PaddleOCR</span><span>AI APIs</span><span>Data validation</span></div><a class="btn-action case-study-action" href="#contact" aria-label="Discuss AI Document Intelligence Pipeline"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div>
                 </article>
-                <article class="case-study-card project-card glass-card rounded-3xl p-5 sm:p-6" data-categories="ai automation" style="--case-index: 4">
-                    <div class="case-card-topline"><span class="case-study-number">09 /</span><span class="case-status status-implementation">Implementation</span></div>
-                    <div class="case-card-copy"><h3>AI Multi-Agent Workspace for Enterprise</h3><p>OpenWebUI connects department agents, internal knowledge, and business tools through RAG, MCP, and scoped access.</p></div>
-                    <div class="case-card-bottom"><div class="case-tags"><span>OpenWebUI</span><span>MCP</span><span>RAG</span></div><a class="btn-action case-study-action" href="#contact" aria-label="Discuss AI Multi-Agent Workspace for Enterprise"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div>
+                <article class="case-study-card project-card glass-card rounded-3xl p-5 sm:p-6" data-categories="api web" style="--case-index: 4">
+                    <div class="case-card-topline"><span class="case-study-number">05 /</span><span class="case-status status-concept">Product concept</span></div>
+                    <div class="case-card-copy"><h3>API-First Integration Hub</h3><p>A central service concept for connecting business applications through clear, reusable API contracts.</p><p class="case-detail"><strong>Project focus</strong> Define predictable request and response shapes, secure service access, surface actionable errors, and document integration flows.</p></div>
+                    <div class="case-card-bottom"><div class="case-tags"><span>Python</span><span>REST API</span><span>OpenAPI</span><span>OAuth 2.0</span></div><a class="btn-action case-study-action" href="#contact" aria-label="Discuss API-First Integration Hub concept"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div>
                 </article>
-                <article class="case-study-card project-card glass-card rounded-3xl p-5 sm:p-6" data-categories="cloud automation" style="--case-index: 5">
-                    <div class="case-card-topline"><span class="case-study-number">10 /</span><span class="case-status status-operations">Operations</span></div>
-                    <div class="case-card-copy"><h3>Multi-Server LXC Backup &amp; Recovery Automation</h3><p>LXC snapshots, Kopia backups to S3-compatible storage, retention policies, and clear status reports through Google Chat.</p></div>
-                    <div class="case-card-bottom"><div class="case-tags"><span>Linux</span><span>LXD/LXC</span><span>Bash</span></div><a class="btn-action case-study-action" href="#contact" aria-label="Discuss Multi-Server LXC Backup and Recovery Automation"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div>
+                <article class="case-study-card project-card glass-card rounded-3xl p-5 sm:p-6" data-categories="web" style="--case-index: 5">
+                    <div class="case-card-topline"><span class="case-study-number">06 /</span><span class="case-status status-concept">Product concept</span></div>
+                    <div class="case-card-copy"><h3>Full-Stack Commerce &amp; Order Management</h3><p>A web commerce concept that brings product discovery, customer accounts, and order operations into one experience.</p><p class="case-detail"><strong>Project focus</strong> Responsive storefront, maintainable backend workflows, relational product and order data, and integration-ready checkout boundaries.</p></div>
+                    <div class="case-card-bottom"><div class="case-tags"><span>PHP</span><span>JavaScript</span><span>MySQL</span><span>REST APIs</span></div><a class="btn-action case-study-action" href="#contact" aria-label="Discuss Full-Stack Commerce and Order Management concept"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div>
                 </article>
-                <article class="case-study-card project-card glass-card rounded-3xl p-5 sm:p-6" data-categories="ai automation" style="--case-index: 6">
-                    <div class="case-card-topline"><span class="case-study-number">11 /</span><span class="case-status status-implementation">Implementation</span></div>
-                    <div class="case-card-copy"><h3>AI Chatbot &amp; Multi-Platform Automation</h3><p>Product lookup, Excel catalog imports, industrial-parts search, and tender Q&amp;A through messaging and business data.</p></div>
-                    <div class="case-card-bottom"><div class="case-tags"><span>n8n</span><span>Telegram Bot API</span><span>OpenAI / Gemini / Claude / Groq</span></div><a class="btn-action case-study-action" href="#contact" aria-label="Discuss AI Chatbot and Multi-Platform Automation"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div>
+                <article class="case-study-card project-card glass-card rounded-3xl p-5 sm:p-6" data-categories="ai" style="--case-index: 6">
+                    <div class="case-card-topline"><span class="case-study-number">07 /</span><span class="case-status status-implementation">Implementation</span></div>
+                    <div class="case-card-copy"><h3>Enterprise Multi-Agent AI Workspace</h3><p>A shared AI workspace connects specialist assistants to organizational knowledge and approved business tools.</p><p class="case-detail"><strong>Project focus</strong> Coordinate retrieval-augmented answers, tool integrations, and scoped permissions across different team workflows.</p></div>
+                    <div class="case-card-bottom"><div class="case-tags"><span>OpenWebUI</span><span>RAG</span><span>MCP</span><span>LLM APIs</span></div><a class="btn-action case-study-action" href="#contact" aria-label="Discuss Enterprise Multi-Agent AI Workspace"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div>
                 </article>
-                <article class="case-study-card project-card glass-card rounded-3xl p-5 sm:p-6" data-categories="ai automation labs" style="--case-index: 7">
-                    <div class="case-card-topline"><span class="case-study-number">13 /</span><span class="case-status status-lab">Engineering lab</span></div>
-                    <div class="case-card-copy"><h3>Hermes Agent Learning &amp; Automation Runtime</h3><p>An engineering lab for persistent memory, reusable skills, scheduled execution, and controlled tool access.</p></div>
-                    <div class="case-card-bottom"><div class="case-tags"><span>Hermes Agent</span><span>Python</span><span>MCP</span></div><a class="btn-action case-study-action" href="#contact" aria-label="Discuss Hermes Agent Learning and Automation Runtime"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div>
+                <article class="case-study-card project-card glass-card rounded-3xl p-5 sm:p-6" data-categories="web api" style="--case-index: 7">
+                    <div class="case-card-topline"><span class="case-study-number">08 /</span><span class="case-status status-concept">Product concept</span></div>
+                    <div class="case-card-copy"><h3>Service Booking &amp; Customer Portal</h3><p>A full-stack booking concept for managing service availability, customer requests, and operational follow-up.</p><p class="case-detail"><strong>Project focus</strong> Mobile-friendly journeys, role-specific workspaces, dependable booking data, and APIs ready to connect notifications or payment providers.</p></div>
+                    <div class="case-card-bottom"><div class="case-tags"><span>PHP</span><span>MySQL</span><span>JavaScript</span><span>API integration</span></div><a class="btn-action case-study-action" href="#contact" aria-label="Discuss Service Booking and Customer Portal concept"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div>
                 </article>
-                <article class="case-study-card project-card glass-card rounded-3xl p-5 sm:p-6" data-categories="automation web" style="--case-index: 8">
-                    <div class="case-card-topline"><span class="case-study-number">14 /</span><span class="case-status status-concept">Workflow concept</span></div>
-                    <div class="case-card-copy"><h3>Google Review Auto-Reply Workflow</h3><p>A blueprint for review monitoring, sentiment classification, reply drafting, and team approval.</p></div>
-                    <div class="case-card-bottom"><div class="case-tags"><span>n8n</span><span>Google APIs</span><span>LLM APIs</span></div><a class="btn-action case-study-action" href="#contact" aria-label="Discuss Google Review Auto-Reply Workflow"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div>
+                <article class="case-study-card project-card glass-card rounded-3xl p-5 sm:p-6" data-categories="ai api automation" style="--case-index: 8">
+                    <div class="case-card-topline"><span class="case-study-number">09 /</span><span class="case-status status-concept">Workflow concept</span></div>
+                    <div class="case-card-copy"><h3>AI Review Intelligence &amp; Response Workflow</h3><p>An API-connected workflow concept for organizing customer feedback and helping teams prepare timely responses.</p><p class="case-detail"><strong>Project focus</strong> Categorize review themes, draft context-aware replies for human approval, and keep each action traceable.</p></div>
+                    <div class="case-card-bottom"><div class="case-tags"><span>Google APIs</span><span>LLM APIs</span><span>n8n</span><span>Human review</span></div><a class="btn-action case-study-action" href="#contact" aria-label="Discuss AI Review Intelligence and Response Workflow concept"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div>
                 </article>
-            </div>
-            <p id="case-study-empty" class="case-study-empty" hidden>No case studies match those filters. Try another category or search term.</p>
-        </section>
-
-        <!-- 5. CAREER TIMELINE -->
-        <section id="experience" class="flex flex-col gap-6 sm:gap-8 reveal">
-            <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
-                <div class="flex flex-col gap-1">
-                    <span class="text-cyan-400 font-mono text-xs sm:text-sm tracking-widest uppercase">04. CAREER</span>
-                    <h2 class="text-2xl sm:text-4xl font-bold tracking-tight">Professional Leadership Timeline</h2>
-                </div>
-            </div>
-
-            <!-- Timeline Stack -->
-            <div class="relative border-l-2 border-slate-700 ml-2 sm:ml-6 pl-4 sm:pl-8 flex flex-col gap-8">
-                <!-- Timeline 1 -->
-                <div class="relative group">
-                    <div class="absolute -left-[23px] sm:-left-[39px] top-1.5 w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-cyan-400 border-4 border-slate-950 shadow-lg"></div>
-                    <div class="glass-card rounded-3xl p-5 sm:p-8 flex flex-col gap-3 glow-card-hover">
-                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-                            <div>
-                                <span class="px-2.5 py-0.5 rounded-full bg-cyan-500/10 text-cyan-400 text-xs font-mono">2022 — Present</span>
-                                <h3 class="text-lg sm:text-xl font-bold mt-1">Principal Software Architect</h3>
-                                <p class="text-slate-400 font-medium text-xs sm:text-sm">Apex Cloud Systems</p>
-                            </div>
-                        </div>
-                        <p class="text-slate-300 text-xs sm:text-base leading-relaxed">
-                            Lead cloud infrastructure strategy, microservices migration, and high-concurrency API performance for fintech workloads. The work centers on clear service boundaries, capacity planning, dependable data flows, and observability that helps teams understand system behavior and deliver changes safely.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Timeline 2 -->
-                <div class="relative group">
-                    <div class="absolute -left-[23px] sm:-left-[39px] top-1.5 w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-blue-500 border-4 border-slate-950 shadow-lg"></div>
-                    <div class="glass-card rounded-3xl p-5 sm:p-8 flex flex-col gap-3 glow-card-hover">
-                        <div>
-                            <span class="px-2.5 py-0.5 rounded-full bg-blue-500/10 text-blue-400 text-xs font-mono">2019 — 2022</span>
-                            <h3 class="text-lg sm:text-xl font-bold mt-1">Senior Tech Lead & Systems Engineer</h3>
-                            <p class="text-slate-400 font-medium text-xs sm:text-sm">Nexus Digital Labs</p>
-                        </div>
-                        <p class="text-slate-300 text-xs sm:text-base leading-relaxed">
-                            Led backend delivery, automated zero-downtime CI/CD deployments, and managed database replication topologies. This role brought application design and operations together through repeatable releases, careful failure handling, and data platforms built for availability and recovery.
-                        </p>
                     </div>
                 </div>
             </div>
+            <p id="case-study-empty" class="case-study-empty" hidden>No projects match those filters. Try another category or search term.</p>
         </section>
 
-        <!-- 6. CONTACT SECTION -->
+        <!-- 4. CORE EXPERTISE -->
+        <section id="expertise" class="flex flex-col gap-6 sm:gap-8 reveal">
+            <div class="flex flex-col gap-1">
+                <span class="text-cyan-400 font-mono text-xs sm:text-sm tracking-widest uppercase">04. CORE EXPERTISE</span>
+                <h2 class="text-2xl sm:text-4xl font-bold tracking-tight">One connected skill set, from design to intelligent software.</h2>
+                <p class="section-intro">A practical blend of visual thinking and engineering—bringing each layer together to create useful, polished digital products.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
+                <article class="glass-card rounded-3xl p-5 sm:p-6 flex flex-col gap-4 glow-card-hover">
+                    <div class="w-12 h-12 rounded-2xl bg-cyan-500/10 text-cyan-300 border border-cyan-300/15 flex items-center justify-center text-xl"><i class="fa-solid fa-pen-ruler" aria-hidden="true"></i></div>
+                    <div><h3 class="text-lg font-bold text-slate-100">Web &amp; UI/UX Design</h3><p class="mt-2 text-sm leading-relaxed text-slate-400">Clear visual systems, intuitive page flows, responsive layouts, and interface details designed around real users.</p></div>
+                    <div class="case-tags"><span>UI/UX</span><span>Responsive</span><span>Design systems</span></div>
+                </article>
+                <article class="glass-card rounded-3xl p-5 sm:p-6 flex flex-col gap-4 glow-card-hover">
+                    <div class="w-12 h-12 rounded-2xl bg-blue-500/10 text-blue-300 border border-blue-300/15 flex items-center justify-center text-xl"><i class="fa-solid fa-laptop-code" aria-hidden="true"></i></div>
+                    <div><h3 class="text-lg font-bold text-slate-100">Frontend Development</h3><p class="mt-2 text-sm leading-relaxed text-slate-400">Accessible, responsive web interfaces with thoughtful interactions, consistent styling, and reliable behavior across devices.</p></div>
+                    <div class="case-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+                </article>
+                <article class="glass-card rounded-3xl p-5 sm:p-6 flex flex-col gap-4 glow-card-hover">
+                    <div class="w-12 h-12 rounded-2xl bg-violet-500/10 text-violet-300 border border-violet-300/15 flex items-center justify-center text-xl"><i class="fa-solid fa-database" aria-hidden="true"></i></div>
+                    <div><h3 class="text-lg font-bold text-slate-100">Backend &amp; Data</h3><p class="mt-2 text-sm leading-relaxed text-slate-400">Application logic, structured data, validation, and dependable connections between the interface and the services behind it.</p></div>
+                    <div class="case-tags"><span>PHP</span><span>Python</span><span>MySQL</span></div>
+                </article>
+                <article class="glass-card rounded-3xl p-5 sm:p-6 flex flex-col gap-4 glow-card-hover">
+                    <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 text-emerald-300 border border-emerald-300/15 flex items-center justify-center text-xl"><i class="fa-solid fa-link" aria-hidden="true"></i></div>
+                    <div><h3 class="text-lg font-bold text-slate-100">APIs &amp; Applied AI</h3><p class="mt-2 text-sm leading-relaxed text-slate-400">Useful integrations between products and services, with AI features grounded in the data and workflows they support.</p></div>
+                    <div class="case-tags"><span>REST APIs</span><span>AI integration</span><span>Automation</span></div>
+                </article>
+            </div>
+        </section>
+
+        <!-- 5. CONTACT SECTION -->
         <section id="contact" class="flex flex-col gap-6 sm:gap-8 reveal pb-6">
             <div class="flex flex-col gap-1">
                 <span class="text-cyan-400 font-mono text-xs sm:text-sm tracking-widest uppercase">05. CONNECT</span>
-                <h2 class="text-2xl sm:text-4xl font-bold tracking-tight">Start a Technical Conversation</h2>
+                <h2 class="text-2xl sm:text-4xl font-bold tracking-tight">Let’s build your next digital product.</h2>
 
             </div>
 
-            <p class="section-intro">For architecture advisory, platform modernization, backend engineering, or applied AI work, share the problem you are solving and the constraints that matter. A clear starting point makes it easier to discuss scope, risks, and practical next steps.</p>
+            <p class="section-intro">For website design, full-stack development, API integration, or applied AI projects, share the goal, audience, and key requirements. A clear starting point helps shape a cohesive experience from interface through implementation.</p>
 
             <div class="contact-grid grid grid-cols-1 lg:grid-cols-3 gap-6">
                 <div class="flex flex-col gap-3">
@@ -973,13 +1645,14 @@
 
                 <div class="contact-form-panel lg:col-span-2 glass-card rounded-3xl p-6 sm:p-8">
                     <form onsubmit="handleFormSubmit(event)" class="flex flex-col gap-4">
+                        <p class="text-xs leading-relaxed text-slate-400">Your message will be prepared in your email app. Review it there and send it when ready.</p>
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <input type="text" required placeholder="Your Name" class="px-4 py-3 rounded-xl bg-slate-900 border border-white/10 text-xs sm:text-sm text-slate-100 focus:outline-none focus:border-cyan-400">
-                            <input type="email" required placeholder="Your Email" class="px-4 py-3 rounded-xl bg-slate-900 border border-white/10 text-xs sm:text-sm text-slate-100 focus:outline-none focus:border-cyan-400">
+                            <input type="text" name="name" autocomplete="name" aria-label="Your name" required placeholder="Your Name" class="px-4 py-3 rounded-xl bg-slate-900 border border-white/10 text-xs sm:text-sm text-slate-100 focus:outline-none focus:border-cyan-400">
+                            <input type="email" name="email" autocomplete="email" aria-label="Your email" required placeholder="Your Email" class="px-4 py-3 rounded-xl bg-slate-900 border border-white/10 text-xs sm:text-sm text-slate-100 focus:outline-none focus:border-cyan-400">
                         </div>
-                        <textarea rows="4" required placeholder="Project or advisory inquiry..." class="px-4 py-3 rounded-xl bg-slate-900 border border-white/10 text-xs sm:text-sm text-slate-100 focus:outline-none focus:border-cyan-400 resize-none"></textarea>
+                        <textarea rows="4" name="message" aria-label="Website, API, or AI project inquiry" required placeholder="Tell me about your website, API, or AI project..." class="px-4 py-3 rounded-xl bg-slate-900 border border-white/10 text-xs sm:text-sm text-slate-100 focus:outline-none focus:border-cyan-400 resize-none"></textarea>
                         <button type="submit" id="submit-btn" class="btn-action w-full py-3.5 rounded-xl bg-gradient-to-r from-slate-100 via-slate-200 to-slate-300 text-slate-950 font-extrabold text-xs sm:text-sm shadow-lg">
-                            Send Direct Inquiry
+                            Prepare email
                         </button>
                     </form>
                 </div>
@@ -998,13 +1671,13 @@
             <div class="flex items-center justify-between border-b border-white/10 pb-2">
                 <div class="flex items-center gap-2">
                     <i class="fa-solid fa-robot text-cyan-400 text-sm"></i>
-                    <span class="font-bold text-xs">ngphuc AI Portfolio Assistant</span>
+                    <span class="font-bold text-xs">ngphuc.exe Portfolio Assistant</span>
                 </div>
                 <button onclick="toggleAiChat()" class="btn-action rounded-lg p-2 text-slate-400 hover:text-white text-xs"><i class="fa-solid fa-xmark"></i></button>
             </div>
             <div id="ai-messages" class="h-48 overflow-y-auto flex flex-col gap-2 text-xs font-sans">
                 <div class="p-2.5 rounded-xl bg-slate-900 border border-white/10 text-slate-200">
-                    Hello, I'm the portfolio assistant. I can help you explore the architecture, selected projects, core technologies, and ways to get in touch. Ask a specific question and I'll point you to the most relevant section.
+                    Hello, I'm the portfolio assistant. I can help you explore web design, frontend and backend development, API integrations, AI features, projects, and contact details.
                 </div>
             </div>
             <div class="flex items-center gap-2 border-t border-white/10 pt-2">
@@ -1017,7 +1690,7 @@
     <!-- Footer -->
     <footer class="site-footer glass-card border-t border-white/10 py-8 mb-16 md:mb-0">
         <div class="footer-inner max-w-7xl mx-auto px-4 text-center sm:flex sm:items-center sm:justify-between">
-            <p class="text-xs text-slate-400 font-mono">© 2026 <span class="silver-chrome-text font-bold lowercase">ngphuc</span>. Software Architecture · Applied AI · Cloud Systems</p>
+            <p class="text-xs text-slate-400 font-mono">© 2026 <span class="silver-chrome-text font-bold lowercase">ngphuc.exe</span>. Web Design · Frontend &amp; Backend · API · AI</p>
             <div class="flex justify-center gap-4 mt-3 sm:mt-0 text-base">
                 <a href="https://github.com/ngphuc203" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="footer-social-link btn-action text-slate-400 hover:text-white"><i class="fa-brands fa-github"></i></a>
                 <a href="https://www.facebook.com/ngphuc203" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="footer-social-link btn-action text-slate-400 hover:text-white"><i class="fa-brands fa-facebook-f"></i></a>
@@ -1027,6 +1700,552 @@
 
     <!-- INTERACTIVE JAVASCRIPT LOGIC -->
     <script>
+        // Lightweight, perspective-inspired particle field for the ambient 3D backdrop.
+        const ambientCanvas = document.getElementById('ambient-canvas');
+        const ambientContext = ambientCanvas.getContext('2d');
+        const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+        const ambientParticles = Array.from({ length: 64 }, () => ({
+            x: Math.random(),
+            y: Math.random(),
+            depth: Math.random(),
+            speed: 0.00008 + Math.random() * 0.00012
+        }));
+        let ambientFrame = 0;
+        let ambientWidth = 0;
+        let ambientHeight = 0;
+
+        function resizeAmbientCanvas() {
+            const pixelRatio = Math.min(window.devicePixelRatio || 1, 1.5);
+            ambientWidth = window.innerWidth;
+            ambientHeight = window.innerHeight;
+            ambientCanvas.width = Math.round(ambientWidth * pixelRatio);
+            ambientCanvas.height = Math.round(ambientHeight * pixelRatio);
+            ambientContext.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
+            drawAmbientScene(false);
+        }
+
+        function drawAmbientScene(animate) {
+            ambientContext.clearRect(0, 0, ambientWidth, ambientHeight);
+            const points = ambientParticles.map((particle) => {
+                if (animate) {
+                    particle.depth += particle.speed;
+                    if (particle.depth > 1) {
+                        particle.depth = 0;
+                        particle.x = Math.random();
+                        particle.y = Math.random();
+                    }
+                }
+                const scale = 0.34 + particle.depth * 0.82;
+                return {
+                    x: ambientWidth / 2 + (particle.x - 0.5) * ambientWidth * scale,
+                    y: ambientHeight / 2 + (particle.y - 0.5) * ambientHeight * scale,
+                    depth: particle.depth
+                };
+            });
+
+            for (let index = 0; index < points.length; index += 1) {
+                const point = points[index];
+                for (let nextIndex = index + 1; nextIndex < points.length; nextIndex += 1) {
+                    const nextPoint = points[nextIndex];
+                    if (Math.abs(point.depth - nextPoint.depth) > 0.24) continue;
+                    const distance = Math.hypot(point.x - nextPoint.x, point.y - nextPoint.y);
+                    if (distance > 112) continue;
+                    ambientContext.strokeStyle = `rgba(103, 232, 249, ${(1 - distance / 112) * 0.13})`;
+                    ambientContext.lineWidth = 0.7;
+                    ambientContext.beginPath();
+                    ambientContext.moveTo(point.x, point.y);
+                    ambientContext.lineTo(nextPoint.x, nextPoint.y);
+                    ambientContext.stroke();
+                }
+                ambientContext.fillStyle = `rgba(165, 243, 252, ${0.12 + point.depth * 0.3})`;
+                ambientContext.beginPath();
+                ambientContext.arc(point.x, point.y, 0.7 + point.depth * 1.1, 0, Math.PI * 2);
+                ambientContext.fill();
+            }
+
+            const centerX = ambientWidth * 0.77;
+            const centerY = ambientHeight * 0.42;
+            const radius = Math.min(ambientWidth, ambientHeight) * 0.105;
+            const rotation = performance.now() * 0.00012;
+            const vertices = [];
+            for (let index = 0; index < 10; index += 1) {
+                const angle = (index / 10) * Math.PI * 2 + rotation;
+                const verticalAngle = angle * 1.7 + rotation * 0.7;
+                vertices.push({
+                    x: centerX + Math.cos(angle) * radius * Math.cos(verticalAngle),
+                    y: centerY + Math.sin(verticalAngle) * radius * 0.72
+                });
+            }
+            ambientContext.lineWidth = 0.8;
+            for (let index = 0; index < vertices.length; index += 1) {
+                const vertex = vertices[index];
+                const nextVertex = vertices[(index + 1) % vertices.length];
+                const crossVertex = vertices[(index + 3) % vertices.length];
+                ambientContext.strokeStyle = 'rgba(103, 232, 249, 0.11)';
+                ambientContext.beginPath();
+                ambientContext.moveTo(vertex.x, vertex.y);
+                ambientContext.lineTo(nextVertex.x, nextVertex.y);
+                ambientContext.stroke();
+                if (index % 2 === 0) {
+                    ambientContext.strokeStyle = 'rgba(129, 140, 248, 0.08)';
+                    ambientContext.beginPath();
+                    ambientContext.moveTo(vertex.x, vertex.y);
+                    ambientContext.lineTo(crossVertex.x, crossVertex.y);
+                    ambientContext.stroke();
+                }
+            }
+
+            if (animate && !document.hidden && !reducedMotionQuery.matches) {
+                ambientFrame = window.requestAnimationFrame(() => drawAmbientScene(true));
+            }
+        }
+
+        function startAmbientScene() {
+            window.cancelAnimationFrame(ambientFrame);
+            if (useWebGLUniverse) return;
+            drawAmbientScene(!reducedMotionQuery.matches);
+        }
+
+        let useWebGLUniverse = false;
+        window.addEventListener('resize', resizeAmbientCanvas);
+        document.addEventListener('visibilitychange', startAmbientScene);
+        reducedMotionQuery.addEventListener('change', startAmbientScene);
+        resizeAmbientCanvas();
+        startAmbientScene();
+
+        const pointerMotionQuery = window.matchMedia('(hover: hover) and (pointer: fine)');
+        const ambientScene = document.querySelector('.ambient-scene');
+        const heroShowcase = document.getElementById('hero-showcase');
+        const profileTiltTarget = document.querySelector('.profile-stage > div');
+        let pointerMotionFrame = 0;
+        let pendingPointerEvent = null;
+
+        function resetPointerTilt(element, xProperty, yProperty) {
+            element.style.setProperty(xProperty, '0deg');
+            element.style.setProperty(yProperty, '0deg');
+        }
+
+        function updatePointerMotion(event) {
+            pointerMotionFrame = 0;
+            if (!pendingPointerEvent || !pointerMotionQuery.matches || reducedMotionQuery.matches) return;
+
+            const pointerEvent = pendingPointerEvent;
+            const cursorX = `${(pointerEvent.clientX / window.innerWidth) * 100}%`;
+            const cursorY = `${(pointerEvent.clientY / window.innerHeight) * 100}%`;
+            ambientScene.style.setProperty('--cursor-x', cursorX);
+            ambientScene.style.setProperty('--cursor-y', cursorY);
+            ambientScene.style.setProperty('--scene-shift-x', `${(pointerEvent.clientX / window.innerWidth - 0.5) * -12}px`);
+            ambientScene.style.setProperty('--scene-shift-y', `${(pointerEvent.clientY / window.innerHeight - 0.5) * -8}px`);
+
+            const showcaseBounds = heroShowcase.getBoundingClientRect();
+            if (pointerEvent.clientX >= showcaseBounds.left && pointerEvent.clientX <= showcaseBounds.right
+                && pointerEvent.clientY >= showcaseBounds.top && pointerEvent.clientY <= showcaseBounds.bottom) {
+                const x = (pointerEvent.clientX - showcaseBounds.left) / showcaseBounds.width - 0.5;
+                const y = (pointerEvent.clientY - showcaseBounds.top) / showcaseBounds.height - 0.5;
+                heroShowcase.style.setProperty('--hero-tilt-x', `${-y * 2.2}deg`);
+                heroShowcase.style.setProperty('--hero-tilt-y', `${x * 2.2}deg`);
+            } else {
+                resetPointerTilt(heroShowcase, '--hero-tilt-x', '--hero-tilt-y');
+            }
+
+            const profileBounds = profileTiltTarget.getBoundingClientRect();
+            if (pointerEvent.clientX >= profileBounds.left && pointerEvent.clientX <= profileBounds.right
+                && pointerEvent.clientY >= profileBounds.top && pointerEvent.clientY <= profileBounds.bottom) {
+                const x = (pointerEvent.clientX - profileBounds.left) / profileBounds.width - 0.5;
+                const y = (pointerEvent.clientY - profileBounds.top) / profileBounds.height - 0.5;
+                profileTiltTarget.style.setProperty('--profile-tilt-x', `${-y * 7}deg`);
+                profileTiltTarget.style.setProperty('--profile-tilt-y', `${x * 7}deg`);
+            } else {
+                resetPointerTilt(profileTiltTarget, '--profile-tilt-x', '--profile-tilt-y');
+            }
+        }
+
+        window.addEventListener('pointermove', (event) => {
+            if (event.pointerType === 'touch' || !pointerMotionQuery.matches || reducedMotionQuery.matches) return;
+            pendingPointerEvent = event;
+            if (!pointerMotionFrame) {
+                pointerMotionFrame = window.requestAnimationFrame(updatePointerMotion);
+            }
+        }, { passive: true });
+
+        window.addEventListener('pointerleave', () => {
+            pendingPointerEvent = null;
+            if (pointerMotionFrame) window.cancelAnimationFrame(pointerMotionFrame);
+            pointerMotionFrame = 0;
+            ambientScene.style.setProperty('--cursor-x', '50%');
+            ambientScene.style.setProperty('--cursor-y', '50%');
+            ambientScene.style.setProperty('--scene-shift-x', '0px');
+            ambientScene.style.setProperty('--scene-shift-y', '0px');
+            resetPointerTilt(heroShowcase, '--hero-tilt-x', '--hero-tilt-y');
+            resetPointerTilt(profileTiltTarget, '--profile-tilt-x', '--profile-tilt-y');
+        });
+
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                if (pointerMotionFrame) window.cancelAnimationFrame(pointerMotionFrame);
+                pointerMotionFrame = 0;
+                pendingPointerEvent = null;
+                ambientScene.style.setProperty('--cursor-x', '50%');
+                ambientScene.style.setProperty('--cursor-y', '50%');
+                ambientScene.style.setProperty('--scene-shift-x', '0px');
+                ambientScene.style.setProperty('--scene-shift-y', '0px');
+                resetPointerTilt(heroShowcase, '--hero-tilt-x', '--hero-tilt-y');
+                resetPointerTilt(profileTiltTarget, '--profile-tilt-x', '--profile-tilt-y');
+                return;
+            }
+            if (pendingPointerEvent && pointerMotionQuery.matches && !reducedMotionQuery.matches) {
+                pointerMotionFrame = window.requestAnimationFrame(updatePointerMotion);
+            }
+        });
+
+        function resetInteractiveMotion() {
+            if (pointerMotionQuery.matches && !reducedMotionQuery.matches) return;
+            pendingPointerEvent = null;
+            if (pointerMotionFrame) window.cancelAnimationFrame(pointerMotionFrame);
+            pointerMotionFrame = 0;
+            ambientScene.style.setProperty('--cursor-x', '50%');
+            ambientScene.style.setProperty('--cursor-y', '50%');
+            ambientScene.style.setProperty('--scene-shift-x', '0px');
+            ambientScene.style.setProperty('--scene-shift-y', '0px');
+            resetPointerTilt(heroShowcase, '--hero-tilt-x', '--hero-tilt-y');
+            resetPointerTilt(profileTiltTarget, '--profile-tilt-x', '--profile-tilt-y');
+        }
+
+        pointerMotionQuery.addEventListener('change', resetInteractiveMotion);
+        reducedMotionQuery.addEventListener('change', resetInteractiveMotion);
+
+        function initializeParticleUniverse(THREE) {
+            const universeContainer = document.getElementById('universe-webgl');
+            const scene = new THREE.Scene();
+            const universeRig = new THREE.Group();
+            const starField = new THREE.Group();
+            const constellation = new THREE.Group();
+            scene.add(universeRig);
+            universeRig.add(starField, constellation);
+            const camera = new THREE.PerspectiveCamera(54, window.innerWidth / window.innerHeight, 0.1, 120);
+            camera.position.z = 23;
+
+            const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: window.innerWidth >= 768, powerPreference: 'low-power' });
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, window.innerWidth < 640 ? 1 : 1.35));
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setClearColor(0x050811, 0);
+            universeContainer.appendChild(renderer.domElement);
+            ambientCanvas.style.display = 'none';
+
+            const starPositions = new Float32Array(1500 * 3);
+            const starColors = new Float32Array(1500 * 3);
+            for (let index = 0; index < 1500; index += 1) {
+                const distance = 9 + Math.random() * 43;
+                const direction = Math.random() * Math.PI * 2;
+                const vertical = Math.acos(2 * Math.random() - 1);
+                starPositions[index * 3] = distance * Math.sin(vertical) * Math.cos(direction);
+                starPositions[index * 3 + 1] = distance * Math.cos(vertical);
+                starPositions[index * 3 + 2] = -distance * Math.sin(vertical) * Math.sin(direction);
+                const color = new THREE.Color().setHSL(0.52 + Math.random() * 0.15, 0.7, 0.58 + Math.random() * 0.3);
+                starColors[index * 3] = color.r;
+                starColors[index * 3 + 1] = color.g;
+                starColors[index * 3 + 2] = color.b;
+            }
+            const starGeometry = new THREE.BufferGeometry();
+            starGeometry.setAttribute('position', new THREE.BufferAttribute(starPositions, 3));
+            starGeometry.setAttribute('color', new THREE.BufferAttribute(starColors, 3));
+            const stars = new THREE.Points(starGeometry, new THREE.PointsMaterial({
+                size: 0.105,
+                vertexColors: true,
+                transparent: true,
+                opacity: 0.85,
+                sizeAttenuation: true,
+                depthWrite: false
+            }));
+            starField.add(stars);
+
+            const networkPositions = new Float32Array(420 * 3);
+            const networkColors = new Float32Array(420 * 3);
+            const networkNodes = [];
+            for (let index = 0; index < 420; index += 1) {
+                const angle = Math.random() * Math.PI * 2;
+                const vertical = Math.acos(2 * Math.random() - 1);
+                const distance = Math.cbrt(Math.random()) * 14;
+                const x = Math.sin(vertical) * Math.cos(angle) * distance * 1.6;
+                const y = Math.cos(vertical) * distance * 0.88;
+                const z = Math.sin(vertical) * Math.sin(angle) * distance;
+                networkPositions.set([x, y, z], index * 3);
+                networkNodes.push(new THREE.Vector3(x, y, z));
+                const color = new THREE.Color().setHSL(0.51 + Math.random() * 0.13, 0.76, 0.62 + Math.random() * 0.15);
+                networkColors.set([color.r, color.g, color.b], index * 3);
+            }
+            const networkGeometry = new THREE.BufferGeometry();
+            networkGeometry.setAttribute('position', new THREE.BufferAttribute(networkPositions, 3));
+            networkGeometry.setAttribute('color', new THREE.BufferAttribute(networkColors, 3));
+            constellation.add(new THREE.Points(networkGeometry, new THREE.PointsMaterial({
+                size: 0.13,
+                vertexColors: true,
+                transparent: true,
+                opacity: 0.78,
+                sizeAttenuation: true,
+                depthWrite: false
+            })));
+
+            const connections = [];
+            for (let index = 0; index < 190; index += 1) {
+                for (let nextIndex = index + 1; nextIndex < 190; nextIndex += 1) {
+                    if (networkNodes[index].distanceToSquared(networkNodes[nextIndex]) < 8.5) {
+                        connections.push(...networkNodes[index].toArray(), ...networkNodes[nextIndex].toArray());
+                    }
+                }
+            }
+            const connectionGeometry = new THREE.BufferGeometry();
+            connectionGeometry.setAttribute('position', new THREE.Float32BufferAttribute(connections, 3));
+            const network = new THREE.LineSegments(connectionGeometry, new THREE.LineBasicMaterial({
+                color: 0x5eeeff,
+                transparent: true,
+                opacity: 0.16,
+                depthWrite: false
+            }));
+            constellation.add(network);
+
+            const hologram = new THREE.Group();
+            const crystalGeometry = new THREE.EdgesGeometry(new THREE.IcosahedronGeometry(3, 1));
+            hologram.add(new THREE.LineSegments(crystalGeometry, new THREE.LineBasicMaterial({
+                color: 0x67e8f9,
+                transparent: true,
+                opacity: 0.2
+            })));
+            const innerGeometry = new THREE.EdgesGeometry(new THREE.OctahedronGeometry(1.18, 1));
+            hologram.add(new THREE.LineSegments(innerGeometry, new THREE.LineBasicMaterial({
+                color: 0xa5f3fc,
+                transparent: true,
+                opacity: 0.4
+            })));
+            const orbit = new THREE.Mesh(
+                new THREE.TorusGeometry(4.05, 0.012, 5, 120),
+                new THREE.MeshBasicMaterial({ color: 0x818cf8, transparent: true, opacity: 0.34 })
+            );
+            orbit.rotation.x = Math.PI * 0.36;
+            orbit.rotation.y = Math.PI * 0.12;
+            hologram.add(orbit);
+            hologram.position.set(Math.min(6.5, window.innerWidth / window.innerHeight * 4.7), 1.6, -2.5);
+            universeRig.add(hologram);
+
+            let universeFrame = 0;
+            let lastUniverseFrame = 0;
+            let pointerX = 0;
+            let pointerY = 0;
+            const handlePointerMove = (event) => {
+                if (event.pointerType === 'touch' || !pointerMotionQuery.matches || reducedMotionQuery.matches) return;
+                pointerX = (event.clientX / window.innerWidth - 0.5) * 2;
+                pointerY = (event.clientY / window.innerHeight - 0.5) * 2;
+            };
+            const handlePointerLeave = () => {
+                pointerX = 0;
+                pointerY = 0;
+            };
+            const renderUniverse = (now) => {
+                if (document.hidden) return;
+                const delta = lastUniverseFrame ? Math.min((now - lastUniverseFrame) / 1000, 0.05) : 0;
+                if (!reducedMotionQuery.matches) {
+                    lastUniverseFrame = now;
+                    const targetRotationX = -pointerY * 0.23;
+                    const targetRotationY = pointerX * 0.38;
+                    universeRig.rotation.x += (targetRotationX - universeRig.rotation.x) * Math.min(delta * 2.8, 1);
+                    universeRig.rotation.y += (targetRotationY - universeRig.rotation.y) * Math.min(delta * 2.8, 1);
+                    starField.rotation.y += delta * 0.075;
+                    starField.rotation.x += delta * 0.018;
+                    constellation.rotation.y -= delta * 0.13;
+                    constellation.rotation.x += delta * 0.035;
+                    hologram.rotation.y += delta * 0.32;
+                    hologram.rotation.x += delta * 0.13;
+                    hologram.rotation.z += delta * 0.07;
+                    hologram.position.y = 1.6 + Math.sin(now * 0.0008) * 0.24;
+                    camera.position.x += (pointerX * 0.32 - camera.position.x) * Math.min(delta * 1.8, 1);
+                    camera.position.y += (-pointerY * 0.22 - camera.position.y) * Math.min(delta * 1.8, 1);
+                    camera.lookAt(pointerX * 1.2, -pointerY * 0.8, 0);
+                }
+                renderer.render(scene, camera);
+                if (!reducedMotionQuery.matches) {
+                    universeFrame = window.requestAnimationFrame(renderUniverse);
+                }
+            };
+            const resumeUniverse = () => {
+                window.cancelAnimationFrame(universeFrame);
+                if (document.hidden) handlePointerLeave();
+                if (reducedMotionQuery.matches) {
+                    pointerX = 0;
+                    pointerY = 0;
+                    universeRig.rotation.set(0, 0, 0);
+                    camera.position.set(0, 0, 23);
+                    camera.lookAt(0, 0, 0);
+                } else {
+                    lastUniverseFrame = 0;
+                }
+                renderer.render(scene, camera);
+                if (!document.hidden && !reducedMotionQuery.matches) {
+                    universeFrame = window.requestAnimationFrame(renderUniverse);
+                }
+            };
+            const resizeUniverse = () => {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, window.innerWidth < 640 ? 1 : 1.35));
+                renderer.setSize(window.innerWidth, window.innerHeight);
+                hologram.position.x = Math.min(6.5, window.innerWidth / window.innerHeight * 4.7);
+                resumeUniverse();
+            };
+
+            useWebGLUniverse = true;
+            window.cancelAnimationFrame(ambientFrame);
+            window.addEventListener('resize', resizeUniverse);
+            window.addEventListener('pointermove', handlePointerMove, { passive: true });
+            window.addEventListener('pointerleave', handlePointerLeave);
+            document.addEventListener('visibilitychange', resumeUniverse);
+            reducedMotionQuery.addEventListener('change', resumeUniverse);
+            resumeUniverse();
+        }
+
+        const threeScript = document.createElement('script');
+        threeScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';
+        threeScript.async = true;
+        threeScript.onload = () => {
+            if (window.THREE) {
+                try {
+                    initializeParticleUniverse(window.THREE);
+                } catch (error) {
+                    console.error('Unable to initialize the WebGL particle universe; keeping the canvas background.', error);
+                }
+            }
+        };
+        threeScript.onerror = () => console.warn('Three.js could not be loaded; keeping the canvas particle background.');
+        document.head.appendChild(threeScript);
+
+        // Type the existing engineering roles without adding profile claims.
+        const typingTarget = document.getElementById('hero-typing');
+        const typingRoles = ['Web Designer & Developer', 'Frontend & Backend Developer', 'API & AI Integrator'];
+        let typingRoleIndex = 0;
+        let typingCharacterIndex = typingRoles[0].length;
+        let typingDeleting = false;
+        let typingTimer = 0;
+
+        function typeHeroRole() {
+            window.clearTimeout(typingTimer);
+            if (document.hidden || reducedMotionQuery.matches) return;
+            const role = typingRoles[typingRoleIndex];
+            if (typingDeleting) {
+                typingCharacterIndex -= 1;
+            } else {
+                typingCharacterIndex += 1;
+            }
+            typingTarget.textContent = role.slice(0, typingCharacterIndex);
+
+            let delay = typingDeleting ? 46 : 84;
+            if (!typingDeleting && typingCharacterIndex === role.length) {
+                typingDeleting = true;
+                delay = 1500;
+            } else if (typingDeleting && typingCharacterIndex === 0) {
+                typingDeleting = false;
+                typingRoleIndex = (typingRoleIndex + 1) % typingRoles.length;
+                delay = 280;
+            }
+            typingTimer = window.setTimeout(typeHeroRole, delay);
+        }
+
+        function updateHeroTyping() {
+            window.clearTimeout(typingTimer);
+            if (reducedMotionQuery.matches) {
+                typingTarget.textContent = typingRoles[0];
+                return;
+            }
+            if (document.hidden) return;
+            typingRoleIndex = 0;
+            typingCharacterIndex = typingRoles[0].length;
+            typingDeleting = false;
+            typingTimer = window.setTimeout(typeHeroRole, 1800);
+        }
+
+        document.addEventListener('visibilitychange', updateHeroTyping);
+        reducedMotionQuery.addEventListener('change', updateHeroTyping);
+        updateHeroTyping();
+
+        document.querySelectorAll('.case-study-card').forEach((card) => {
+            card.addEventListener('pointermove', (event) => {
+                const bounds = card.getBoundingClientRect();
+                const x = (event.clientX - bounds.left) / bounds.width;
+                const y = (event.clientY - bounds.top) / bounds.height;
+                card.style.setProperty('--card-pointer-x', `${x * 100}%`);
+                card.style.setProperty('--card-pointer-y', `${y * 100}%`);
+            });
+            card.addEventListener('pointerleave', () => {
+                card.style.setProperty('--card-pointer-x', '50%');
+                card.style.setProperty('--card-pointer-y', '50%');
+            });
+        });
+
+        // Accessible, interruptible hero carousel.
+        const heroSlides = [...heroShowcase.querySelectorAll('[data-hero-slide]')];
+        const heroSlideCount = document.getElementById('hero-slide-count');
+        let activeHeroSlide = 0;
+        let heroCarouselTimer = 0;
+        let heroCarouselPaused = false;
+        let heroCarouselFocused = false;
+
+        function renderHeroSlide(index) {
+            activeHeroSlide = (index + heroSlides.length) % heroSlides.length;
+            heroSlides.forEach((slide, slideIndex) => {
+                const isActive = slideIndex === activeHeroSlide;
+                slide.classList.toggle('is-active', isActive);
+                slide.setAttribute('aria-hidden', String(!isActive));
+            });
+            heroSlideCount.textContent = `${String(activeHeroSlide + 1).padStart(2, '0')} / ${String(heroSlides.length).padStart(2, '0')}`;
+            heroShowcase.classList.remove('is-playing');
+            if (!reducedMotionQuery.matches && !heroCarouselPaused && !heroCarouselFocused && !document.hidden) {
+                requestAnimationFrame(() => heroShowcase.classList.add('is-playing'));
+            }
+        }
+
+        function stopHeroCarousel() {
+            window.clearInterval(heroCarouselTimer);
+            heroCarouselTimer = 0;
+            heroShowcase.classList.remove('is-playing');
+        }
+
+        function updateHeroCarousel() {
+            stopHeroCarousel();
+            if (reducedMotionQuery.matches || heroCarouselPaused || heroCarouselFocused || document.hidden) return;
+            heroShowcase.classList.add('is-playing');
+            heroCarouselTimer = window.setInterval(() => renderHeroSlide(activeHeroSlide + 1), 6500);
+        }
+
+        heroShowcase.querySelector('[data-slide-previous]').addEventListener('click', () => {
+            heroCarouselPaused = true;
+            renderHeroSlide(activeHeroSlide - 1);
+            updateHeroCarousel();
+        });
+        heroShowcase.querySelector('[data-slide-next]').addEventListener('click', () => {
+            heroCarouselPaused = true;
+            renderHeroSlide(activeHeroSlide + 1);
+            updateHeroCarousel();
+        });
+        heroShowcase.addEventListener('mouseenter', () => {
+            heroCarouselFocused = true;
+            updateHeroCarousel();
+        });
+        heroShowcase.addEventListener('mouseleave', () => {
+            heroCarouselFocused = false;
+            updateHeroCarousel();
+        });
+        heroShowcase.addEventListener('focusin', () => {
+            heroCarouselFocused = true;
+            updateHeroCarousel();
+        });
+        heroShowcase.addEventListener('focusout', (event) => {
+            if (!heroShowcase.contains(event.relatedTarget)) {
+                heroCarouselFocused = false;
+                updateHeroCarousel();
+            }
+        });
+        document.addEventListener('visibilitychange', updateHeroCarousel);
+        reducedMotionQuery.addEventListener('change', updateHeroCarousel);
+        updateHeroCarousel();
+
         // 1. Intersection Observer Scroll Reveal
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -1038,27 +2257,159 @@
 
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-        // Case-study category filters and project search.
+        // Project category filters, search, and the 3D carousel.
         const caseStudyFilters = document.querySelectorAll('[data-case-filter]');
         const caseStudyCards = [...document.querySelectorAll('.case-study-card')];
         const caseStudySearch = document.getElementById('case-study-search');
         const caseStudyCount = document.getElementById('case-study-count');
         const caseStudyEmpty = document.getElementById('case-study-empty');
+        const caseCarouselViewport = document.querySelector('.case-carousel-viewport');
+        const caseCarouselOrbit = document.querySelector('.case-orbit-frame');
+        const caseCarouselOrbitTrack = document.getElementById('case-orbit-track');
+        const caseCarouselActiveProject = document.getElementById('case-active-project');
         let activeCaseFilter = 'all';
+        let visibleCaseCards = [];
+        let caseCarouselOrbitBars = [];
+        let caseCarouselSelectedIndex = -1;
+        let caseCarouselRotation = 0;
+        let caseCarouselTarget = 0;
+        let caseCarouselLastFrame = 0;
+        let caseCarouselFrame = 0;
+        let caseCarouselHovered = false;
+        let caseCarouselFocused = false;
+        let caseCarouselInView = false;
+        let caseCarouselDragPointer = null;
+        let caseCarouselDragX = 0;
 
         function updateCaseStudies() {
             const query = caseStudySearch.value.trim().toLowerCase();
-            let visibleCount = 0;
+            visibleCaseCards = [];
             caseStudyCards.forEach((card) => {
                 const categories = card.dataset.categories.split(/\s+/);
                 const matchesCategory = activeCaseFilter === 'all' || categories.includes(activeCaseFilter);
                 const matchesSearch = !query || card.textContent.toLowerCase().includes(query);
                 const visible = matchesCategory && matchesSearch;
                 card.hidden = !visible;
-                if (visible) visibleCount += 1;
+                if (visible) visibleCaseCards.push(card);
             });
-            caseStudyCount.textContent = `${visibleCount} / ${caseStudyCards.length} CASE STUDIES`;
+            const visibleCount = visibleCaseCards.length;
+            caseCarouselRotation = 0;
+            caseCarouselTarget = 0;
+            caseCarouselSelectedIndex = -1;
+            renderCaseCarouselOrbitBars();
+            updateCaseCarouselCards();
+            caseStudyCount.textContent = `${visibleCount} / ${caseStudyCards.length} PROJECTS`;
             caseStudyEmpty.hidden = visibleCount > 0;
+            caseCarouselViewport.hidden = visibleCount === 0;
+            requestCaseCarouselFrame();
+        }
+
+        function isCaseCarouselPaused() {
+            return reducedMotionQuery.matches
+                || document.hidden
+                || caseCarouselHovered
+                || caseCarouselFocused
+                || !caseCarouselInView
+                || visibleCaseCards.length < 2;
+        }
+
+        function updateCaseCarouselCards() {
+            if (!visibleCaseCards.length) {
+                caseCarouselActiveProject.hidden = true;
+                return;
+            }
+            caseCarouselActiveProject.hidden = false;
+            const step = visibleCaseCards.length > 1 ? 360 / visibleCaseCards.length : 360;
+            const nextIndex = visibleCaseCards.length > 1
+                ? ((Math.round(caseCarouselTarget / step) % visibleCaseCards.length) + visibleCaseCards.length) % visibleCaseCards.length
+                : 0;
+            const rotation = ((caseCarouselRotation % 360) + 360) % 360;
+            caseCarouselOrbit.style.setProperty('--orbit-angle', `${rotation}deg`);
+            const radiusX = Math.min(caseCarouselViewport.clientWidth * 0.43, 350);
+            const radiusY = Math.min(caseCarouselViewport.clientHeight * 0.43, 245);
+            caseCarouselOrbitBars.forEach((bar, index) => {
+                const angle = (-90 - index * step + rotation) * Math.PI / 180;
+                const depth = Math.sin(angle);
+                bar.style.setProperty('--bar-x', `${Math.cos(angle) * radiusX}px`);
+                bar.style.setProperty('--bar-y', `${Math.sin(angle) * radiusY}px`);
+                bar.style.setProperty('--bar-z', `${depth * 28}px`);
+                bar.style.setProperty('--bar-scale', String(0.82 + ((depth + 1) / 2) * 0.2));
+                bar.style.opacity = String(0.38 + ((depth + 1) / 2) * 0.62);
+                bar.classList.toggle('is-current', index === nextIndex);
+                bar.setAttribute('aria-pressed', String(index === nextIndex));
+            });
+            if (nextIndex === caseCarouselSelectedIndex) return;
+
+            const project = visibleCaseCards[nextIndex];
+            caseCarouselActiveProject.innerHTML = project.innerHTML;
+            caseCarouselActiveProject.setAttribute('aria-label', `Project ${nextIndex + 1} of ${visibleCaseCards.length}: ${project.querySelector('h3').textContent}`);
+            caseCarouselSelectedIndex = nextIndex;
+            caseCarouselActiveProject.classList.remove('is-changing');
+            void caseCarouselActiveProject.offsetWidth;
+            caseCarouselActiveProject.classList.add('is-changing');
+        }
+
+        function renderCaseCarouselOrbitBars() {
+            const fragment = document.createDocumentFragment();
+            caseCarouselOrbitBars = visibleCaseCards.map((project, index) => {
+                const title = project.querySelector('h3').textContent;
+                const bar = document.createElement('button');
+                bar.type = 'button';
+                bar.className = 'case-orbit-bar';
+                bar.dataset.projectIndex = String(index);
+                bar.setAttribute('aria-label', `Show project ${index + 1}: ${title}`);
+                bar.setAttribute('aria-pressed', 'false');
+                const number = document.createElement('span');
+                number.textContent = String(index + 1).padStart(2, '0');
+                const label = document.createElement('strong');
+                label.textContent = title;
+                bar.append(number, label);
+                fragment.append(bar);
+                return bar;
+            });
+            caseCarouselOrbitTrack.replaceChildren(fragment);
+        }
+
+        function selectCaseCarouselProject(index) {
+            if (visibleCaseCards.length < 2) return;
+            const step = 360 / visibleCaseCards.length;
+            const currentIndex = ((Math.round(caseCarouselTarget / step) % visibleCaseCards.length) + visibleCaseCards.length) % visibleCaseCards.length;
+            const shortestTurn = ((index - currentIndex + visibleCaseCards.length / 2) % visibleCaseCards.length + visibleCaseCards.length) % visibleCaseCards.length - visibleCaseCards.length / 2;
+            caseCarouselTarget += shortestTurn * step;
+            updateCaseCarouselCards();
+            requestCaseCarouselFrame();
+        }
+
+        function requestCaseCarouselFrame() {
+            if (!caseCarouselFrame && !document.hidden && visibleCaseCards.length > 1) {
+                caseCarouselFrame = window.requestAnimationFrame(updateCaseCarousel);
+            }
+        }
+
+        function updateCaseCarousel(timestamp) {
+            caseCarouselFrame = 0;
+            const delta = caseCarouselLastFrame ? Math.min(timestamp - caseCarouselLastFrame, 50) : 0;
+            caseCarouselLastFrame = timestamp;
+
+            if (!isCaseCarouselPaused()) {
+                caseCarouselTarget += delta * (360 / 52000);
+            }
+            const ease = 1 - Math.exp(-delta / 180);
+            caseCarouselRotation += (caseCarouselTarget - caseCarouselRotation) * ease;
+            updateCaseCarouselCards();
+
+            if (!isCaseCarouselPaused() || Math.abs(caseCarouselTarget - caseCarouselRotation) > 0.05) {
+                requestCaseCarouselFrame();
+            } else {
+                caseCarouselLastFrame = 0;
+            }
+        }
+
+        function bringFocusedProjectForward(event) {
+            const orbitBar = event.target.closest('.case-orbit-bar');
+            if (orbitBar) {
+                selectCaseCarouselProject(Number(orbitBar.dataset.projectIndex));
+            }
         }
 
         caseStudyFilters.forEach((button) => {
@@ -1073,6 +2424,66 @@
             });
         });
         caseStudySearch.addEventListener('input', updateCaseStudies);
+        caseCarouselOrbitTrack.addEventListener('click', (event) => {
+            const bar = event.target.closest('.case-orbit-bar');
+            if (!bar) return;
+            selectCaseCarouselProject(Number(bar.dataset.projectIndex));
+        });
+        caseCarouselViewport.addEventListener('pointerenter', () => {
+            caseCarouselHovered = true;
+        });
+        caseCarouselViewport.addEventListener('pointerleave', () => {
+            caseCarouselHovered = false;
+            requestCaseCarouselFrame();
+        });
+        caseCarouselViewport.addEventListener('pointerdown', (event) => {
+            if (event.button !== 0 || event.target.closest('a, button, input')) return;
+            event.preventDefault();
+            caseCarouselDragPointer = event.pointerId;
+            caseCarouselDragX = event.clientX;
+            caseCarouselViewport.classList.add('is-dragging');
+            caseCarouselViewport.setPointerCapture(event.pointerId);
+        });
+        caseCarouselViewport.addEventListener('pointermove', (event) => {
+            if (event.pointerId !== caseCarouselDragPointer) return;
+            const deltaX = event.clientX - caseCarouselDragX;
+            caseCarouselDragX = event.clientX;
+            caseCarouselTarget += deltaX * 0.28;
+            updateCaseCarouselCards();
+            requestCaseCarouselFrame();
+        });
+        const finishCaseCarouselDrag = (event) => {
+            if (event.pointerId !== caseCarouselDragPointer) return;
+            caseCarouselDragPointer = null;
+            caseCarouselViewport.classList.remove('is-dragging');
+            if (caseCarouselViewport.hasPointerCapture(event.pointerId)) {
+                caseCarouselViewport.releasePointerCapture(event.pointerId);
+            }
+        };
+        caseCarouselViewport.addEventListener('pointerup', finishCaseCarouselDrag);
+        caseCarouselViewport.addEventListener('pointercancel', finishCaseCarouselDrag);
+        caseCarouselViewport.addEventListener('focusin', (event) => {
+            caseCarouselFocused = true;
+            bringFocusedProjectForward(event);
+        });
+        caseCarouselViewport.addEventListener('focusout', (event) => {
+            if (!caseCarouselViewport.contains(event.relatedTarget)) {
+                caseCarouselFocused = false;
+                requestCaseCarouselFrame();
+            }
+        });
+        const caseCarouselObserver = new IntersectionObserver((entries) => {
+            caseCarouselInView = entries.some((entry) => entry.isIntersecting);
+            requestCaseCarouselFrame();
+        }, { rootMargin: '160px' });
+        caseCarouselObserver.observe(caseCarouselViewport);
+        reducedMotionQuery.addEventListener('change', () => {
+            requestCaseCarouselFrame();
+        });
+        document.addEventListener('visibilitychange', () => {
+            caseCarouselLastFrame = 0;
+            requestCaseCarouselFrame();
+        });
         updateCaseStudies();
         // 2. Command Palette Keyboard Shortcut (Ctrl+K or ⌘K)
         document.addEventListener('keydown', (e) => {
@@ -1098,32 +2509,32 @@
             if (target) target.scrollIntoView({ behavior: 'smooth' });
         }
 
-        // 3. Interactive Architecture Node Inspector
+        // 3. Interactive design-to-development workflow inspector
         const archData = {
-            source: {
-                title: '01_SOURCE_GIT_STAGE',
-                text: 'Strict branch protection policies requiring automated peer code reviews, commit signing, and static code analysis before merging.'
+            design: {
+                title: '01_PRODUCT_AND_UI_UX',
+                text: 'Start with the product goals and user needs, then shape clear journeys, responsive layouts, and a consistent visual direction.'
             },
-            ci: {
-                title: '02_CI_SECURITY_GATE',
-                text: 'Automated runner pipelines executing SAST vulnerability scans, container image linting, and 100% integration test coverage.'
+            frontend: {
+                title: '02_FRONTEND_EXPERIENCE',
+                text: 'Build accessible, responsive interfaces with reusable components, considered interactions, and consistent behavior across devices.'
             },
-            runtime: {
-                title: '03_KUBERNETES_RUNTIME',
-                text: 'Zero-downtime rolling deployments on auto-scaling cluster nodes with Istio service mesh and automated mTLS encryption.'
+            backend: {
+                title: '03_BACKEND_AND_DATA',
+                text: 'Connect the interface to maintainable application logic and structured data, with validation and clear service boundaries.'
+            },
+            api: {
+                title: '04_APIS_AND_INTEGRATIONS',
+                text: 'Connect products and external services through clear API contracts, predictable data exchange, and useful error handling.'
             },
             ai: {
-                title: '04_VECTOR_AI_PIPELINE',
-                text: 'High-speed embeddings generator feeding vector databases for instant contextual knowledge retrieval and RAG agent execution.'
-            },
-            telemetry: {
-                title: '05_OPENTELEMETRY_OBSERVABILITY',
-                text: 'Unified distributed tracing, metrics collection, and alerting dashboards providing real-time system health visibility.'
+                title: '05_APPLIED_AI_AND_QUALITY',
+                text: 'Add AI capabilities where they help real workflows, then test the complete experience from interface through integration.'
             }
         };
 
         function selectArchNode(key) {
-            const nodes = ['source', 'ci', 'runtime', 'ai', 'telemetry'];
+            const nodes = ['design', 'frontend', 'backend', 'api', 'ai'];
             nodes.forEach(n => {
                 const btn = document.getElementById(`arch-node-${n}`);
                 if (n === key) {
@@ -1168,13 +2579,12 @@
         // 5. Form Submission
         function handleFormSubmit(e) {
             e.preventDefault();
-            const btn = document.getElementById('submit-btn');
-            btn.innerHTML = 'Transmitting...';
-            setTimeout(() => {
-                showToast('Inquiry received! Response within 24 hours.');
-                e.target.reset();
-                btn.innerHTML = 'Send Direct Inquiry';
-            }, 1000);
+            const formData = new FormData(e.currentTarget);
+            const subject = `Portfolio inquiry from ${formData.get('name')}`;
+            const body = `From: ${formData.get('name')}\nEmail: ${formData.get('email')}\n\n${formData.get('message')}`;
+            const mailto = `mailto:ngphuc1753@gmail.com?${new URLSearchParams({ subject, body })}`;
+            window.location.href = mailto;
+            showToast('Review and send the prepared message in your email app.');
         }
 
         // 6. AI Virtual Assistant Interaction
@@ -1205,11 +2615,13 @@
                 const aiMsg = document.createElement('div');
                 aiMsg.className = 'p-2.5 rounded-xl bg-slate-900 border border-white/10 text-slate-200';
                 
-                let answer = "ngphuc specializes in distributed system design, high-concurrency Go microservices, and AI vector search infrastructure.";
+                let answer = "ngphuc.exe brings web design, frontend and backend development, API integrations, and practical AI together to build complete digital products.";
                 if (query.toLowerCase().includes('contact') || query.toLowerCase().includes('email')) {
-                    answer = "You can contact ngphuc directly at ngphuc1753@gmail.com or call +84 389 101 040.";
-                } else if (query.toLowerCase().includes('experience') || query.toLowerCase().includes('years')) {
-                    answer = "ngphuc has over 8 years of engineering leadership, having architected systems serving 50M+ daily operations.";
+                    answer = "You can contact ngphuc.exe directly at ngphuc1753@gmail.com or call +84 389 101 040.";
+                } else if (query.toLowerCase().includes('design') || query.toLowerCase().includes('frontend') || query.toLowerCase().includes('backend')) {
+                    answer = "The portfolio covers responsive UI/UX, frontend implementation, backend logic, and data—designed to work together as one product.";
+                } else if (query.toLowerCase().includes('api') || query.toLowerCase().includes('ai')) {
+                    answer = "Explore the projects section for API integrations, AI assistants, document workflows, and clearly labeled product concepts.";
                 }
 
                 aiMsg.innerText = answer;
@@ -1217,6 +2629,30 @@
                 messages.scrollTop = messages.scrollHeight;
             }, 600);
         }
+
+        const siteLoader = document.getElementById('site-loader');
+        const loaderStartedAt = performance.now();
+
+        async function dismissSiteLoader() {
+            const minimumDisplayTime = 500;
+            const maximumReadinessWait = 900;
+            const remainingDisplayTime = Math.max(0, minimumDisplayTime - (performance.now() - loaderStartedAt));
+            const readiness = document.fonts ? document.fonts.ready : Promise.resolve();
+            await Promise.all([
+                new Promise(resolve => window.setTimeout(resolve, remainingDisplayTime)),
+                Promise.race([
+                    readiness,
+                    new Promise(resolve => window.setTimeout(resolve, maximumReadinessWait))
+                ])
+            ]);
+
+            siteLoader.classList.add('is-hidden');
+            document.documentElement.classList.remove('is-loading');
+            document.documentElement.setAttribute('aria-busy', 'false');
+            window.setTimeout(() => siteLoader.remove(), 650);
+        }
+
+        dismissSiteLoader();
     </script>
 </body>
 </html>
